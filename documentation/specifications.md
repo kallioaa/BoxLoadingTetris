@@ -29,6 +29,6 @@ https://doi.org/10.1016/j.cor.2007.09.008.
 
 ## Practical information
 
-My field of study: Computer Science
-Language: English
+My field of study: Computer Science\
+Language: English\
 Programming language: Java
