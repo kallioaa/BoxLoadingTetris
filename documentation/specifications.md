@@ -26,3 +26,9 @@ Pages 425-432,
 ISSN 0305-0548,
 https://doi.org/10.1016/j.cor.2007.09.008.
 (http://www.sciencedirect.com/science/article/pii/S0305054807001785)
+
+## Practical information
+
+My field of study: Computer Science
+Language: English
+Programming language: Java
