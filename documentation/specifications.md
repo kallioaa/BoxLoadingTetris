@@ -1,6 +1,6 @@
 # Specifications
 
-The BoxTetris program cargo people to pack boxes (cuboids) into as few containers as possible. Dimensions of the containers are planned to be fixed. Number of boxes and their height and width can be altered.
+The BoxTetris program cargo people to pack boxes (cuboids) into as few containers as possible. The containers and the dimensions of the cubioids can be altered.
 
 ## Algorithms and datastructures in use
 
