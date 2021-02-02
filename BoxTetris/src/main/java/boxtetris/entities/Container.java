@@ -1,4 +1,4 @@
-package movers.tetris.entities;
+package boxtetris.entities;
 
 public class Container {
 

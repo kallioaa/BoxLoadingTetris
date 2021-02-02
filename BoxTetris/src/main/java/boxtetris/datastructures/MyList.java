@@ -1,19 +1,19 @@
-package movers.tetris.datastructures;
+package boxtetris.datastructures;
 
 public class MyList<E> {
     private static final Integer DEFAULT_SIZE = 10;
-    private Integer size;
+    private Integer currentIndex;
     private Object[] array;
 
     public MyList() {
-        this.size = 0;
+        this.currentIndex = 0;
         this.array = new Object[DEFAULT_SIZE];
     }
 
     public boolean add(E e) {
-        ensureCapacity(size++);
-        array[size++] = e;
-        size++;
+        array[currentIndex] = e;
+        currentIndex++;
+        ensureCapacity(currentIndex);
         return true;
     }
 
@@ -31,30 +31,29 @@ public class MyList<E> {
     }
 
     private void rangeCheck(int index) {
-        if (index<0 || index >= size) {
+        if (index<0 || index >= currentIndex) {
             throw new IndexOutOfBoundsException("Index " + index + "is out of bounds");
         }
     }
 
     private void removeFromArray(int index) {
-        for (int i=index; i < size - 1; i++) {
+        for (int i=index; i < currentIndex - 1; i++) {
             array[i] = array[i+1];
         }
     }
 
 
     private void ensureCapacity(Integer minSize) {
-        if (array.length < minSize) {
-            Object[] arrayNew = new Object[array.length * 2];
-            arrayNew = copyArray(array, arrayNew);
+        if (array.length <= minSize) {
+            Object[] arrayNew = copyArray();
             array = arrayNew;        
         }
     }
 
-
-    private Object[] copyArray(Object[] arrayOld, Object[] arrayNew) {
-        for (int i=0; i<arrayOld.length; i++) {
-            arrayNew[i] = arrayOld[i];
+    private Object[] copyArray() {
+        Object[] arrayNew = new Object[array.length * 2];
+        for (int i=0; i<array.length; i++) {
+            arrayNew[i] = array[i];
         }
         return arrayNew;
     }
