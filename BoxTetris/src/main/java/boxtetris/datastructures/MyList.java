@@ -10,17 +10,17 @@ public class MyList<E> {
         this.array = new Object[DEFAULT_SIZE];
     }
 
-    public boolean add(E e) {
+    public void add(E e) {
+        ensureCapacity(currentIndex);
         array[currentIndex] = e;
         currentIndex++;
-        ensureCapacity(currentIndex);
-        return true;
     }
 
     public E remove(Integer index) {
         rangeCheck(index);
         E oldItem = (E) array[index];
         removeFromArray(index);
+        currentIndex--;
         return oldItem;
 
     }
@@ -28,6 +28,10 @@ public class MyList<E> {
     public E get(Integer index) {
         rangeCheck(index);
         return (E) array[index];
+    }
+
+    public Integer size() {
+        return currentIndex;
     }
 
     private void rangeCheck(int index) {
