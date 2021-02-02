@@ -1,5 +1,6 @@
 package boxtetris.datastructures;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +54,6 @@ public class MyListTest {
     @Test
     public void correctLength() {
         for (int i=1;i<=150;i++) {
-            System.out.println(i);
             list.add(i);
         }
         assertEquals((Integer) 150, list.size());
@@ -73,7 +73,7 @@ public class MyListTest {
     }
 
     @Test
-    public void removeItemlenghDecreases() {
+    public void removeItemlenghtDecreases() {
         list.add(2);
         list.add(1);
         list.add(3);
@@ -84,4 +84,36 @@ public class MyListTest {
         assertEquals((Integer) 3, list.size());
     }
 
+    @Test
+    public void removeOutOfBoundsEmptyList() {
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.remove(0);
+        });
+    }
+
+    @Test
+    public void removeOutOfBoundsTooLarge() {
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.add(2);
+            list.add(1);
+            list.remove(1);
+            list.remove(1);
+        });
+    }
+
+    @Test
+    public void getOutOfBoundsEmptyList() {
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.get(0);
+        });
+    }
+
+    @Test
+    public void getOutOfBoundsTooLarge() {
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.add(2);
+            list.add(1);
+            list.get(2);
+        });
+    }
 }

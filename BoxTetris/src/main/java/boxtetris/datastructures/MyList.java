@@ -6,14 +6,14 @@ public class MyList<E> {
     private Object[] array;
 
     public MyList() {
-        this.currentIndex = 0;
+        this.currentIndex = -1;
         this.array = new Object[DEFAULT_SIZE];
     }
 
     public void add(E e) {
+        currentIndex++;
         ensureCapacity(currentIndex);
         array[currentIndex] = e;
-        currentIndex++;
     }
 
     public E remove(Integer index) {
@@ -22,7 +22,6 @@ public class MyList<E> {
         removeFromArray(index);
         currentIndex--;
         return oldItem;
-
     }
 
     public E get(Integer index) {
@@ -31,17 +30,17 @@ public class MyList<E> {
     }
 
     public Integer size() {
-        return currentIndex;
+        return currentIndex + 1;
     }
 
     private void rangeCheck(int index) {
-        if (index<0 || index >= currentIndex) {
-            throw new IndexOutOfBoundsException("Index " + index + "is out of bounds");
+        if (index<0 || index > currentIndex) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
         }
     }
 
     private void removeFromArray(int index) {
-        for (int i=index; i < currentIndex - 1; i++) {
+        for (int i=index; i < currentIndex; i++) {
             array[i] = array[i+1];
         }
     }
