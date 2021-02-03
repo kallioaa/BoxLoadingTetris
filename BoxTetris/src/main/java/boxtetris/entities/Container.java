@@ -1,31 +1,14 @@
 package boxtetris.entities;
 
-public class Container {
+public class Container extends Dimensions {
 
-    private Integer length;
-    private Integer width;
-    private Integer height;
     private Integer maxWeight;
 
-    public Container(Integer lentgh, Integer width, Integer height, Integer maxWeight) {
-        this.length = lentgh;
-        this.width = width;
-        this.height = height;
+    public Container(Integer length, Integer width, Integer height, Integer maxWeight) {
+        super(length, width, height);
         this.maxWeight = maxWeight;
     }
     
-    public Integer getLength() {
-        return this.length;
-    }
-
-    public Integer getwidth() {
-        return this.width;
-    }
-
-    public Integer getHeight() {
-        return this.height;
-    }
-
     public Integer getMaxWeight() {
         return this.maxWeight;
     }    
