@@ -59,7 +59,6 @@ public class MyListTest {
         assertEquals((Integer) 150, list.size());
     }
 
-
     @Test
     public void removeItemItemsMove() {
         list.add(2);
