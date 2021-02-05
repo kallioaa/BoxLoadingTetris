@@ -23,7 +23,7 @@ public class LayerBuildingTest {
     @Test
     public void noCuboidsNoLayers() {
         LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.layerBuilding(cuboids, demands);
+        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
         assertTrue(layers.isEmpty());
     }
 
@@ -32,7 +32,7 @@ public class LayerBuildingTest {
         cuboids.add(new Cuboid(20, 20, 20, 2));
         demands.add(1);
         LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.layerBuilding(cuboids, demands);
+        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
         System.out.println(layers.get(0).getLength());
         assertEquals((Integer) 2, layers.size());
     }
@@ -42,7 +42,7 @@ public class LayerBuildingTest {
         cuboids.add(new Cuboid(20, 20, 20, 2));
         demands.add(2);
         LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.layerBuilding(cuboids, demands);
+        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
         System.out.println(layers.get(0).getLength());
         assertEquals((Integer) 6, layers.size());
     }
@@ -54,7 +54,7 @@ public class LayerBuildingTest {
         demands.add(2);
         demands.add(2);
         LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.layerBuilding(cuboids, demands);
+        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
         System.out.println(layers.get(0).getLength());
         assertEquals((Integer) 12, layers.size());
     }

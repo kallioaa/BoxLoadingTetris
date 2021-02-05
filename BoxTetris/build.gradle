@@ -29,4 +29,8 @@ jacocoTestReport {
     }
 }
 
+checkstyle {
+    sourceSets = []
+}
+
 

@@ -14,7 +14,7 @@ public class LayerBuilding {
         this.rowsInLayer = rowsInLayer;
     }
 
-    public MyList<Layer> layerBuilding(MyList<Cuboid> cuboids, MyList<Integer> demands) {
+    public MyList<Layer> createLayerList(MyList<Cuboid> cuboids, MyList<Integer> demands) {
         MyList<Layer> layers = new MyList<>();
         for (int i = 0; i < cuboids.size(); i++) { // Item types
             Cuboid cuboid = cuboids.get(i);
