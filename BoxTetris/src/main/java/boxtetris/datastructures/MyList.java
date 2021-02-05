@@ -10,6 +10,10 @@ public class MyList<E> {
         this.array = new Object[DEFAULT_SIZE];
     }
 
+    public boolean isEmpty() {
+        return this.currentIndex == -1;
+    }
+
     public void add(E e) {
         currentIndex++;
         ensureCapacity(currentIndex);
@@ -34,28 +38,27 @@ public class MyList<E> {
     }
 
     private void rangeCheck(int index) {
-        if (index<0 || index > currentIndex) {
+        if (index < 0 || index > currentIndex) {
             throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
         }
     }
 
     private void removeFromArray(int index) {
-        for (int i=index; i < currentIndex; i++) {
-            array[i] = array[i+1];
+        for (int i = index; i < currentIndex; i++) {
+            array[i] = array[i + 1];
         }
     }
-
 
     private void ensureCapacity(Integer minSize) {
         if (array.length <= minSize) {
             Object[] arrayNew = copyArray();
-            array = arrayNew;        
+            array = arrayNew;
         }
     }
 
     private Object[] copyArray() {
         Object[] arrayNew = new Object[array.length * 2];
-        for (int i=0; i<array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             arrayNew[i] = array[i];
         }
         return arrayNew;

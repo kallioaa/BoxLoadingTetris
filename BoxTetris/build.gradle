@@ -2,11 +2,12 @@ plugins {
 	id 'java'
 	id 'jacoco'
 	id 'application'
+    id 'checkstyle'
 }
 
 check.dependsOn jacocoTestReport
 
-mainClassName = 'boxtetris.Main'
+mainClassName = 'boxtetris.algorithms.Main'
 
 repositories {
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }

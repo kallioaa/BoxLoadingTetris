@@ -1,10 +1,10 @@
 package boxtetris.datastructures;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 import org.junit.Before;
 import org.junit.Test;
-
 
 public class MyListTest {
 
@@ -24,7 +24,7 @@ public class MyListTest {
         list.add(5);
         assertEquals((Integer) 2, list.get(0));
     }
-    
+
     @Test
     public void addItemsMiddleIndex() {
         list.add(2);
@@ -37,7 +37,7 @@ public class MyListTest {
 
     @Test
     public void addItemsLongList() {
-        for (int i=1;i<=15;i++) {
+        for (int i = 1; i <= 15; i++) {
             list.add(i);
         }
         assertEquals((Integer) 10, list.get(9));
@@ -45,7 +45,7 @@ public class MyListTest {
 
     @Test
     public void addItemsSuperLongList() {
-        for (int i=1;i<=150;i++) {
+        for (int i = 1; i <= 150; i++) {
             list.add(i);
         }
         assertEquals((Integer) 100, list.get(99));
@@ -53,7 +53,7 @@ public class MyListTest {
 
     @Test
     public void correctLength() {
-        for (int i=1;i<=150;i++) {
+        for (int i = 1; i <= 150; i++) {
             list.add(i);
         }
         assertEquals((Integer) 150, list.size());

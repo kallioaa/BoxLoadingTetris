@@ -12,15 +12,23 @@ public abstract class Dimensions {
         this.height = height;
     }
 
+    public void setLength(Integer length) {
+        this.length = length;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
     public Integer getLength() {
-        return this.length;
+        return length;
     }
 
     public Integer getWidth() {
-        return this.width;
+        return width;
     }
 
     public Integer getHeight() {
-        return this.height;
-    }    
+        return height;
+    }
 }

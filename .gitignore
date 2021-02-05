@@ -1,4 +1,4 @@
-# Created by https://www.gitignore.io/api/java,gradle
+¨# Created by https://www.gitignore.io/api/java,gradle
 
 ### Java ###
 *.class
@@ -63,12 +63,7 @@ hs_err_pid*
 /boxtetris/.gradle
 
 
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
+BoxTetris/.vscode/*
 
 # Local History for Visual Studio Code
 .history/
