@@ -15,6 +15,9 @@ public class Cuboid extends Dimensions {
         setWidth(oldLength);
     }
 
+    /**
+     * @return Integer
+     */
     public Integer getWeight() {
         return weight;
     }

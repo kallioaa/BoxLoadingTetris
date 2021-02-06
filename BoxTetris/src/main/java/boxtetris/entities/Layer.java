@@ -9,14 +9,23 @@ public class Layer extends Dimensions {
         this.weight = weight;
     }
 
+    /**
+     * @return Integer
+     */
     public Integer getArea() {
         return getLength() * getWidth();
     }
 
+    /**
+     * @return Integer
+     */
     public Integer getVolume() {
         return getLength() * getWidth() * getHeight();
     }
 
+    /**
+     * @return Integer
+     */
     public Integer getWeight() {
         return weight;
     }

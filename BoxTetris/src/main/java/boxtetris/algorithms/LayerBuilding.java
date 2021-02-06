@@ -14,6 +14,11 @@ public class LayerBuilding {
         this.rowsInLayer = rowsInLayer;
     }
 
+    /**
+     * @param cuboids
+     * @param demands
+     * @return MyList<Layer>
+     */
     public MyList<Layer> createLayerList(MyList<Cuboid> cuboids, MyList<Integer> demands) {
         MyList<Layer> layers = new MyList<>();
         for (int i = 0; i < cuboids.size(); i++) { // Item types
@@ -22,8 +27,8 @@ public class LayerBuilding {
                 if (j == 1) {
                     cuboid.rotate();
                 }
-                for (int k = 1; k <= itemsInRow; k++) { // Number of items in a row
-                    for (int l = 1; l <= rowsInLayer; l++) { // Number of rows in a layer
+                for (int k = 1; k <= rowsInLayer; k++) { // Number of items in a row
+                    for (int l = 1; l <= itemsInRow; l++) { // Number of rows in a layer
                         if (k * l <= demands.get(i)) { // If the number is under demand
                             Layer layer = createLayer(cuboid, k, l);
                             layers.add(layer);
@@ -35,9 +40,15 @@ public class LayerBuilding {
         return layers;
     }
 
+    /**
+     * @param cuboid
+     * @param k
+     * @param lßß
+     * @return Layer
+     */
     private Layer createLayer(Cuboid cuboid, Integer k, Integer l) {
-        Integer length = cuboid.getLength() * k * l;
-        Integer width = cuboid.getWidth() * k * l;
+        Integer length = cuboid.getLength() * l;
+        Integer width = cuboid.getWidth() * k;
         Integer weight = cuboid.getWeight() * k * l;
         Layer layer = new Layer(length, width, cuboid.getHeight(), weight);
         return layer;

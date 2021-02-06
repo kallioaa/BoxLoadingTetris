@@ -33,7 +33,6 @@ public class LayerBuildingTest {
         demands.add(1);
         LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
         MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
-        System.out.println(layers.get(0).getLength());
         assertEquals((Integer) 2, layers.size());
     }
 
@@ -43,20 +42,26 @@ public class LayerBuildingTest {
         demands.add(2);
         LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
         MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
-        System.out.println(layers.get(0).getLength());
         assertEquals((Integer) 6, layers.size());
     }
 
     @Test
     public void twoCuboidtwoDemand() {
-        cuboids.add(new Cuboid(20, 20, 20, 2));
+        cuboids.add(new Cuboid(20, 40, 20, 2));
         cuboids.add(new Cuboid(30, 30, 30, 2));
         demands.add(2);
         demands.add(2);
         LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
         MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
-        System.out.println(layers.get(0).getLength());
         assertEquals((Integer) 12, layers.size());
     }
 
+    @Test
+    public void correctHeight() {
+        cuboids.add(new Cuboid(20, 40, 20, 2));
+        demands.add(10);
+        LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
+        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
+        assertEquals((Integer) 20, layers.get(0).getHeight());
+    }
 }

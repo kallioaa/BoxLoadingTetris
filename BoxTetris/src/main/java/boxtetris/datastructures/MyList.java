@@ -10,16 +10,26 @@ public class MyList<E> {
         this.array = new Object[DEFAULT_SIZE];
     }
 
+    /**
+     * @return boolean
+     */
     public boolean isEmpty() {
         return this.currentIndex == -1;
     }
 
+    /**
+     * @param e
+     */
     public void add(E e) {
         currentIndex++;
         ensureCapacity(currentIndex);
         array[currentIndex] = e;
     }
 
+    /**
+     * @param index
+     * @return E
+     */
     public E remove(Integer index) {
         rangeCheck(index);
         E oldItem = (E) array[index];
@@ -28,27 +38,43 @@ public class MyList<E> {
         return oldItem;
     }
 
+    /**
+     * @param index
+     * @return E
+     */
     public E get(Integer index) {
         rangeCheck(index);
         return (E) array[index];
     }
 
+    /**
+     * @return Integer
+     */
     public Integer size() {
         return currentIndex + 1;
     }
 
+    /**
+     * @param index
+     */
     private void rangeCheck(int index) {
         if (index < 0 || index > currentIndex) {
             throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
         }
     }
 
+    /**
+     * @param index
+     */
     private void removeFromArray(int index) {
         for (int i = index; i < currentIndex; i++) {
             array[i] = array[i + 1];
         }
     }
 
+    /**
+     * @param minSize
+     */
     private void ensureCapacity(Integer minSize) {
         if (array.length <= minSize) {
             Object[] arrayNew = copyArray();
@@ -56,6 +82,9 @@ public class MyList<E> {
         }
     }
 
+    /**
+     * @return Object[]
+     */
     private Object[] copyArray() {
         Object[] arrayNew = new Object[array.length * 2];
         for (int i = 0; i < array.length; i++) {

@@ -8,8 +8,11 @@ public class Container extends Dimensions {
         super(length, width, height);
         this.maxWeight = maxWeight;
     }
-    
+
+    /**
+     * @return Integer
+     */
     public Integer getMaxWeight() {
         return this.maxWeight;
-    }    
+    }
 }
