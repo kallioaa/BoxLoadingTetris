@@ -9,6 +9,10 @@ check.dependsOn jacocoTestReport
 
 mainClassName = 'boxtetris.algorithms.Main'
 
+task myJavadocs(type: Javadoc) {
+  source = sourceSets.main.allJava
+}
+
 repositories {
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     jcenter()
