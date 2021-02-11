@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="boxtetris.datastructures.MyListTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-02-11T19:17:38" hostname="Aatu-MacBook-Pro.local" time="0.014">
+  <properties/>
+  <testcase name="removeOutOfBoundsTooLarge" classname="boxtetris.datastructures.MyListTest" time="0.009"/>
+  <testcase name="addItemsFirstIndex" classname="boxtetris.datastructures.MyListTest" time="0.0"/>
+  <testcase name="correctLength" classname="boxtetris.datastructures.MyListTest" time="0.0"/>
+  <testcase name="addItemsSuperLongList" classname="boxtetris.datastructures.MyListTest" time="0.001"/>
+  <testcase name="addItemsMiddleIndex" classname="boxtetris.datastructures.MyListTest" time="0.0"/>
+  <testcase name="removeItemItemsMove" classname="boxtetris.datastructures.MyListTest" time="0.0"/>
+  <testcase name="removeOutOfBoundsEmptyList" classname="boxtetris.datastructures.MyListTest" time="0.001"/>
+  <testcase name="addItemsLongList" classname="boxtetris.datastructures.MyListTest" time="0.0"/>
+  <testcase name="getOutOfBoundsTooLarge" classname="boxtetris.datastructures.MyListTest" time="0.001"/>
+  <testcase name="removeItemlenghtDecreases" classname="boxtetris.datastructures.MyListTest" time="0.0"/>
+  <testcase name="getOutOfBoundsEmptyList" classname="boxtetris.datastructures.MyListTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

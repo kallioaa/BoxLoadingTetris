@@ -3,10 +3,16 @@ package boxtetris.entities;
 public class Layer extends Dimensions {
 
     private Integer weight;
+    private Integer amount;
 
-    public Layer(Integer length, Integer width, Integer height, Integer weight) {
+    public Layer(Integer amount, Integer length, Integer width, Integer height, Integer weight) {
         super(length, width, height);
+        this.amount = amount;
         this.weight = weight;
+    }
+
+    public Integer getNumberOfCuboid() {
+        return this.amount;
     }
 
     /**

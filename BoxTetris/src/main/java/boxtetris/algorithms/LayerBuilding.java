@@ -6,20 +6,13 @@ import boxtetris.entities.Cuboid;
 
 public class LayerBuilding {
 
-    private final Integer itemsInRow;
-    private final Integer rowsInLayer;
-
-    public LayerBuilding(Integer itemsInRow, Integer rowsInLayer) {
-        this.itemsInRow = itemsInRow;
-        this.rowsInLayer = rowsInLayer;
-    }
-
     /**
      * @param cuboids
      * @param demands
      * @return MyList<Layer>
      */
-    public MyList<Layer> createLayerList(MyList<Cuboid> cuboids, MyList<Integer> demands) {
+    static MyList<Layer> generateLayers(MyList<Cuboid> cuboids, MyList<Integer> demands, Integer itemsInRow,
+            Integer rowsInLayer) {
         MyList<Layer> layers = new MyList<>();
         for (int i = 0; i < cuboids.size(); i++) { // Item types
             Cuboid cuboid = cuboids.get(i);
@@ -46,11 +39,12 @@ public class LayerBuilding {
      * @param l
      * @return Layer
      */
-    private Layer createLayer(Cuboid cuboid, Integer k, Integer l) {
+    private static Layer createLayer(Cuboid cuboid, Integer k, Integer l) {
+        Integer amount = k * l;
         Integer length = cuboid.getLength() * l;
         Integer width = cuboid.getWidth() * k;
         Integer weight = cuboid.getWeight() * k * l;
-        Layer layer = new Layer(length, width, cuboid.getHeight(), weight);
+        Layer layer = new Layer(amount, length, width, cuboid.getHeight(), weight);
         return layer;
     }
 }

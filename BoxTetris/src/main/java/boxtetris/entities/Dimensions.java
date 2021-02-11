@@ -46,4 +46,31 @@ public abstract class Dimensions {
     public Integer getHeight() {
         return height;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Dimensions other = (Dimensions) obj;
+        if (height == null) {
+            if (other.height != null)
+                return false;
+        } else if (!height.equals(other.height))
+            return false;
+        if (length == null) {
+            if (other.length != null)
+                return false;
+        } else if (!length.equals(other.length))
+            return false;
+        if (width == null) {
+            if (other.width != null)
+                return false;
+        } else if (!width.equals(other.width))
+            return false;
+        return true;
+    }
 }

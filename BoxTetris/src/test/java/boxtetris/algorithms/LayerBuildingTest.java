@@ -22,8 +22,7 @@ public class LayerBuildingTest {
 
     @Test
     public void noCuboidsNoLayers() {
-        LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, demands, 5, 5);
         assertTrue(layers.isEmpty());
     }
 
@@ -31,8 +30,7 @@ public class LayerBuildingTest {
     public void oneCuboidOneDemand() {
         cuboids.add(new Cuboid(20, 20, 20, 2));
         demands.add(1);
-        LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, demands, 5, 5);
         assertEquals((Integer) 2, layers.size());
     }
 
@@ -40,8 +38,7 @@ public class LayerBuildingTest {
     public void oneCuboidtwoDemand() {
         cuboids.add(new Cuboid(20, 20, 20, 2));
         demands.add(2);
-        LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, demands, 5, 5);
         assertEquals((Integer) 6, layers.size());
     }
 
@@ -51,8 +48,7 @@ public class LayerBuildingTest {
         cuboids.add(new Cuboid(30, 30, 30, 2));
         demands.add(2);
         demands.add(2);
-        LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, demands, 5, 5);
         assertEquals((Integer) 12, layers.size());
     }
 
@@ -60,8 +56,7 @@ public class LayerBuildingTest {
     public void correctHeight() {
         cuboids.add(new Cuboid(20, 40, 20, 2));
         demands.add(10);
-        LayerBuilding LayerBuilder = new LayerBuilding(5, 5);
-        MyList<Layer> layers = LayerBuilder.createLayerList(cuboids, demands);
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, demands, 5, 5);
         assertEquals((Integer) 20, layers.get(0).getHeight());
     }
 }
