@@ -2,6 +2,7 @@ package boxtetris.algorithms;
 
 import java.util.Comparator;
 
+import boxtetris.collections.MyCollections;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
@@ -9,11 +10,11 @@ import boxtetris.entities.Layer;
 public class FreeSpaceHandler {
 
     private MyList<FreeSpace> freeSpaces;
-    private Comparator freeSpaceSorter;
+    private Comparator<FreeSpace> freeSpaceSorter;
 
     private FreeSpace next;
 
-    public FreeSpaceHandler(FreeSpace fSpace, Comparator freeSpaceSorter) {
+    public FreeSpaceHandler(FreeSpace fSpace, Comparator<FreeSpace> freeSpaceSorter) {
         MyList<FreeSpace> freeSpace = new MyList<>();
         freeSpace.add(fSpace);
         fSpace.setOnFloor();
@@ -25,6 +26,8 @@ public class FreeSpaceHandler {
      * @return FreeSpace
      */
     public FreeSpace getFreeSpace() {
+        MyCollections.sort(freeSpaces, freeSpaceSorter);
+        this.next = freeSpaces.get(0);
         return next;
     }
 
@@ -35,6 +38,7 @@ public class FreeSpaceHandler {
     public boolean addCuboid(Layer layer) {
         if (layer.getLength() <= next.getLength() && layer.getWidth() <= next.getWidth()
                 && layer.getHeight() <= next.getHeight()) {
+
             return true;
         }
         return false;
