@@ -52,7 +52,6 @@ public class MyCollections {
         Integer i = (low - 1);
         for (int j = low; j < high; j++) {
             if (comparator.compare((T) arr[j], pivot) == 1) {
-                System.out.println("woo");
                 i++;
                 Object help = arr[i];
                 arr[i] = arr[j];
