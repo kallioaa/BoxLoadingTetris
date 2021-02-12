@@ -27,9 +27,21 @@ public class MyList<E> {
     }
 
     /**
+     * @return Object[]
+     */
+    public Object[] toArray() {
+        Object[] arrayReturned = new Object[currentIndex + 1];
+        for (int i = 0; i < currentIndex + 1; i++) {
+            arrayReturned[i] = array[i];
+        }
+        return arrayReturned;
+    }
+
+    /**
      * @param index
      * @return E
      */
+    @SuppressWarnings("unchecked")
     public E remove(Integer index) {
         rangeCheck(index);
         E oldItem = (E) array[index];
@@ -42,6 +54,7 @@ public class MyList<E> {
      * @param index
      * @return E
      */
+    @SuppressWarnings("unchecked")
     public E get(Integer index) {
         rangeCheck(index);
         return (E) array[index];
@@ -52,6 +65,11 @@ public class MyList<E> {
      */
     public Integer size() {
         return currentIndex + 1;
+    }
+
+    public void clear() {
+        this.array = new Object[DEFAULT_SIZE];
+        this.currentIndex = -1;
     }
 
     /**
@@ -91,5 +109,16 @@ public class MyList<E> {
             arrayNew[i] = array[i];
         }
         return arrayNew;
+    }
+
+    /**
+     * @param arr
+     * @return boolean
+     */
+    public boolean addAll(Object[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            add((E) arr[i]);
+        }
+        return true;
     }
 }

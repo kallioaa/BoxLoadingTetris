@@ -1,6 +1,7 @@
 package boxtetris.algorithms;
 
-import boxtetris.algorithms.FreeSpaceSorter;
+import java.util.Comparator;
+
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
@@ -8,11 +9,11 @@ import boxtetris.entities.Layer;
 public class FreeSpaceHandler {
 
     private MyList<FreeSpace> freeSpaces;
-    private FreeSpaceSorter freeSpaceSorter;
+    private Comparator freeSpaceSorter;
 
     private FreeSpace next;
 
-    public FreeSpaceHandler(FreeSpace fSpace, FreeSpaceSorter freeSpaceSorter) {
+    public FreeSpaceHandler(FreeSpace fSpace, Comparator freeSpaceSorter) {
         MyList<FreeSpace> freeSpace = new MyList<>();
         freeSpace.add(fSpace);
         fSpace.setOnFloor();
@@ -39,6 +40,9 @@ public class FreeSpaceHandler {
         return false;
     }
 
+    /**
+     * @param layer
+     */
     private void generateFreeSpaces(Layer layer) {
         if (next.isOnFloor()) {
             if (next.getLength() - layer.getLength() != 0) {

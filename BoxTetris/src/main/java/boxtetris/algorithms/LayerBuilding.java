@@ -6,6 +6,9 @@ import boxtetris.entities.Cuboid;
 
 public class LayerBuilding {
 
+    private LayerBuilding() {
+    }
+
     /**
      * @param cuboids
      * @param demands

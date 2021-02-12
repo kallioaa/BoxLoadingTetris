@@ -1,5 +1,6 @@
 package boxtetris.datastructures;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
@@ -84,6 +85,35 @@ public class MyListTest {
     }
 
     @Test
+    public void toArrayTest() {
+        list.add(2);
+        list.add(1);
+        list.add(4);
+        list.add(4);
+        list.add(5);
+        list.add(7);
+        Object[] array = list.toArray();
+        assertArrayEquals(new Object[] { 2, 1, 4, 4, 5, 7 }, array);
+    }
+
+    @Test
+    public void addAllStrings() {
+        MyList<String> testi = new MyList<>();
+        String[] array = new String[] { "tomaatti", "kurkku", "vesimelooni", "kuha" };
+        testi.addAll(array);
+        assertArrayEquals(new Object[] { "tomaatti", "kurkku", "vesimelooni", "kuha" }, testi.toArray());
+    }
+
+    @Test
+    public void clearStrings() {
+        MyList<String> testi = new MyList<>();
+        String[] array = new String[] { "tomaatti", "kurkku", "vesimelooni", "kuha" };
+        testi.addAll(array);
+        testi.clear();
+        assertArrayEquals(new Object[] {}, testi.toArray());
+    }
+
+    @Test
     public void removeOutOfBoundsEmptyList() {
         assertThrows(IndexOutOfBoundsException.class, () -> {
             list.remove(0);
@@ -115,4 +145,5 @@ public class MyListTest {
             list.get(2);
         });
     }
+
 }

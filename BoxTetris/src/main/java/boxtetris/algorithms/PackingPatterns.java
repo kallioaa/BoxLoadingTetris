@@ -44,6 +44,10 @@ public class PackingPatterns {
         return null;
     }
 
+    /**
+     * @param demands
+     * @return Integer
+     */
     private static Integer findMin(Integer[] demands) {
         Integer min = Integer.MAX_VALUE;
         for (int i = 0; i < demands.length; i++) {

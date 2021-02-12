@@ -13,8 +13,10 @@ public class FreeSpace extends Dimensions {
         this.onFloor = true;
     }
 
+    /**
+     * @return boolean
+     */
     public boolean isOnFloor() {
         return onFloor;
     }
-
 }

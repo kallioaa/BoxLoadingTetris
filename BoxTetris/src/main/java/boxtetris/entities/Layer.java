@@ -11,6 +11,9 @@ public class Layer extends Dimensions {
         this.weight = weight;
     }
 
+    /**
+     * @return Integer
+     */
     public Integer getNumberOfCuboid() {
         return this.amount;
     }

@@ -47,6 +47,10 @@ public abstract class Dimensions {
         return height;
     }
 
+    /**
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -72,5 +76,17 @@ public abstract class Dimensions {
         } else if (!width.equals(other.width))
             return false;
         return true;
+    }
+
+    /**
+     * @return String
+     */
+    @Override
+    public String toString() {
+        String s = "";
+        s += "Length: " + getLength() + "\n";
+        s += "Width: " + getWidth() + "\n";
+        s += "Height: " + getHeight() + "\n";
+        return s;
     }
 }
