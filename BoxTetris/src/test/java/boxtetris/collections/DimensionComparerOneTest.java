@@ -1,4 +1,4 @@
-package boxtetris.algorithms;
+package boxtetris.collections;
 
 import static org.junit.Assert.assertEquals;
 

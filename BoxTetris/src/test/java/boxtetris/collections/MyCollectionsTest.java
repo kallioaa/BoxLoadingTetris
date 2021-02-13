@@ -1,18 +1,11 @@
 package boxtetris.collections;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import boxtetris.algorithms.DimensionComparerOne;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.FreeSpace;
 import junit.framework.AssertionFailedError;
@@ -51,6 +44,27 @@ public class MyCollectionsTest {
                 throw new AssertionFailedError();
             }
             prev = freeSpaces.get(i).getHeight();
+        }
+    }
+
+    @Test
+    public void freeSpacesAllVariables() {
+        FreeSpace[] all = new FreeSpace[100];
+        for (int i = 0; i < all.length; i++) {
+            all[i] = new FreeSpace(random.nextInt(100), random.nextInt(100), random.nextInt(100));
+        }
+        freeSpaces.addAll(all);
+        MyCollections.sort(freeSpaces, new DimensionComparerOne());
+        Integer prevHeight = Integer.MAX_VALUE;
+        Integer prevWidth = Integer.MAX_VALUE;
+        for (int i = 0; i < freeSpaces.size(); i++) {
+            if (freeSpaces.get(i).getHeight() == prevHeight) {
+                if (freeSpaces.get(i).getWidth() > prevWidth) {
+                    throw new AssertionFailedError();
+                }
+            }
+            prevHeight = freeSpaces.get(i).getHeight();
+            prevWidth = freeSpaces.get(i).getWidth();
         }
     }
 

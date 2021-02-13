@@ -4,29 +4,34 @@ import java.util.Comparator;
 
 import boxtetris.collections.MyCollections;
 import boxtetris.datastructures.MyList;
+import boxtetris.entities.Dimensions;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
 
 public class FreeSpaceHandler {
 
     private MyList<FreeSpace> freeSpaces;
-    private Comparator<FreeSpace> freeSpaceSorter;
+    private Comparator<Dimensions> dimensionComparator;
 
     private FreeSpace next;
 
-    public FreeSpaceHandler(FreeSpace fSpace, Comparator<FreeSpace> freeSpaceSorter) {
-        MyList<FreeSpace> freeSpace = new MyList<>();
-        freeSpace.add(fSpace);
+    public FreeSpaceHandler(FreeSpace fSpace, Comparator<Dimensions> dimensionComparator) {
+        freeSpaces = new MyList<>();
         fSpace.setOnFloor();
-        this.freeSpaceSorter = freeSpaceSorter;
+        freeSpaces.add(fSpace);
+        this.dimensionComparator = dimensionComparator;
         this.next = fSpace;
+    }
+
+    public Integer returnFreeSpaces() {
+        return freeSpaces.size();
     }
 
     /**
      * @return FreeSpace
      */
     public FreeSpace getFreeSpace() {
-        MyCollections.sort(freeSpaces, freeSpaceSorter);
+        MyCollections.sort(freeSpaces, dimensionComparator);
         this.next = freeSpaces.get(0);
         return next;
     }
@@ -35,10 +40,11 @@ public class FreeSpaceHandler {
      * @param layer
      * @return boolean
      */
-    public boolean addCuboid(Layer layer) {
+    public boolean addLayer(Layer layer) {
         if (layer.getLength() <= next.getLength() && layer.getWidth() <= next.getWidth()
                 && layer.getHeight() <= next.getHeight()) {
-
+            freeSpaces.remove(0);
+            generateFreeSpaces(layer);
             return true;
         }
         return false;
