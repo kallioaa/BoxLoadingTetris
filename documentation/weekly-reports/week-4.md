@@ -1,0 +1,6 @@
+# week 4
+
+## Good progress code but lacking on documentation
+
+This week I have spend a lot of hours on coding but been lazy in terms of documentation, so I expect low scores this week. My main logic is almost completed and the 
+level of abstraction is good. My plan next weeek is to catch up with the documentation, implment hashmap and finnish the logic.
