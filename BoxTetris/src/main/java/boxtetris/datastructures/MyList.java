@@ -72,6 +72,10 @@ public class MyList<E> {
         this.currentIndex = -1;
     }
 
+    
+    /** 
+     * @return E
+     */
     @SuppressWarnings("unchecked")
     public E getLast() {
         if (currentIndex > -1) {

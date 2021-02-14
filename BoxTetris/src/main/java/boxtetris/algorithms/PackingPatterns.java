@@ -1,6 +1,7 @@
 package boxtetris.algorithms;
 
 import boxtetris.entities.Container;
+import boxtetris.entities.Coordinates;
 import boxtetris.entities.Cuboid;
 import boxtetris.entities.Dimensions;
 import boxtetris.entities.FreeSpace;
@@ -31,13 +32,31 @@ public class PackingPatterns {
         while (demands.get(minDemand) > 0) {
             for (int i = 0; i < containers.size(); i++) {
                 Container container = containers.get(i);
-                for (int j = 0; i < dimensionsComparators.length; j++) {
+                Pattern pattern = new Pattern(container);
+                for (int j = 0; j < dimensionsComparators.length; j++) {
                     Comparator<Dimensions> dimensionsComparator = (Comparator<Dimensions>) dimensionsComparators[j];
                     FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(container, dimensionsComparator);
                     for (int k = 0; k < 9; k++) {
                         sortByRule(layers, k);
-                        
-                        FreeSpace fSpace = freeSpaceHandler.getFreeSpace();
+                        while (true) {
+                            FreeSpace next = freeSpaceHandler.getFreeSpace();
+                            if (next == null) {
+                                break;
+                            }
+                            for (int l = 0; l < layers.size(); l++) {
+                                Layer layer = layers.get(i);
+                                if (container.hasCapacity(layer.getWeight())) {
+                                    Coordinates coordinates = freeSpaceHandler.addLayer(layer);
+                                    if (coordinates != null) {
+                                        updateDemand(layer, demands);
+                                        layer.addCoordinates(coordinates);
+                                        pattern.addLayer(layer);
+                                    }
+                                }
+                            }
+                            freeSpaceHandler.removeFreeSpace();
+                            ;
+                        }
 
                     }
                 }
@@ -48,6 +67,26 @@ public class PackingPatterns {
         return null;
     }
 
+    
+    /** 
+     * @param layer
+     * @param demands
+     * @return Integer
+     */
+    private static Integer updateDemand(Layer layer, HashMap<Cuboid, Integer> demands) {
+        Cuboid cuboid = layer.getCuboid();
+        Integer amount = layer.getNumberOfCuboid();
+        Integer demand = demands.get(cuboid);
+        demand -= amount;
+        demands.replace(cuboid, demand);
+        return demand;
+    }
+
+    
+    /** 
+     * @param layers
+     * @param ruleNumber
+     */
     private static void sortByRule(MyList<Layer> layers, int ruleNumber) {
         switch (ruleNumber) {
             case 0:

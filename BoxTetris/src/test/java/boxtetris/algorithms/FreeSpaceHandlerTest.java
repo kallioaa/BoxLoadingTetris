@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import boxtetris.comparators.DimensionComparatorOne;
 import boxtetris.entities.Container;
+import boxtetris.entities.Coordinates;
+import boxtetris.entities.Cuboid;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
 
@@ -14,7 +16,8 @@ public class FreeSpaceHandlerTest {
 
     @Test
     public void firstSpaceIsCorrect() {
-        FreeSpace fSpace = new FreeSpace(15, 30, 5);
+        Coordinates coordinate = new Coordinates(2, 2, 2);
+        FreeSpace fSpace = new FreeSpace(15, 30, 5, coordinate);
         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(fSpace, new DimensionComparatorOne());
         fSpace.setOnFloor();
         FreeSpace served = freeSpaceHandler.getFreeSpace();
@@ -23,8 +26,9 @@ public class FreeSpaceHandlerTest {
 
     @Test
     public void nOfSpacesIsCorrect() {
+        Cuboid cuboid = new Cuboid(2, 2, 2, 2);
         Container fSpace = new Container(15, 30, 5, 10);
-        Layer layer = new Layer(3, 3, 3, 3, 3);
+        Layer layer = new Layer(cuboid, 3, 3, 3, 3, 3);
         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(fSpace, new DimensionComparatorOne());
         freeSpaceHandler.addLayer(layer);
         assertEquals((Integer) 3, freeSpaceHandler.returnFreeSpaces());

@@ -2,15 +2,25 @@ package boxtetris.entities;
 
 public class FreeSpace extends Dimensions {
 
+    private Coordinates coordinates;
     private boolean onFloor;
 
-    public FreeSpace(Integer length, Integer width, Integer height) {
+    public FreeSpace(Integer length, Integer width, Integer height, Coordinates coordinates) {
         super(length, width, height);
+        this.coordinates = coordinates;
         this.onFloor = false;
     }
 
     public void setOnFloor() {
         this.onFloor = true;
+    }
+
+    
+    /** 
+     * @return Coordinates
+     */
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
 
     /**
@@ -20,6 +30,10 @@ public class FreeSpace extends Dimensions {
         return onFloor;
     }
 
+    
+    /** 
+     * @return int
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -28,6 +42,11 @@ public class FreeSpace extends Dimensions {
         return result;
     }
 
+    
+    /** 
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

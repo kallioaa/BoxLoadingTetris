@@ -2,11 +2,14 @@ package boxtetris.entities;
 
 public class Layer extends Dimensions {
 
+    private Coordinates coordinates;
     private Integer weight;
     private Integer amount;
+    private Cuboid cuboid;
 
-    public Layer(Integer amount, Integer length, Integer width, Integer height, Integer weight) {
+    public Layer(Cuboid cuboid, Integer amount, Integer length, Integer width, Integer height, Integer weight) {
         super(length, width, height);
+        this.cuboid = cuboid;
         this.amount = amount;
         this.weight = weight;
     }
@@ -15,7 +18,15 @@ public class Layer extends Dimensions {
      * @return Integer
      */
     public Integer getNumberOfCuboid() {
-        return this.amount;
+        return amount;
+    }
+
+    
+    /** 
+     * @return Cuboid
+     */
+    public Cuboid getCuboid() {
+        return cuboid;
     }
 
     /**
@@ -43,28 +54,44 @@ public class Layer extends Dimensions {
      * @return Double
      */
     public Double getWeightDivArea() {
-        return (double) this.weight / this.getArea();
+        return (double) weight / getArea();
     }
 
     /**
      * @return Double
      */
     public Double getWeightDivVolume() {
-        return (double) this.weight / this.getVolume();
+        return (double) weight / getVolume();
     }
 
     /**
      * @return Double
      */
     public Double getWeightDivHeight() {
-        return (double) this.weight / this.getHeight();
+        return (double) weight / getHeight();
     }
 
     /**
      * @return Double
      */
     public Double getHeightAndWeightDivArea() {
-        return (double) (this.weight * weight) / this.getArea();
+        return (double) (weight * getHeight()) / getArea();
+    }
+
+    
+    /** 
+     * @return Coordinates
+     */
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    
+    /** 
+     * @param coordinates
+     */
+    public void addCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
 }

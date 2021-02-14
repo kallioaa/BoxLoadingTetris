@@ -47,7 +47,7 @@ public class LayerBuilding {
         Integer length = cuboid.getLength() * l;
         Integer width = cuboid.getWidth() * k;
         Integer weight = cuboid.getWeight() * k * l;
-        Layer layer = new Layer(amount, length, width, cuboid.getHeight(), weight);
+        Layer layer = new Layer(cuboid, amount, length, width, cuboid.getHeight(), weight);
         return layer;
     }
 }

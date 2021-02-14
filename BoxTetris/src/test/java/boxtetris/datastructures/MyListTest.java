@@ -114,6 +114,15 @@ public class MyListTest {
     }
 
     @Test
+    public void removeIndexZeroWorks() {
+        MyList<String> testi = new MyList<>();
+        testi.add("teistitesti");
+        testi.add("teistitesti2");
+        testi.remove(0);
+        assertEquals("teistitesti2", testi.get(0));
+    }
+
+    @Test
     public void removeOutOfBoundsEmptyList() {
         assertThrows(IndexOutOfBoundsException.class, () -> {
             list.remove(0);
