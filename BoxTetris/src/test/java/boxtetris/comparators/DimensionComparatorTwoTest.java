@@ -1,11 +1,11 @@
-package boxtetris.collections;
+package boxtetris.comparators;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import boxtetris.entities.FreeSpace;
 
-public class DimensionComparerTwoTest {
+public class DimensionComparatorTwoTest {
 
     private static DimensionComparatorTwo comparer;
 

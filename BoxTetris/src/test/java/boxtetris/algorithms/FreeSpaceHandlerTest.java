@@ -5,7 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import boxtetris.collections.DimensionComparatorOne;
+import boxtetris.comparators.DimensionComparatorOne;
+import boxtetris.entities.Container;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
 
@@ -15,13 +16,14 @@ public class FreeSpaceHandlerTest {
     public void firstSpaceIsCorrect() {
         FreeSpace fSpace = new FreeSpace(15, 30, 5);
         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(fSpace, new DimensionComparatorOne());
+        fSpace.setOnFloor();
         FreeSpace served = freeSpaceHandler.getFreeSpace();
         assertEquals(fSpace, served);
     }
 
     @Test
     public void nOfSpacesIsCorrect() {
-        FreeSpace fSpace = new FreeSpace(15, 30, 5);
+        Container fSpace = new Container(15, 30, 5, 10);
         Layer layer = new Layer(3, 3, 3, 3, 3);
         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(fSpace, new DimensionComparatorOne());
         freeSpaceHandler.addLayer(layer);
@@ -30,7 +32,7 @@ public class FreeSpaceHandlerTest {
 
     @Test
     public void firstFreeSpaceOnFloor() {
-        FreeSpace fSpace = new FreeSpace(15, 30, 5);
+        Container fSpace = new Container(15, 30, 5, 10);
         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(fSpace, new DimensionComparatorOne());
         assertTrue(freeSpaceHandler.getFreeSpace().isOnFloor());
     }

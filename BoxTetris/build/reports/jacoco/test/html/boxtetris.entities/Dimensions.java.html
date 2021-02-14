@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dimensions.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">BoxTetris</a> &gt; <a href="index.source.html" class="el_package">boxtetris.entities</a> &gt; <span class="el_source">Dimensions.java</span></div><h1>Dimensions.java</h1><pre class="source lang-java linenums">package boxtetris.entities;
+
+public abstract class Dimensions {
+
+    private Integer length;
+    private Integer width;
+    private Integer height;
+
+<span class="fc" id="L9">    public Dimensions(Integer length, Integer width, Integer height) {</span>
+<span class="fc" id="L10">        this.length = length;</span>
+<span class="fc" id="L11">        this.width = width;</span>
+<span class="fc" id="L12">        this.height = height;</span>
+<span class="fc" id="L13">    }</span>
+
+    /**
+     * @param length
+     */
+    public void setLength(Integer length) {
+<span class="fc" id="L19">        this.length = length;</span>
+<span class="fc" id="L20">    }</span>
+
+    /**
+     * @param width
+     */
+    public void setWidth(Integer width) {
+<span class="fc" id="L26">        this.width = width;</span>
+<span class="fc" id="L27">    }</span>
+
+    /**
+     * @return Integer
+     */
+    public Integer getLength() {
+<span class="fc" id="L33">        return length;</span>
+    }
+
+    /**
+     * @return Integer
+     */
+    public Integer getWidth() {
+<span class="fc" id="L40">        return width;</span>
+    }
+
+    /**
+     * @return Integer
+     */
+    public Integer getHeight() {
+<span class="fc" id="L47">        return height;</span>
+    }
+
+    /**
+     * @param obj
+     * @return boolean
+     */
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        if (this == obj)</span>
+<span class="nc" id="L57">            return true;</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (obj == null)</span>
+<span class="nc" id="L59">            return false;</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">        if (getClass() != obj.getClass())</span>
+<span class="nc" id="L61">            return false;</span>
+<span class="fc" id="L62">        Dimensions other = (Dimensions) obj;</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if (height == null) {</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">            if (other.height != null)</span>
+<span class="nc" id="L65">                return false;</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        } else if (!height.equals(other.height))</span>
+<span class="nc" id="L67">            return false;</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        if (length == null) {</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">            if (other.length != null)</span>
+<span class="nc" id="L70">                return false;</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">        } else if (!length.equals(other.length))</span>
+<span class="nc" id="L72">            return false;</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if (width == null) {</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">            if (other.width != null)</span>
+<span class="nc" id="L75">                return false;</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        } else if (!width.equals(other.width))</span>
+<span class="nc" id="L77">            return false;</span>
+<span class="fc" id="L78">        return true;</span>
+    }
+
+    /**
+     * @return String
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L86">        String s = &quot;&quot;;</span>
+<span class="nc" id="L87">        s += &quot;Length: &quot; + getLength() + &quot;\n&quot;;</span>
+<span class="nc" id="L88">        s += &quot;Width: &quot; + getWidth() + &quot;\n&quot;;</span>
+<span class="nc" id="L89">        s += &quot;Height: &quot; + getHeight() + &quot;\n&quot;;</span>
+<span class="nc" id="L90">        return s;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202101150304</span></div></body></html>

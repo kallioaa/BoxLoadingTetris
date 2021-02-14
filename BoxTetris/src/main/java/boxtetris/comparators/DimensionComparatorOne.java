@@ -1,4 +1,4 @@
-package boxtetris.collections;
+package boxtetris.comparators;
 
 import java.util.Comparator;
 

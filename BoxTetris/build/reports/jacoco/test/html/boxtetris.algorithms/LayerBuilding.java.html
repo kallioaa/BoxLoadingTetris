@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LayerBuilding.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">BoxTetris</a> &gt; <a href="index.source.html" class="el_package">boxtetris.algorithms</a> &gt; <span class="el_source">LayerBuilding.java</span></div><h1>LayerBuilding.java</h1><pre class="source lang-java linenums">package boxtetris.algorithms;
+
+import boxtetris.datastructures.MyList;
+import boxtetris.entities.Layer;
+import boxtetris.entities.Cuboid;
+
+public class LayerBuilding {
+
+    private LayerBuilding() {
+    }
+
+    /**
+     * @param cuboids
+     * @param demands
+     * @return MyList&lt;Layer&gt;
+     */
+    static MyList&lt;Layer&gt; generateLayers(MyList&lt;Cuboid&gt; cuboids, MyList&lt;Integer&gt; demands, Integer itemsInRow,
+            Integer rowsInLayer) {
+<span class="fc" id="L19">        MyList&lt;Layer&gt; layers = new MyList&lt;&gt;();</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        for (int i = 0; i &lt; cuboids.size(); i++) { // Item types</span>
+<span class="fc" id="L21">            Cuboid cuboid = cuboids.get(i);</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">            for (int j = 0; j &lt; 2; j++) {</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">                if (j == 1) {</span>
+<span class="fc" id="L24">                    cuboid.rotate();</span>
+                }
+<span class="fc bfc" id="L26" title="All 2 branches covered.">                for (int k = 1; k &lt;= rowsInLayer; k++) { // Number of items in a row</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">                    for (int l = 1; l &lt;= itemsInRow; l++) { // Number of rows in a layer</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">                        if (k * l &lt;= demands.get(i)) { // If the number is under demand</span>
+<span class="fc" id="L29">                            Layer layer = createLayer(cuboid, k, l);</span>
+<span class="fc" id="L30">                            layers.add(layer);</span>
+                        }
+                    }
+                }
+            }
+        }
+<span class="fc" id="L36">        return layers;</span>
+    }
+
+    /**
+     * @param cuboid
+     * @param k
+     * @param l
+     * @return Layer
+     */
+    private static Layer createLayer(Cuboid cuboid, Integer k, Integer l) {
+<span class="fc" id="L46">        Integer amount = k * l;</span>
+<span class="fc" id="L47">        Integer length = cuboid.getLength() * l;</span>
+<span class="fc" id="L48">        Integer width = cuboid.getWidth() * k;</span>
+<span class="fc" id="L49">        Integer weight = cuboid.getWeight() * k * l;</span>
+<span class="fc" id="L50">        Layer layer = new Layer(amount, length, width, cuboid.getHeight(), weight);</span>
+<span class="fc" id="L51">        return layer;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202101150304</span></div></body></html>

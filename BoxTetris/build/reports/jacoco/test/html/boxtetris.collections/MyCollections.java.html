@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MyCollections.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">BoxTetris</a> &gt; <a href="index.source.html" class="el_package">boxtetris.collections</a> &gt; <span class="el_source">MyCollections.java</span></div><h1>MyCollections.java</h1><pre class="source lang-java linenums">package boxtetris.collections;
+
+import java.util.Comparator;
+import boxtetris.datastructures.MyList;
+import boxtetris.entities.Layer;
+
+public class MyCollections {
+
+    private MyCollections() {
+    }
+
+    /**
+     * @param list
+     * @param comparator
+     */
+    public static &lt;T&gt; void sort(MyList&lt;T&gt; list, Comparator&lt;? super T&gt; comparator) {
+<span class="fc" id="L17">        Object[] arr = list.toArray();</span>
+<span class="fc" id="L18">        Integer low = 0;</span>
+<span class="fc" id="L19">        Integer high = list.size() - 1;</span>
+<span class="fc" id="L20">        arr = sortQ(arr, low, high, comparator);</span>
+<span class="fc" id="L21">        list.clear();</span>
+<span class="fc" id="L22">        list.addAll((Object[]) arr);</span>
+<span class="fc" id="L23">    }</span>
+
+    /**
+     * @param arr
+     * @param low
+     * @param high
+     * @param comparator
+     * @return Object[]
+     */
+    // Quicksort implementation
+
+    private static &lt;T&gt; Object[] sortQ(Object[] arr, int low, int high, Comparator&lt;? super T&gt; comparator) {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (low &lt; high) {</span>
+<span class="fc" id="L36">            Integer pi = partition(arr, low, high, comparator);</span>
+<span class="fc" id="L37">            sortQ(arr, low, pi - 1, comparator);</span>
+<span class="fc" id="L38">            sortQ(arr, pi + 1, high, comparator);</span>
+        }
+<span class="fc" id="L40">        return arr;</span>
+    }
+
+    /**
+     * @param arr
+     * @param low
+     * @param high
+     * @param comparator
+     * @return Integer
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    private static &lt;T&gt; Integer partition(Object[] arr, Integer low, Integer high, Comparator&lt;? super T&gt; comparator) {
+<span class="fc" id="L52">        T pivot = (T) arr[high];</span>
+<span class="fc" id="L53">        Integer i = (low - 1);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        for (int j = low; j &lt; high; j++) {</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">            if (comparator.compare((T) arr[j], pivot) == 1) {</span>
+<span class="fc" id="L56">                i++;</span>
+<span class="fc" id="L57">                Object help = arr[i];</span>
+<span class="fc" id="L58">                arr[i] = arr[j];</span>
+<span class="fc" id="L59">                arr[j] = help;</span>
+            }
+        }
+<span class="fc" id="L62">        Object help = arr[i + 1];</span>
+<span class="fc" id="L63">        arr[i + 1] = arr[high];</span>
+<span class="fc" id="L64">        arr[high] = help;</span>
+<span class="fc" id="L65">        return i + 1;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202101150304</span></div></body></html>

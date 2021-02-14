@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PackingPatterns.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">BoxTetris</a> &gt; <a href="index.source.html" class="el_package">boxtetris.algorithms</a> &gt; <span class="el_source">PackingPatterns.java</span></div><h1>PackingPatterns.java</h1><pre class="source lang-java linenums">package boxtetris.algorithms;
+
+import boxtetris.entities.Container;
+import boxtetris.entities.Cuboid;
+import boxtetris.entities.Dimensions;
+import boxtetris.entities.FreeSpace;
+import boxtetris.entities.Pattern;
+import boxtetris.entities.Layer;
+
+import java.util.Comparator;
+import java.util.HashMap;
+
+import boxtetris.comparators.DimensionComparatorOne;
+import boxtetris.comparators.DimensionComparatorTwo;
+import boxtetris.comparators.LayerComparators;
+import boxtetris.collections.MyCollections;
+import boxtetris.datastructures.MyList;
+
+<span class="nc" id="L19">public class PackingPatterns {</span>
+
+    /**
+     * @param containers
+     * @param layers
+     * @param demands
+     * @return MyList&lt;Pattern&gt;
+     */
+    static MyList&lt;Pattern&gt; generatePatterns(MyList&lt;Container&gt; containers, MyList&lt;Layer&gt; layers,
+            HashMap&lt;Cuboid, Integer&gt; demands) {
+<span class="nc" id="L29">        Object[] dimensionsComparators = new Object[] { new DimensionComparatorOne(), new DimensionComparatorTwo() };</span>
+<span class="nc" id="L30">        Cuboid minDemand = findMin(demands);</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        while (demands.get(minDemand) &gt; 0) {</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            for (int i = 0; i &lt; containers.size(); i++) {</span>
+<span class="nc" id="L33">                Container container = containers.get(i);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                for (int j = 0; i &lt; dimensionsComparators.length; j++) {</span>
+<span class="nc" id="L35">                    Comparator&lt;Dimensions&gt; dimensionsComparator = (Comparator&lt;Dimensions&gt;) dimensionsComparators[j];</span>
+<span class="nc" id="L36">                    FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(container, dimensionsComparator);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">                    for (int k = 0; k &lt; 9; k++) {</span>
+<span class="nc" id="L38">                        sortByRule(layers, k);</span>
+                        
+<span class="nc" id="L40">                        FreeSpace fSpace = freeSpaceHandler.getFreeSpace();</span>
+
+                    }
+                }
+
+            }
+        }
+
+<span class="nc" id="L48">        return null;</span>
+    }
+
+    private static void sortByRule(MyList&lt;Layer&gt; layers, int ruleNumber) {
+<span class="nc bnc" id="L52" title="All 10 branches missed.">        switch (ruleNumber) {</span>
+            case 0:
+<span class="nc" id="L54">                MyCollections.sort(layers, new LayerComparators.WeightAndArea());</span>
+            case 1:
+<span class="nc" id="L56">                MyCollections.sort(layers, new LayerComparators.WeightAndVolume());</span>
+            case 2:
+<span class="nc" id="L58">                MyCollections.sort(layers, new LayerComparators.WeightAndHeight());</span>
+            case 3:
+<span class="nc" id="L60">                MyCollections.sort(layers, new LayerComparators.HeightWeightAndArea());</span>
+            case 4:
+<span class="nc" id="L62">                MyCollections.sort(layers, new LayerComparators.Area());</span>
+            case 5:
+<span class="nc" id="L64">                MyCollections.sort(layers, new LayerComparators.Volume());</span>
+            case 6:
+<span class="nc" id="L66">                MyCollections.sort(layers, new LayerComparators.Weight());</span>
+            case 7:
+<span class="nc" id="L68">                MyCollections.sort(layers, new LayerComparators.Width());</span>
+            case 8:
+<span class="nc" id="L70">                MyCollections.sort(layers, new LayerComparators.Length());</span>
+        }
+<span class="nc" id="L72">    }</span>
+
+    /**
+     * @param demands
+     * @return Integer
+     */
+    private static Cuboid findMin(HashMap&lt;Cuboid, Integer&gt; demands) {
+<span class="nc" id="L79">        Cuboid minDemand = null;</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        for (Cuboid key : demands.keySet()) {</span>
+<span class="nc" id="L81">            Integer demand = demands.get(key);</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            if (demand &lt; demands.get(minDemand)) {</span>
+<span class="nc" id="L83">                minDemand = key;</span>
+            }
+<span class="nc" id="L85">        }</span>
+<span class="nc" id="L86">        return minDemand;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202101150304</span></div></body></html>

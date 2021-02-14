@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
-
+import boxtetris.comparators.DimensionComparatorOne;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.FreeSpace;
 import junit.framework.AssertionFailedError;

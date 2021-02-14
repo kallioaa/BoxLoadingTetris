@@ -2,6 +2,7 @@ package boxtetris.collections;
 
 import java.util.Comparator;
 import boxtetris.datastructures.MyList;
+import boxtetris.entities.Layer;
 
 public class MyCollections {
 
@@ -20,8 +21,6 @@ public class MyCollections {
         list.clear();
         list.addAll((Object[]) arr);
     }
-
-    
 
     /**
      * @param arr

@@ -1,0 +1,39 @@
+boxtetris/datastructures/MyList.java
+ boxtetris.datastructures.MyList
+boxtetris/entities/Layer.java
+ boxtetris.entities.Layer
+boxtetris/entities/Container.java
+ boxtetris.entities.Container
+boxtetris/collections/MyCollections.java
+ boxtetris.collections.MyCollections
+boxtetris/entities/Cuboid.java
+ boxtetris.entities.Cuboid
+boxtetris/comparators/LayerComparators.java
+ boxtetris.comparators.LayerComparators
+ boxtetris.comparators.LayerComparators$Area
+ boxtetris.comparators.LayerComparators$HeightWeightAndArea
+ boxtetris.comparators.LayerComparators$Length
+ boxtetris.comparators.LayerComparators$Volume
+ boxtetris.comparators.LayerComparators$Weight
+ boxtetris.comparators.LayerComparators$WeightAndArea
+ boxtetris.comparators.LayerComparators$WeightAndHeight
+ boxtetris.comparators.LayerComparators$WeightAndVolume
+ boxtetris.comparators.LayerComparators$Width
+boxtetris/algorithms/FreeSpaceHandler.java
+ boxtetris.algorithms.FreeSpaceHandler
+boxtetris/entities/Dimensions.java
+ boxtetris.entities.Dimensions
+boxtetris/entities/Pattern.java
+ boxtetris.entities.Pattern
+boxtetris/algorithms/PackingPatterns.java
+ boxtetris.algorithms.PackingPatterns
+boxtetris/algorithms/Main.java
+ boxtetris.algorithms.Main
+boxtetris/algorithms/LayerBuilding.java
+ boxtetris.algorithms.LayerBuilding
+boxtetris/comparators/DimensionComparatorOne.java
+ boxtetris.comparators.DimensionComparatorOne
+boxtetris/entities/FreeSpace.java
+ boxtetris.entities.FreeSpace
+boxtetris/comparators/DimensionComparatorTwo.java
+ boxtetris.comparators.DimensionComparatorTwo

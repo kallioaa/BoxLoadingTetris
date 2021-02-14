@@ -22,25 +22,4 @@ public class Cuboid extends Dimensions {
     public Integer getWeight() {
         return weight;
     }
-
-    /**
-     * @param obj
-     * @return boolean
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Cuboid other = (Cuboid) obj;
-        if (weight == null) {
-            if (other.weight != null)
-                return false;
-        } else if (!weight.equals(other.weight))
-            return false;
-        return true;
-    }
 }

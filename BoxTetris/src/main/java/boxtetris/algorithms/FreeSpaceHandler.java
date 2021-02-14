@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 import boxtetris.collections.MyCollections;
 import boxtetris.datastructures.MyList;
+import boxtetris.entities.Container;
 import boxtetris.entities.Dimensions;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
@@ -15,14 +16,18 @@ public class FreeSpaceHandler {
 
     private FreeSpace next;
 
-    public FreeSpaceHandler(FreeSpace fSpace, Comparator<Dimensions> dimensionComparator) {
+    public FreeSpaceHandler(Dimensions dimensions, Comparator<Dimensions> dimensionComparator) {
         freeSpaces = new MyList<>();
+        FreeSpace fSpace = new FreeSpace(dimensions.getLength(), dimensions.getWidth(), dimensions.getHeight());
         fSpace.setOnFloor();
         freeSpaces.add(fSpace);
         this.dimensionComparator = dimensionComparator;
         this.next = fSpace;
     }
 
+    /**
+     * @return Integer
+     */
     public Integer returnFreeSpaces() {
         return freeSpaces.size();
     }

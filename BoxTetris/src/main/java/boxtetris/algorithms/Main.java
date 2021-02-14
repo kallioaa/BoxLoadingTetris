@@ -3,7 +3,6 @@ package boxtetris.algorithms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
 import boxtetris.algorithms.PackingPatterns;
 import boxtetris.datastructures.MyList;
 
