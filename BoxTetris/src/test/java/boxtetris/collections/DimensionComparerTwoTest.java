@@ -7,11 +7,11 @@ import boxtetris.entities.FreeSpace;
 
 public class DimensionComparerTwoTest {
 
-    private static DimensionComparerTwo comparer;
+    private static DimensionComparatorTwo comparer;
 
     @BeforeClass
     public static void setUp() {
-        comparer = new DimensionComparerTwo();
+        comparer = new DimensionComparatorTwo();
     }
 
     @Test

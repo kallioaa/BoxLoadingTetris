@@ -25,7 +25,7 @@ public class MyCollectionsTest {
     public void freeSpacesSmall() {
         Object[] all = new Object[] { new FreeSpace(4, 2, 2), new FreeSpace(4, 2, 3), new FreeSpace(4, 2, 8) };
         freeSpaces.addAll(all);
-        MyCollections.sort(freeSpaces, new DimensionComparerOne());
+        MyCollections.sort(freeSpaces, new DimensionComparatorOne());
         assertArrayEquals(new Object[] { new FreeSpace(4, 2, 8), new FreeSpace(4, 2, 3), new FreeSpace(4, 2, 2) },
                 freeSpaces.toArray());
     }
@@ -37,7 +37,7 @@ public class MyCollectionsTest {
             all[i] = new FreeSpace(3, 4, random.nextInt(100));
         }
         freeSpaces.addAll(all);
-        MyCollections.sort(freeSpaces, new DimensionComparerOne());
+        MyCollections.sort(freeSpaces, new DimensionComparatorOne());
         Integer prev = Integer.MAX_VALUE;
         for (int i = 0; i < freeSpaces.size(); i++) {
             if (freeSpaces.get(i).getHeight() > prev) {
@@ -54,7 +54,7 @@ public class MyCollectionsTest {
             all[i] = new FreeSpace(random.nextInt(100), random.nextInt(100), random.nextInt(100));
         }
         freeSpaces.addAll(all);
-        MyCollections.sort(freeSpaces, new DimensionComparerOne());
+        MyCollections.sort(freeSpaces, new DimensionComparatorOne());
         Integer prevHeight = Integer.MAX_VALUE;
         Integer prevWidth = Integer.MAX_VALUE;
         for (int i = 0; i < freeSpaces.size(); i++) {
