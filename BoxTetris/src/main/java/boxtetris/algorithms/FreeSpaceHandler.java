@@ -55,12 +55,13 @@ public class FreeSpaceHandler {
      * @param layer
      * @return boolean
      */
-    public Coordinates addLayer(Layer layer) {
+    public Layer addLayer(Layer layer) {
         if (layer.getLength() <= next.getLength() && layer.getWidth() <= next.getWidth()
                 && layer.getHeight() <= next.getHeight()) {
             freeSpaces.remove(0);
             generateFreeSpaces(layer);
-            return next.getCoordinates();
+            layer.addCoordinates(next.getCoordinates());
+            return layer;
         }
         return null;
     }

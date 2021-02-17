@@ -23,8 +23,7 @@ public class Container extends Dimensions {
 
     }
 
-    
-    /** 
+    /**
      * @param weight
      * @return boolean
      */
@@ -36,8 +35,7 @@ public class Container extends Dimensions {
         return false;
     }
 
-    
-    /** 
+    /**
      * @return Integer
      */
     public Integer getMaxWeight() {

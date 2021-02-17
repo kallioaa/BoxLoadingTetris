@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="boxtetris.comparators.DimensionComparatorTwoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-02-17T16:50:35" hostname="Aatu-MacBook-Pro.local" time="0.003">
+  <properties/>
+  <testcase name="sameHeightSameWidthFirstIsWider" classname="boxtetris.comparators.DimensionComparatorTwoTest" time="0.001"/>
+  <testcase name="sameHeightSameLengthFirstIsNarrower" classname="boxtetris.comparators.DimensionComparatorTwoTest" time="0.0"/>
+  <testcase name="sameHeightFirstIsLonger" classname="boxtetris.comparators.DimensionComparatorTwoTest" time="0.0"/>
+  <testcase name="sameHeightFirstIsShorter" classname="boxtetris.comparators.DimensionComparatorTwoTest" time="0.0"/>
+  <testcase name="secondIsTaller" classname="boxtetris.comparators.DimensionComparatorTwoTest" time="0.0"/>
+  <testcase name="firstIsTaller" classname="boxtetris.comparators.DimensionComparatorTwoTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

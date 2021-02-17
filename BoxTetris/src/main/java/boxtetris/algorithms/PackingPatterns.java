@@ -1,93 +1,76 @@
 package boxtetris.algorithms;
 
-import boxtetris.entities.Container;
-import boxtetris.entities.Coordinates;
-import boxtetris.entities.Cuboid;
-import boxtetris.entities.Dimensions;
-import boxtetris.entities.FreeSpace;
-import boxtetris.entities.Pattern;
-import boxtetris.entities.Layer;
-
 import java.util.Comparator;
 import java.util.HashMap;
 
+import boxtetris.collections.MyCollections;
 import boxtetris.comparators.DimensionComparatorOne;
 import boxtetris.comparators.DimensionComparatorTwo;
 import boxtetris.comparators.LayerComparators;
-import boxtetris.collections.MyCollections;
 import boxtetris.datastructures.MyList;
+import boxtetris.entities.Container;
+import boxtetris.entities.Cuboid;
+import boxtetris.entities.Dimensions;
+import boxtetris.entities.FreeSpace;
+import boxtetris.entities.Layer;
+import boxtetris.entities.Pattern;
 
 public class PackingPatterns {
+    private final Object[] dimensionComparators;
 
-    /**
-     * @param containers
-     * @param layers
-     * @param demands
-     * @return MyList<Pattern>
-     */
-    static MyList<Pattern> generatePatterns(MyList<Container> containers, MyList<Layer> layers,
-            HashMap<Cuboid, Integer> demands) {
-        Object[] dimensionsComparators = new Object[] { new DimensionComparatorOne(), new DimensionComparatorTwo() };
-        Cuboid minDemand = findMin(demands);
-        while (demands.get(minDemand) > 0) {
-            for (int i = 0; i < containers.size(); i++) {
+    public PackingPatterns(Object[] dimensionComprators) {
+        this.dimensionComparators = dimensionComprators;
+    }
+
+    @SuppressWarnings("unchecked")
+    public MyList<Pattern> generatePackingPatterns(MyList<Container> containers, MyList<Layer> layers,
+            DemandHandler demandHandler) {
+        MyList<Pattern> patterns = new MyList<>();
+        while (demandHandler.getMinDemand() > 0) { // While there exists unmet demand for a certain cuboid
+            Pattern best = null; // Best packing pattern
+            for (int i = 0; i < containers.size(); i++) { // Pick a container
                 Container container = containers.get(i);
-                Pattern pattern = new Pattern(container);
-                for (int j = 0; j < dimensionsComparators.length; j++) {
-                    Comparator<Dimensions> dimensionsComparator = (Comparator<Dimensions>) dimensionsComparators[j];
-                    FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(container, dimensionsComparator);
-                    for (int k = 0; k < 9; k++) {
-                        sortByRule(layers, k);
-                        while (true) {
-                            FreeSpace next = freeSpaceHandler.getFreeSpace();
-                            if (next == null) {
-                                break;
-                            }
-                            for (int l = 0; l < layers.size(); l++) {
-                                Layer layer = layers.get(i);
-                                if (container.hasCapacity(layer.getWeight())) {
-                                    Coordinates coordinates = freeSpaceHandler.addLayer(layer);
-                                    if (coordinates != null) {
-                                        updateDemand(layer, demands);
-                                        layer.addCoordinates(coordinates);
-                                        pattern.addLayer(layer);
-                                    }
-                                }
-                            }
-                            freeSpaceHandler.removeFreeSpace();
-                            ;
+                for (int j = 0; j < dimensionComparators.length; j++) { // Select a space selection criteria
+                    Comparator<Dimensions> dimensionComparator = (Comparator<Dimensions>) dimensionComparators[j];
+                    FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(container, dimensionComparator);
+                    for (int k = 0; k < 9; k++) { // Select a layer selection criteria
+                        sortByRule(layers, k); // sort the array by rule k
+                        Pattern pattern = generateAPattern(container, layers, freeSpaceHandler);
+                        Double patternVolUtil = pattern.volumeUtilization();
+                        if (patternVolUtil > best.volumeUtilization()) {
+                            best = pattern;
                         }
-
                     }
                 }
+            }
+            patterns.add(best);
+            demandHandler.addPatternsDemands(best);
+        }
+        return patterns;
+    }
 
+    @SuppressWarnings("unchecked")
+    private Pattern generateAPattern(Container container, MyList<Layer> layers, FreeSpaceHandler freeSpaceHandler) {
+        Pattern pattern = new Pattern(container);
+        while (true) { // Loop while there are freeSpaces
+            FreeSpace next = freeSpaceHandler.getFreeSpace();
+            if (next == null) { // null indicates there are no more freespaces
+                break;
+            }
+            for (int i = 0; i < layers.size(); i++) { // loop over the layers
+                Layer layer = layers.get(i);
+                if (container.hasCapacity(layer.getWeight())) { // if container can handle the weight
+                    layer = freeSpaceHandler.addLayer(layer); // null if freespace is too small for the layer
+                    if (layer != null) {
+                        pattern.addLayer(layer); // we add the layer to pattern
+                    }
+                }
             }
         }
-
-        return null;
+        return pattern;
     }
 
-    
-    /** 
-     * @param layer
-     * @param demands
-     * @return Integer
-     */
-    private static Integer updateDemand(Layer layer, HashMap<Cuboid, Integer> demands) {
-        Cuboid cuboid = layer.getCuboid();
-        Integer amount = layer.getNumberOfCuboid();
-        Integer demand = demands.get(cuboid);
-        demand -= amount;
-        demands.replace(cuboid, demand);
-        return demand;
-    }
-
-    
-    /** 
-     * @param layers
-     * @param ruleNumber
-     */
-    private static void sortByRule(MyList<Layer> layers, int ruleNumber) {
+    private void sortByRule(MyList<Layer> layers, int ruleNumber) {
         switch (ruleNumber) {
             case 0:
                 MyCollections.sort(layers, new LayerComparators.WeightAndArea());
@@ -108,20 +91,5 @@ public class PackingPatterns {
             case 8:
                 MyCollections.sort(layers, new LayerComparators.Length());
         }
-    }
-
-    /**
-     * @param demands
-     * @return Integer
-     */
-    private static Cuboid findMin(HashMap<Cuboid, Integer> demands) {
-        Cuboid minDemand = null;
-        for (Cuboid key : demands.keySet()) {
-            Integer demand = demands.get(key);
-            if (demand < demands.get(minDemand)) {
-                minDemand = key;
-            }
-        }
-        return minDemand;
     }
 }

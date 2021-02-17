@@ -1,0 +1,16 @@
+boxtetris/comparators/DimensionComparatorOneTest.java
+ boxtetris.comparators.DimensionComparatorOneTest
+boxtetris/comparators/DimensionComparatorTwoTest.java
+ boxtetris.comparators.DimensionComparatorTwoTest
+boxtetris/datastructures/MyListTest.java
+ boxtetris.datastructures.MyListTest
+boxtetris/algorithms/LayerBuildingTest.java
+ boxtetris.algorithms.LayerBuildingTest
+boxtetris/entities/CuboidTest.java
+ boxtetris.entities.CuboidTest
+boxtetris/comparators/LayerComparator.java
+ boxtetris.comparators.LayerComparator
+boxtetris/collections/MyCollectionsTest.java
+ boxtetris.collections.MyCollectionsTest
+boxtetris/algorithms/FreeSpaceHandlerTest.java
+ boxtetris.algorithms.FreeSpaceHandlerTest

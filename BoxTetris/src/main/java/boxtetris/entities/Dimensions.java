@@ -47,6 +47,17 @@ public abstract class Dimensions {
         return height;
     }
 
+    public Integer getArea() {
+        return getLength() * getWidth();
+    }
+
+    /**
+     * @return Integer
+     */
+    public Integer getVolume() {
+        return getLength() * getWidth() * getHeight();
+    }
+
     /**
      * @param obj
      * @return boolean
