@@ -2,7 +2,6 @@ package boxtetris.entities;
 
 public class Cuboid extends Dimensions {
 
-    private static final int _0 = 0;
     private Integer weight;
 
     public Cuboid(Integer length, Integer width, Integer height, Integer weight) {

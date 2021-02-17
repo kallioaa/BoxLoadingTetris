@@ -2,7 +2,6 @@ package boxtetris.collections;
 
 import java.util.Comparator;
 import boxtetris.datastructures.MyList;
-import boxtetris.entities.Layer;
 
 public class MyCollections {
 

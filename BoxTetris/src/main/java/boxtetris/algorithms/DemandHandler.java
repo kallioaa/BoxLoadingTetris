@@ -17,6 +17,10 @@ public class DemandHandler {
         this.minDemand = findMin();
     }
 
+    public Integer getMinDemand() {
+        return minDemand;
+    }
+
     public void addPatternsDemands(Pattern pattern) {
         MyList<Layer> layers = pattern.getLayers();
         for (int i = 0; i < layers.size(); i++) {
@@ -27,16 +31,12 @@ public class DemandHandler {
         }
     }
 
-    public Integer getMinDemand() {
-        return minDemand;
-    }
-
     private void updateDemand(Cuboid cuboid, Integer amount) {
         Integer prevDemand = demands.get(cuboid);
         Integer newDemand = prevDemand - amount;
         demands.replace(cuboid, newDemand);
         if (newDemand < minDemand) {
-            newDemand = minDemand;
+            minDemand = newDemand;
         }
     }
 

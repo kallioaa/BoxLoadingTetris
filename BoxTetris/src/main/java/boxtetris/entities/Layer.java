@@ -21,8 +21,7 @@ public class Layer extends Dimensions {
         return amount;
     }
 
-    
-    /** 
+    /**
      * @return Cuboid
      */
     public Cuboid getCuboid() {
@@ -32,16 +31,6 @@ public class Layer extends Dimensions {
     /**
      * @return Integer
      */
-    public Integer getArea() {
-        return getLength() * getWidth();
-    }
-
-    /**
-     * @return Integer
-     */
-    public Integer getVolume() {
-        return getLength() * getWidth() * getHeight();
-    }
 
     /**
      * @return Integer
@@ -78,16 +67,14 @@ public class Layer extends Dimensions {
         return (double) (weight * getHeight()) / getArea();
     }
 
-    
-    /** 
+    /**
      * @return Coordinates
      */
     public Coordinates getCoordinates() {
         return coordinates;
     }
 
-    
-    /** 
+    /**
      * @param coordinates
      */
     public void addCoordinates(Coordinates coordinates) {

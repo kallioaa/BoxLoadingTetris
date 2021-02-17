@@ -1,15 +1,11 @@
 package boxtetris.algorithms;
 
 import java.util.Comparator;
-import java.util.HashMap;
 
 import boxtetris.collections.MyCollections;
-import boxtetris.comparators.DimensionComparatorOne;
-import boxtetris.comparators.DimensionComparatorTwo;
 import boxtetris.comparators.LayerComparators;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.Container;
-import boxtetris.entities.Cuboid;
 import boxtetris.entities.Dimensions;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
@@ -49,7 +45,6 @@ public class PackingPatterns {
         return patterns;
     }
 
-    @SuppressWarnings("unchecked")
     private Pattern generateAPattern(Container container, MyList<Layer> layers, FreeSpaceHandler freeSpaceHandler) {
         Pattern pattern = new Pattern(container);
         while (true) { // Loop while there are freeSpaces

@@ -15,7 +15,6 @@ public class Pattern extends Dimensions {
 
     public MyList<Layer> getLayers() {
         return layers;
-
     }
 
     public Double volumeUtilization() {
@@ -30,7 +29,7 @@ public class Pattern extends Dimensions {
      * @param layer
      */
     public void addLayer(Layer layer) {
-        this.addLayer(layer);
+        layers.add(layer);
     }
 
 }

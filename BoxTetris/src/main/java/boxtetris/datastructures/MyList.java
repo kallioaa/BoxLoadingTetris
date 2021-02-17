@@ -72,8 +72,7 @@ public class MyList<E> {
         this.currentIndex = -1;
     }
 
-    
-    /** 
+    /**
      * @return E
      */
     @SuppressWarnings("unchecked")
@@ -127,6 +126,7 @@ public class MyList<E> {
      * @param arr
      * @return boolean
      */
+    @SuppressWarnings("unchecked")
     public boolean addAll(Object[] arr) {
         for (int i = 0; i < arr.length; i++) {
             add((E) arr[i]);

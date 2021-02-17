@@ -4,7 +4,6 @@ import java.util.Comparator;
 
 import boxtetris.collections.MyCollections;
 import boxtetris.datastructures.MyList;
-import boxtetris.entities.Container;
 import boxtetris.entities.Coordinates;
 import boxtetris.entities.Dimensions;
 import boxtetris.entities.FreeSpace;
