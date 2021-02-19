@@ -81,6 +81,9 @@ public class Layer extends Dimensions {
         this.coordinates = coordinates;
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         String returnString = "";

@@ -16,6 +16,9 @@ public class Container extends Dimensions {
         return this.maxWeight;
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         String returnString = "";

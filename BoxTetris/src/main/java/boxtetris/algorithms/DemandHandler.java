@@ -24,6 +24,9 @@ public class DemandHandler {
         return minDemand;
     }
 
+    /**
+     * @param layer
+     */
     // Does not update min.
     public void removeLayersDemand(Layer layer) {
         Integer oldDemand = demands.get(layer.getCuboid());
@@ -32,6 +35,10 @@ public class DemandHandler {
 
     }
 
+    /**
+     * @param cuboid
+     * @return Integer
+     */
     public Integer getCuboidsDemand(Cuboid cuboid) {
         return demands.get(cuboid);
     }
@@ -52,6 +59,9 @@ public class DemandHandler {
         }
     }
 
+    /**
+     * @param pattern
+     */
     public void addPatternsDemands(Pattern pattern) {
         MyList<Layer> layers = pattern.getLayers();
         for (int i = 0; i < layers.size(); i++) {

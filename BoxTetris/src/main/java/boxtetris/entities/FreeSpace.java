@@ -58,6 +58,9 @@ public class FreeSpace extends Dimensions {
         return true;
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         return super.toString();

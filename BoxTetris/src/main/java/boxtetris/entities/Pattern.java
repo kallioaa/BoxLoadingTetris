@@ -22,6 +22,10 @@ public class Pattern extends Dimensions {
         return layers;
     }
 
+    public Boolean PatternIsEmpty() {
+        return layers.size() == 0;
+    }
+
     /**
      * @return Double
      */
@@ -33,6 +37,9 @@ public class Pattern extends Dimensions {
         return (double) sumLayerVolumes / container.getVolume();
     }
 
+    /**
+     * @return Double
+     */
     public Double maxWeightUtilization() {
         Integer sumLayerWeights = 0;
         for (int i = 0; i < layers.size(); i++) {
@@ -49,6 +56,9 @@ public class Pattern extends Dimensions {
         coordinatesList.add(coordinates);
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         String returnString = "Pattern: \n\n";

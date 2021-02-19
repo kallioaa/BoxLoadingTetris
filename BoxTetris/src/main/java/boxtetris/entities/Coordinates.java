@@ -33,6 +33,9 @@ public class Coordinates {
         return z;
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         String returnString = "";

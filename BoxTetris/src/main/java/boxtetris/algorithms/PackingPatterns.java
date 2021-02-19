@@ -50,6 +50,9 @@ public class PackingPatterns {
                     }
                 }
             }
+            if (best.PatternIsEmpty()) {
+                break;
+            }
             patterns.add(best);
             demandHandler.removePatternsDemands(best);
         }
@@ -79,6 +82,7 @@ public class PackingPatterns {
                                                                                     // for //
                                                                                     // the
                         if (coordinates != null) {
+                            currentWeight += layer.getWeight();
                             demandHandler.removeLayersDemand(layer);
                             pattern.addLayer(layer, coordinates); // we add the layer to pattern
                             break;
