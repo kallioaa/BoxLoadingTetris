@@ -6,6 +6,7 @@ import boxtetris.collections.MyCollections;
 import boxtetris.comparators.LayerComparators;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.Container;
+import boxtetris.entities.Coordinates;
 import boxtetris.entities.Dimensions;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
@@ -18,6 +19,12 @@ public class PackingPatterns {
         this.dimensionComparators = dimensionComprators;
     }
 
+    /**
+     * @param containers
+     * @param layers
+     * @param demandHandler
+     * @return MyList<Pattern>
+     */
     @SuppressWarnings("unchecked")
     public MyList<Pattern> generatePackingPatterns(MyList<Container> containers, MyList<Layer> layers,
             DemandHandler demandHandler) {
@@ -28,43 +35,70 @@ public class PackingPatterns {
                 Container container = containers.get(i);
                 for (int j = 0; j < dimensionComparators.length; j++) { // Select a space selection criteria
                     Comparator<Dimensions> dimensionComparator = (Comparator<Dimensions>) dimensionComparators[j];
-                    FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(container, dimensionComparator);
                     for (int k = 0; k < 9; k++) { // Select a layer selection criteria
+                        FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(container, dimensionComparator);
                         sortByRule(layers, k); // sort the array by rule k
-                        Pattern pattern = generateAPattern(container, layers, freeSpaceHandler);
+                        Pattern pattern = generateAPattern(container, layers, freeSpaceHandler, demandHandler);
                         Double patternVolUtil = pattern.volumeUtilization();
-                        if (patternVolUtil > best.volumeUtilization()) {
+                        if (best != null) {
+                            if (patternVolUtil > best.volumeUtilization()) {
+                                best = pattern;
+                            }
+                        } else {
                             best = pattern;
                         }
                     }
                 }
             }
             patterns.add(best);
-            demandHandler.addPatternsDemands(best);
+            demandHandler.removePatternsDemands(best);
         }
         return patterns;
     }
 
-    private Pattern generateAPattern(Container container, MyList<Layer> layers, FreeSpaceHandler freeSpaceHandler) {
+    /**
+     * @param container
+     * @param layers
+     * @param freeSpaceHandler
+     * @return Pattern
+     */
+    private Pattern generateAPattern(Container container, MyList<Layer> layers, FreeSpaceHandler freeSpaceHandler,
+            DemandHandler demandHandler) {
         Pattern pattern = new Pattern(container);
-        while (true) { // Loop while there are freeSpaces
+        Integer currentWeight = 0;
+        while (true) {
             FreeSpace next = freeSpaceHandler.getFreeSpace();
             if (next == null) { // null indicates there are no more freespaces
                 break;
             }
             for (int i = 0; i < layers.size(); i++) { // loop over the layers
                 Layer layer = layers.get(i);
-                if (container.hasCapacity(layer.getWeight())) { // if container can handle the weight
-                    layer = freeSpaceHandler.addLayer(layer); // null if freespace is too small for the layer
-                    if (layer != null) {
-                        pattern.addLayer(layer); // we add the layer to pattern
+                if (layer.getNumberOfCuboid() <= demandHandler.getCuboidsDemand(layer.getCuboid())) {
+                    if (currentWeight + layer.getWeight() <= container.getMaxWeight()) { // container weight limit test
+                        Coordinates coordinates = freeSpaceHandler.addLayer(layer); // null if freespace is too small
+                                                                                    // for //
+                                                                                    // the
+                        if (coordinates != null) {
+                            demandHandler.removeLayersDemand(layer);
+                            pattern.addLayer(layer, coordinates); // we add the layer to pattern
+                            break;
+                        }
                     }
                 }
+                if (i == layers.size() - 1) { // Will remove the free space from the list if no layer fits
+                    freeSpaceHandler.removeFreeSpace();
+                }
             }
+
         }
+        demandHandler.addPatternsDemands(pattern);
         return pattern;
     }
 
+    /**
+     * @param layers
+     * @param ruleNumber
+     */
     private void sortByRule(MyList<Layer> layers, int ruleNumber) {
         switch (ruleNumber) {
             case 0:

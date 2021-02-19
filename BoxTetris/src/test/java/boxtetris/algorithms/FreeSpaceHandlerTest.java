@@ -28,10 +28,10 @@ public class FreeSpaceHandlerTest {
     public void nOfSpacesIsCorrect() {
         Cuboid cuboid = new Cuboid(2, 2, 2, 2);
         Container fSpace = new Container(15, 30, 5, 10);
-        Layer layer = new Layer(cuboid, 3, 3, 3, 3, 3);
+        Layer layer = new Layer(cuboid, 3, 3);
         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(fSpace, new DimensionComparatorOne());
         freeSpaceHandler.addLayer(layer);
-        assertEquals((Integer) 3, freeSpaceHandler.returnFreeSpaces());
+        assertEquals((Integer) 3, freeSpaceHandler.getNumberOfFreeSpaces());
     }
 
     @Test

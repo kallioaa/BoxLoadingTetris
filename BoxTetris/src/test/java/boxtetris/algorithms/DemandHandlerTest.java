@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.Container;
+import boxtetris.entities.Coordinates;
 import boxtetris.entities.Cuboid;
 import boxtetris.entities.Layer;
 import boxtetris.entities.Pattern;
@@ -55,9 +56,9 @@ public class DemandHandlerTest {
         DemandHandler demandHandler = new DemandHandler(cuboids, demands);
         Container container = new Container(300, 300, 200, 2000);
         Pattern pattern = new Pattern(container);
-        Layer layer = new Layer(cuboidOne, 3, 60, 20, 20, 60);
-        pattern.addLayer(layer);
-        demandHandler.addPatternsDemands(pattern);
+        Layer layer = new Layer(cuboidOne, 1, 3);
+        pattern.addLayer(layer, new Coordinates(0, 0, 0));
+        demandHandler.removePatternsDemands(pattern);
         assertEquals((Integer) 0, demandHandler.getMinDemand());
 
     }
@@ -74,13 +75,13 @@ public class DemandHandlerTest {
         DemandHandler demandHandler = new DemandHandler(cuboids, demands);
         Container container = new Container(300, 300, 200, 2000);
         Pattern pattern = new Pattern(container);
-        Layer layer = new Layer(cuboidOne, 6, 120, 20, 20, 120);
-        pattern.addLayer(layer);
-        pattern.addLayer(layer);
-        pattern.addLayer(layer);
-        pattern.addLayer(layer);
-        pattern.addLayer(layer);
-        demandHandler.addPatternsDemands(pattern);
+        Layer layer = new Layer(cuboidOne, 1, 6);
+        pattern.addLayer(layer, new Coordinates(0, 0, 0));
+        pattern.addLayer(layer, new Coordinates(0, 0, 0));
+        pattern.addLayer(layer, new Coordinates(0, 0, 0));
+        pattern.addLayer(layer, new Coordinates(0, 0, 0));
+        pattern.addLayer(layer, new Coordinates(0, 0, 0));
+        demandHandler.removePatternsDemands(pattern);
         assertEquals((Integer) 39, demandHandler.getMinDemand());
 
     }

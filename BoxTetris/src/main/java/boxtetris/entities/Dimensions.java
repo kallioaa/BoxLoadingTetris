@@ -47,6 +47,9 @@ public abstract class Dimensions {
         return height;
     }
 
+    /**
+     * @return Integer
+     */
     public Integer getArea() {
         return getLength() * getWidth();
     }

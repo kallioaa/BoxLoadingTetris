@@ -26,7 +26,7 @@ public class LayerBuilding {
                 for (int k = 1; k <= rowsInLayer; k++) { // Number of items in a row
                     for (int l = 1; l <= itemsInRow; l++) { // Number of rows in a layer
                         if (k * l <= demands.get(i)) { // If the number is under demand
-                            Layer layer = createLayer(cuboid, k, l);
+                            Layer layer = new Layer(cuboid, k, l);
                             layers.add(layer);
                         }
                     }
@@ -34,20 +34,5 @@ public class LayerBuilding {
             }
         }
         return layers;
-    }
-
-    /**
-     * @param cuboid
-     * @param k
-     * @param l
-     * @return Layer
-     */
-    private static Layer createLayer(Cuboid cuboid, Integer k, Integer l) {
-        Integer amount = k * l;
-        Integer length = cuboid.getLength() * l;
-        Integer width = cuboid.getWidth() * k;
-        Integer weight = cuboid.getWeight() * k * l;
-        Layer layer = new Layer(cuboid, amount, length, width, cuboid.getHeight(), weight);
-        return layer;
     }
 }

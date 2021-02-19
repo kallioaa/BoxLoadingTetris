@@ -12,28 +12,34 @@ public class Coordinates {
         this.z = z;
     }
 
-    
-    /** 
+    /**
      * @return Integer
      */
     public Integer getX() {
         return x;
     }
 
-    
-    /** 
+    /**
      * @return Integer
      */
     public Integer getY() {
         return y;
     }
 
-    
-    /** 
+    /**
      * @return Integer
      */
     public Integer getZ() {
         return z;
+    }
+
+    @Override
+    public String toString() {
+        String returnString = "";
+        returnString += "X: " + getX() + "\n";
+        returnString += "Y: " + getY() + "\n";
+        returnString += "Z: " + getZ();
+        return returnString;
     }
 
 }

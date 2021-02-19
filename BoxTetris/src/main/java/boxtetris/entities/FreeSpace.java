@@ -15,8 +15,7 @@ public class FreeSpace extends Dimensions {
         this.onFloor = true;
     }
 
-    
-    /** 
+    /**
      * @return Coordinates
      */
     public Coordinates getCoordinates() {
@@ -30,8 +29,7 @@ public class FreeSpace extends Dimensions {
         return onFloor;
     }
 
-    
-    /** 
+    /**
      * @return int
      */
     @Override
@@ -42,8 +40,7 @@ public class FreeSpace extends Dimensions {
         return result;
     }
 
-    
-    /** 
+    /**
      * @param obj
      * @return boolean
      */
@@ -59,5 +56,10 @@ public class FreeSpace extends Dimensions {
         if (onFloor != other.onFloor)
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

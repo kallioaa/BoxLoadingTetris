@@ -3,36 +3,10 @@ package boxtetris.entities;
 public class Container extends Dimensions {
 
     private Integer maxWeight;
-    private Integer currentWeight;
 
     public Container(Integer length, Integer width, Integer height, Integer maxWeight) {
         super(length, width, height);
         this.maxWeight = maxWeight;
-        this.currentWeight = 0;
-    }
-
-    /**
-     * @return Integer
-     */
-
-    public boolean hasCapacity(Integer weight) {
-        if (currentWeight + weight <= maxWeight) {
-            return true;
-        }
-        return false;
-
-    }
-
-    /**
-     * @param weight
-     * @return boolean
-     */
-    public boolean addWeight(Integer weight) {
-        if (currentWeight + weight <= maxWeight) {
-            currentWeight += weight;
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -40,5 +14,14 @@ public class Container extends Dimensions {
      */
     public Integer getMaxWeight() {
         return this.maxWeight;
+    }
+
+    @Override
+    public String toString() {
+        String returnString = "";
+        returnString += super.toString();
+        returnString += "Max weight: " + maxWeight + "\n";
+        return returnString;
+
     }
 }

@@ -7,11 +7,11 @@ public class Layer extends Dimensions {
     private Integer amount;
     private Cuboid cuboid;
 
-    public Layer(Cuboid cuboid, Integer amount, Integer length, Integer width, Integer height, Integer weight) {
-        super(length, width, height);
+    public Layer(Cuboid cuboid, Integer numberOfRows, Integer cuboidsInRow) {
+        super(cuboid.getLength() * cuboidsInRow, cuboid.getWidth() * numberOfRows, cuboid.getHeight());
         this.cuboid = cuboid;
-        this.amount = amount;
-        this.weight = weight;
+        this.amount = cuboidsInRow * numberOfRows;
+        this.weight = cuboidsInRow * numberOfRows * cuboid.getWeight();
     }
 
     /**
@@ -81,4 +81,13 @@ public class Layer extends Dimensions {
         this.coordinates = coordinates;
     }
 
+    @Override
+    public String toString() {
+        String returnString = "";
+        returnString += "Cuboid: \n" + cuboid.toString() + "\n";
+        returnString += "Layer length: " + getLength() + "\n";
+        returnString += "Layer width: " + getWidth() + "\n";
+        returnString += "Amount: " + getNumberOfCuboid();
+        return returnString;
+    }
 }
