@@ -17,13 +17,11 @@ public class PackingPatternsTest {
 
     private Object[] dimensionComparators = new Object[] { new DimensionComparatorOne(), new DimensionComparatorTwo() };
     private MyList<Cuboid> cuboids;
-    private MyList<Integer> demands;
     private MyList<Container> containers;
 
     @Before
     public void setUp() {
         this.cuboids = new MyList<>();
-        this.demands = new MyList<>();
         this.containers = new MyList<>();
     }
 
@@ -31,10 +29,9 @@ public class PackingPatternsTest {
     public void packingPatternOneTest() {
         containerSetOne();
         LayerSetOne();
-        DemandHandler demandHandler = new DemandHandler(cuboids, demands);
-        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, demands, 10, 10);
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, 10, 10);
         PackingPatterns packingPatterns = new PackingPatterns(dimensionComparators);
-        MyList<Pattern> patterns = packingPatterns.generatePackingPatterns(containers, layers, demandHandler);
+        MyList<Pattern> patterns = packingPatterns.generatePackingPatterns(containers, layers);
         System.out.println(patterns.size());
         for (int i = 0; i < patterns.size(); i++) {
             System.out.println(patterns.get(i));
@@ -43,11 +40,10 @@ public class PackingPatternsTest {
     }
 
     private void containerSetOne() {
-        containers.add(new Container(10, 10, 10, 1000));
+        containers.add(new Container("test", 10, 10, 10, 1000));
     }
 
     private void LayerSetOne() {
-        cuboids.add(new Cuboid(1, 1, 1, 2));
-        demands.add(1000);
+        cuboids.add(new Cuboid("test", 1, 1, 1, 1, 1000));
     }
 }

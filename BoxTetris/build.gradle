@@ -3,11 +3,13 @@ plugins {
     id 'jacoco' 
     id 'application'
     id 'checkstyle'
+    id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 check.dependsOn jacocoTestReport
 
-mainClassName = 'boxtetris.algorithms.Main'
+mainClassName = 'boxtetris.restservice.RestServiceApplication'
 
 task myJavadocs(type: Javadoc) {
   source = sourceSets.main.allJava
@@ -24,6 +26,12 @@ jacoco {
 
 dependencies {
     testImplementation 'junit:junit:4.13'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+	useJUnitPlatform()
 }
 
 jacocoTestReport {

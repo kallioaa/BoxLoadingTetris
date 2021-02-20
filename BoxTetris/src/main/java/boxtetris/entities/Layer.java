@@ -21,6 +21,14 @@ public class Layer extends Dimensions {
         return amount;
     }
 
+    public void addLayersDemandToCuboid() {
+        cuboid.addDemand(amount);
+    }
+
+    public void removeLayersDemandFromCuboid() {
+        cuboid.removeDemand(amount);
+    }
+
     /**
      * @return Cuboid
      */

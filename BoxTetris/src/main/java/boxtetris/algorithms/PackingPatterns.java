@@ -26,10 +26,10 @@ public class PackingPatterns {
      * @return MyList<Pattern>
      */
     @SuppressWarnings("unchecked")
-    public MyList<Pattern> generatePackingPatterns(MyList<Container> containers, MyList<Layer> layers,
-            DemandHandler demandHandler) {
+    public MyList<Pattern> generatePackingPatterns(MyList<Container> containers, MyList<Layer> layers) {
         MyList<Pattern> patterns = new MyList<>();
-        while (demandHandler.getMinDemand() > 0) { // While there exists unmet demand for a certain cuboid
+        Integer minDemand = minDemand(layers);
+        while (minDemand > 0) { // While there exists unmet demand for a certain cuboid
             Pattern best = null; // Best packing pattern
             for (int i = 0; i < containers.size(); i++) { // Pick a container
                 Container container = containers.get(i);
@@ -38,7 +38,7 @@ public class PackingPatterns {
                     for (int k = 0; k < 9; k++) { // Select a layer selection criteria
                         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(container, dimensionComparator);
                         sortByRule(layers, k); // sort the array by rule k
-                        Pattern pattern = generateAPattern(container, layers, freeSpaceHandler, demandHandler);
+                        Pattern pattern = generateAPattern(container, layers, freeSpaceHandler);
                         Double patternVolUtil = pattern.volumeUtilization();
                         if (best != null) {
                             if (patternVolUtil > best.volumeUtilization()) {
@@ -54,7 +54,7 @@ public class PackingPatterns {
                 break;
             }
             patterns.add(best);
-            demandHandler.removePatternsDemands(best);
+            minDemand = best.removePatternsDemands();
         }
         return patterns;
     }
@@ -65,8 +65,7 @@ public class PackingPatterns {
      * @param freeSpaceHandler
      * @return Pattern
      */
-    private Pattern generateAPattern(Container container, MyList<Layer> layers, FreeSpaceHandler freeSpaceHandler,
-            DemandHandler demandHandler) {
+    private Pattern generateAPattern(Container container, MyList<Layer> layers, FreeSpaceHandler freeSpaceHandler) {
         Pattern pattern = new Pattern(container);
         Integer currentWeight = 0;
         while (true) {
@@ -76,14 +75,14 @@ public class PackingPatterns {
             }
             for (int i = 0; i < layers.size(); i++) { // loop over the layers
                 Layer layer = layers.get(i);
-                if (layer.getNumberOfCuboid() <= demandHandler.getCuboidsDemand(layer.getCuboid())) {
+                if (layer.getNumberOfCuboid() <= layer.getCuboid().getDemand()) {
                     if (currentWeight + layer.getWeight() <= container.getMaxWeight()) { // container weight limit test
                         Coordinates coordinates = freeSpaceHandler.addLayer(layer); // null if freespace is too small
                                                                                     // for //
                                                                                     // the
                         if (coordinates != null) {
                             currentWeight += layer.getWeight();
-                            demandHandler.removeLayersDemand(layer);
+                            layer.removeLayersDemandFromCuboid();
                             pattern.addLayer(layer, coordinates); // we add the layer to pattern
                             break;
                         }
@@ -95,7 +94,7 @@ public class PackingPatterns {
             }
 
         }
-        demandHandler.addPatternsDemands(pattern);
+        pattern.addPatternsDemands();
         return pattern;
     }
 
@@ -124,5 +123,16 @@ public class PackingPatterns {
             case 8:
                 MyCollections.sort(layers, new LayerComparators.Length());
         }
+    }
+
+    public Integer minDemand(MyList<Layer> layers) {
+        Integer minDemand = Integer.MAX_VALUE;
+        for (int i = 0; i < layers.size(); i++) {
+            Integer cuboidsDemand = layers.get(i).getCuboid().getDemand();
+            if (cuboidsDemand < minDemand) {
+                minDemand = cuboidsDemand;
+            }
+        }
+        return minDemand;
     }
 }

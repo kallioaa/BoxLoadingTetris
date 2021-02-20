@@ -26,8 +26,8 @@ public class FreeSpaceHandlerTest {
 
     @Test
     public void nOfSpacesIsCorrect() {
-        Cuboid cuboid = new Cuboid(2, 2, 2, 2);
-        Container fSpace = new Container(15, 30, 5, 10);
+        Cuboid cuboid = new Cuboid("test", 2, 2, 2, 2, 2);
+        Container fSpace = new Container("test", 15, 30, 5, 10);
         Layer layer = new Layer(cuboid, 3, 3);
         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(fSpace, new DimensionComparatorOne());
         freeSpaceHandler.addLayer(layer);
@@ -36,7 +36,7 @@ public class FreeSpaceHandlerTest {
 
     @Test
     public void firstFreeSpaceOnFloor() {
-        Container fSpace = new Container(15, 30, 5, 10);
+        Container fSpace = new Container("test", 15, 30, 5, 10);
         FreeSpaceHandler freeSpaceHandler = new FreeSpaceHandler(fSpace, new DimensionComparatorOne());
         assertTrue(freeSpaceHandler.getFreeSpace().isOnFloor());
     }

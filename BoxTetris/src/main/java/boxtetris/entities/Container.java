@@ -1,12 +1,22 @@
 package boxtetris.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Container extends Dimensions {
 
-    private Integer maxWeight;
+    private final String name;
+    private final Integer maxWeight;
 
-    public Container(Integer length, Integer width, Integer height, Integer maxWeight) {
+    public Container(@JsonProperty("name") String name, @JsonProperty("length") Integer length,
+            @JsonProperty("width") Integer width, @JsonProperty("height") Integer height,
+            @JsonProperty("maxWeight") Integer maxWeight) {
         super(length, width, height);
+        this.name = name;
         this.maxWeight = maxWeight;
+    }
+
+    public String getName() {
+        return name;
     }
 
     /**

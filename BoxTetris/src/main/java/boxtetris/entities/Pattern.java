@@ -26,6 +26,26 @@ public class Pattern extends Dimensions {
         return layers.size() == 0;
     }
 
+    public void addPatternsDemands() {
+        for (int i = 0; i < layers.size(); i++) {
+            layers.get(i).addLayersDemandToCuboid();
+        }
+    }
+
+    public Integer removePatternsDemands() {
+        Integer minDemand = Integer.MAX_VALUE;
+        for (int i = 0; i < layers.size(); i++) {
+            Layer layer = layers.get(i);
+            layer.removeLayersDemandFromCuboid();
+            Integer cuboidsDemand = layer.getCuboid().getDemand();
+            if (cuboidsDemand < minDemand) {
+                minDemand = cuboidsDemand;
+            }
+        }
+        return minDemand;
+
+    }
+
     /**
      * @return Double
      */

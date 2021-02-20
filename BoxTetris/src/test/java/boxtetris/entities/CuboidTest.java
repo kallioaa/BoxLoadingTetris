@@ -8,7 +8,7 @@ public class CuboidTest {
 
     @Test
     public void rotateWorks() {
-        Cuboid cuboid = new Cuboid(120, 140, 50, 3);
+        Cuboid cuboid = new Cuboid("test", 120, 140, 50, 3, 4);
         cuboid.rotate();
         assertEquals((Integer) 140, cuboid.getLength());
         assertEquals((Integer) 120, cuboid.getWidth());
@@ -16,7 +16,7 @@ public class CuboidTest {
 
     @Test
     public void rotateWorksTwoTimes() {
-        Cuboid cuboid = new Cuboid(120, 140, 50, 3);
+        Cuboid cuboid = new Cuboid("test", 120, 140, 50, 3, 4);
         cuboid.rotate();
         cuboid.rotate();
         assertEquals((Integer) 120, cuboid.getLength());

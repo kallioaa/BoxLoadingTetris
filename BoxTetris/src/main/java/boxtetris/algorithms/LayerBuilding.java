@@ -14,8 +14,7 @@ public class LayerBuilding {
      * @param demands
      * @return MyList<Layer>
      */
-    static MyList<Layer> generateLayers(MyList<Cuboid> cuboids, MyList<Integer> demands, Integer itemsInRow,
-            Integer rowsInLayer) {
+    static MyList<Layer> generateLayers(MyList<Cuboid> cuboids, Integer itemsInRow, Integer rowsInLayer) {
         MyList<Layer> layers = new MyList<>();
         for (int i = 0; i < cuboids.size(); i++) { // Item types
             Cuboid cuboid = cuboids.get(i);
@@ -25,7 +24,7 @@ public class LayerBuilding {
                 }
                 for (int k = 1; k <= rowsInLayer; k++) { // Number of items in a row
                     for (int l = 1; l <= itemsInRow; l++) { // Number of rows in a layer
-                        if (k * l <= demands.get(i)) { // If the number is under demand
+                        if (k * l <= cuboid.getDemand()) { // If the number is under demand
                             Layer layer = new Layer(cuboid, k, l);
                             layers.add(layer);
                         }
