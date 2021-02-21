@@ -1,7 +1,8 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import Cuboid from './Cuboid';
 
-const CuboidList = () => {
+const CuboidList = (props) => {
   return (
     <React.Fragment>
       <div>
@@ -17,7 +18,7 @@ const CuboidList = () => {
               <th> Demand </th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>{props.cuboids.map(Cuboid)}</tbody>
         </Table>
       </div>
     </React.Fragment>

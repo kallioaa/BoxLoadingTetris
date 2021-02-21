@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ContainerList from './components/ContainerList';
 import CuboidList from './components/CuboidList';
@@ -6,52 +6,48 @@ import AddCuboid from './components/AddCuboid';
 import AddContainer from './components/AddContainer';
 import Button from 'react-bootstrap/Button';
 
-class Intitialization extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { showAddCuboid: false, showAddContainer: false };
-  }
+const Intitialization = (props) => {
+  const [addCuboid, setAddCuboid] = useState(false);
+  const [addContainer, setAddContainer] = useState(false);
 
-  handleAddContainerClick = () => {
-    this.setState({ showAddContainer: true });
+  const handleAddContainerClick = () => {
+    setAddContainer(true);
   };
 
-  handleCloseAddContainer = () => {
-    this.setState({ showAddContainer: false });
+  const handleCloseAddContainer = () => {
+    setAddContainer(false);
   };
 
-  handleAddCuboidClick = () => {
-    this.setState({ showAddCuboid: true });
+  const handleAddCuboidClick = () => {
+    setAddCuboid(true);
   };
 
-  handleCloseAddCuboid = () => {
-    this.setState({ showAddCuboid: false });
+  const handleCloseAddCuboid = () => {
+    setAddCuboid(false);
   };
 
-  render() {
-    return (
-      <div className='mt-5'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col'>
-              <CuboidList />
-              <Button variant='outline-primary' size='lg' onClick={this.handleAddCuboidClick} block>
-                Add Cuboid
-              </Button>
-            </div>
-            <div className='col'>
-              <ContainerList />
-              <Button variant='outline-primary' size='lg' onClick={this.handleAddContainerClick} block>
-                Add Container
-              </Button>
-            </div>
-            <div>{this.state.showAddCuboid ? <AddCuboid handleClose={this.handleCloseAddCuboid} /> : null}</div>
-            <div>{this.state.showAddContainer ? <AddContainer handleClose={this.handleCloseAddContainer} /> : null}</div>
+  return (
+    <div className='mt-5'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col'>
+            <CuboidList cuboids={props.cuboids} />
+            <Button variant='outline-primary' size='lg' onClick={handleAddCuboidClick} block>
+              Add Cuboid
+            </Button>
           </div>
+          <div className='col'>
+            <ContainerList containers={props.containers} />
+            <Button variant='outline-primary' size='lg' onClick={handleAddContainerClick} block>
+              Add Container
+            </Button>
+          </div>
+          <div>{addCuboid ? <AddCuboid handleClose={handleCloseAddCuboid} addCuboid={props.addCuboid} /> : null}</div>
+          <div>{addContainer ? <AddContainer handleClose={handleCloseAddContainer} addContainer={props.addContainer} /> : null}</div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Intitialization;

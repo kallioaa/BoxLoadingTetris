@@ -10,7 +10,7 @@ const ContainerModalForm = (props) => {
           <Modal.Title>Add Container</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ContainerForm />
+          <ContainerForm addContainer={props.addContainer} handleClose={props.handleClose} />
         </Modal.Body>
       </Modal>
     </React.Fragment>

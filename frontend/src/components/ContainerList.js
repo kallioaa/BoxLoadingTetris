@@ -1,7 +1,8 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import Container from './Container';
 
-const ContainerList = () => {
+const ContainerList = (props) => {
   return (
     <React.Fragment>
       <div>
@@ -16,6 +17,7 @@ const ContainerList = () => {
               <th> Max Weight </th>
             </tr>
           </thead>
+          <tbody>{props.containers.map(Container)}</tbody>
         </Table>
       </div>
     </React.Fragment>

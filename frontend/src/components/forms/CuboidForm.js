@@ -1,52 +1,49 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-class CuboidForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      length: '',
-      width: '',
-      height: '',
-      weight: '',
-      demand: '',
-    };
-  }
+const CuboidForm = (props) => {
+  const [state, setState] = useState({
+    name: '',
+    length: '',
+    width: '',
+    height: '',
+    weight: '',
+    demand: '',
+  });
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setState({ ...state, [name]: value });
   };
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    props.addCuboid(state);
+    props.handleClose();
   };
 
-  render() {
-    return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group>
-          <Form.Control type='text' name='name' placeholder='Name' value={this.state.name} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='length' placeholder='Length' value={this.state.length} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='width' placeholder='Width' value={this.state.width} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='height' placeholder='Height' value={this.state.height} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='weight' placeholder='Weight' value={this.state.weight} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='demand' placeholder='Demand' value={this.state.demand} onChange={this.handleChange} />
-          <br />
-          <Button className='float-right' type='submit'>
-            Add Cuboid
-          </Button>
-        </Form.Group>
-      </Form>
-    );
-  }
-}
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Form.Group>
+        <Form.Control type='text' name='name' placeholder='Name' onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='length' placeholder='Length' onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='width' placeholder='Width' onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='height' placeholder='Height' onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='weight' placeholder='Weight' onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='demand' placeholder='Demand' onChange={handleChange} />
+        <br />
+        <Button className='float-right' type='submit'>
+          Add Cuboid
+        </Button>
+      </Form.Group>
+    </Form>
+  );
+};
 
 export default CuboidForm;

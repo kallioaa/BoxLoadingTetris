@@ -10,7 +10,7 @@ const CuboidModalForm = (props) => {
           <Modal.Title>Add Cuboid</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <CuboidForm />
+          <CuboidForm addCuboid={props.addCuboid} handleClose={props.handleClose} />
         </Modal.Body>
       </Modal>
     </React.Fragment>

@@ -1,51 +1,46 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-class ContainerForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      length: '',
-      width: '',
-      height: '',
-      maxWeight: '',
-    };
-  }
+const ContainerForm = (props) => {
+  const [state, setState] = useState({
+    name: '',
+    length: '',
+    width: '',
+    height: '',
+    maxWeight: '',
+  });
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-    console.log(event.target.value);
-    console.log(event.target.name);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setState({ ...state, [name]: value });
   };
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    props.addContainer(state);
+    props.handleClose();
   };
 
-  render() {
-    return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group>
-          <Form.Control type='text' name='name' placeholder='Name' value={this.state.name} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='length' placeholder='Length' value={this.state.length} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='width' placeholder='Width' value={this.state.width} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='height' placeholder='Height' value={this.state.height} onChange={this.handleChange} />
-          <br />
-          <Form.Control type='text' name='maxWeight' placeholder='Max Weight' value={this.state.maxWeight} onChange={this.handleChange} />
-          <br />
-          <Button className='float-right' type='submit'>
-            Add Container
-          </Button>
-        </Form.Group>
-      </Form>
-    );
-  }
-}
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Form.Group>
+        <Form.Control type='text' name='name' placeholder='Name' value={state.name} onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='length' placeholder='Length' value={state.length} onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='width' placeholder='Width' value={state.width} onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='height' placeholder='Height' value={state.height} onChange={handleChange} />
+        <br />
+        <Form.Control type='text' name='maxWeight' placeholder='Max Weight' value={state.maxWeight} onChange={handleChange} />
+        <br />
+        <Button className='float-right' type='submit'>
+          Add Container
+        </Button>
+      </Form.Group>
+    </Form>
+  );
+};
 
 export default ContainerForm;
