@@ -27,7 +27,7 @@ const Intitialization = (props) => {
   };
 
   return (
-    <div className='mt-5'>
+    <div className='mx-auto'>
       <div className='container'>
         <div className='row'>
           <div className='col'>

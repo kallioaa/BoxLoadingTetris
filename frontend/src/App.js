@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Intitialization from './Intitialization';
 
 const App = () => {
@@ -15,9 +15,11 @@ const App = () => {
   };
 
   return (
-    <div className='App'>
-      <Intitialization addCuboid={addCuboid} cuboids={cuboids} addContainer={addContainer} containers={containers} />
-    </div>
+    <Router>
+      <div>
+        <Route path='/initialization' render={(props) => <Intitialization {...props} containers={containers} addContainer={addContainer} cuboids={cuboids} addCuboid={addCuboid} />} />
+      </div>
+    </Router>
   );
 };
 
