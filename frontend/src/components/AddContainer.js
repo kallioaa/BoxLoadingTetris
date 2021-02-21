@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import ContainerForm from './forms/ContainerForm';
 
 const ContainerModalForm = (props) => {
