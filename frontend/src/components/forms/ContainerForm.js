@@ -29,7 +29,7 @@ class ContainerForm extends Component {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Group>
-          <Form.Control type='email' name='name' placeholder='Name' value={this.state.name} onChange={this.handleChange} />
+          <Form.Control type='text' name='name' placeholder='Name' value={this.state.name} onChange={this.handleChange} />
           <br />
           <Form.Control type='text' name='length' placeholder='Length' value={this.state.length} onChange={this.handleChange} />
           <br />
