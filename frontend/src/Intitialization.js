@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Containers from './components/Containers';
-import Cuboids from './components/Cuboids';
+import ContainerList from './components/ContainerList';
+import CuboidList from './components/CuboidList';
 
 class Intitialization extends Component {
   render() {
     return (
       <div className='mt-5'>
-        <div class='container'>
-          <div class='row'>
-            <div class='col'>
-              <Cuboids />
+        <div className='container'>
+          <div className='row'>
+            <div className='col'>
+              <CuboidList />
             </div>
-            <div class='col'>
-              <Containers />
+            <div className='col'>
+              <ContainerList />
             </div>
           </div>
         </div>
