@@ -13,8 +13,14 @@ const ContainerForm = (props) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setState({ ...state, [name]: value });
+    if (name !== 'name') {
+      setState({ ...state, [name]: parseInt(value) });
+    } else {
+      setState({ ...state, name: value });
+    }
   };
+
+  const parseToInt = () => {};
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,15 +31,15 @@ const ContainerForm = (props) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
-        <Form.Control type='text' name='name' placeholder='Name' value={state.name} onChange={handleChange} />
+        <Form.Control type='text' className='form-control' name='name' placeholder='Name' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='length' placeholder='Length' value={state.length} onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='length' placeholder='Length' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='width' placeholder='Width' value={state.width} onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='width' placeholder='Width' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='height' placeholder='Height' value={state.height} onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='height' placeholder='Height' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='maxWeight' placeholder='Max Weight' value={state.maxWeight} onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='maxWeight' placeholder='Max Weight' required onChange={handleChange} />
         <br />
         <Button className='float-right' type='submit'>
           Add Container

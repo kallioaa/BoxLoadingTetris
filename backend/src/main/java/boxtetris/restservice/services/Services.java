@@ -19,6 +19,7 @@ public class Services {
 
     public Cuboid createCuboid(Cuboid cuboid) {
         cuboids.add(cuboid);
+        System.out.print(cuboid);
         return cuboid;
     }
 

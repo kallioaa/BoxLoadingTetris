@@ -4,6 +4,7 @@ import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,21 +24,22 @@ public class Controller {
     // public ResponseEntity<> createPattern() {
     //
     // }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addCuboid")
     public ResponseEntity<String> addCuboid(@RequestBody Cuboid cuboid) throws URISyntaxException {
         service.createCuboid(cuboid);
         return ResponseEntity.ok().body("Cuboid Added!");
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addContainer")
     public ResponseEntity<String> addContainer(@RequestBody Container container) throws URISyntaxException {
         service.createContainer(container);
         return ResponseEntity.ok().body("Container Added!");
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/clearCuboids")
-
     public ResponseEntity<String> clearCuboids() throws URISyntaxException {
         service.clearCuboid();
         return ResponseEntity.ok().body("Cuboids have been cleared!");

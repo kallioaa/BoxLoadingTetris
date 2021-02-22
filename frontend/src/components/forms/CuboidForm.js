@@ -14,7 +14,11 @@ const CuboidForm = (props) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setState({ ...state, [name]: value });
+    if (name !== 'name') {
+      setState({ ...state, [name]: parseInt(value) });
+    } else {
+      setState({ ...state, name: value });
+    }
   };
 
   const handleSubmit = (event) => {
@@ -26,17 +30,17 @@ const CuboidForm = (props) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
-        <Form.Control type='text' name='name' placeholder='Name' onChange={handleChange} />
+        <Form.Control type='text' className='form-control' name='name' placeholder='Name' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='length' placeholder='Length' onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='length' placeholder='Length' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='width' placeholder='Width' onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='width' placeholder='Width' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='height' placeholder='Height' onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='height' placeholder='Height' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='weight' placeholder='Weight' onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='weight' placeholder='Weight' required onChange={handleChange} />
         <br />
-        <Form.Control type='text' name='demand' placeholder='Demand' onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='demand' placeholder='Demand' required onChange={handleChange} />
         <br />
         <Button className='float-right' type='submit'>
           Add Cuboid
