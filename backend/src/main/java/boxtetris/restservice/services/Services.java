@@ -28,7 +28,11 @@ public class Services {
         return container;
     }
 
-    public void clearCuboid() {
+    public void clearContainers() {
+        containers.clear();
+    }
+
+    public void clearCuboids() {
         cuboids.clear();
     }
 }

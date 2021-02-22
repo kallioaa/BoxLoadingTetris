@@ -10,16 +10,8 @@ const Intitialization = (props) => {
   const [addCuboid, setAddCuboid] = useState(false);
   const [addContainer, setAddContainer] = useState(false);
 
-  const handleAddContainerClick = () => {
-    setAddContainer(true);
-  };
-
   const handleCloseAddContainer = () => {
     setAddContainer(false);
-  };
-
-  const handleAddCuboidClick = () => {
-    setAddCuboid(true);
   };
 
   const handleCloseAddCuboid = () => {
@@ -32,15 +24,27 @@ const Intitialization = (props) => {
         <div className='row'>
           <div className='col'>
             <CuboidList cuboids={props.cuboids} />
-            <Button variant='outline-primary' size='lg' onClick={handleAddCuboidClick} block>
+            <Button variant='outline-primary' size='lg' onClick={() => setAddCuboid(true)} block>
               Add Cuboid
             </Button>
+            <br />
+            {props.cuboids.length !== 0 ? (
+              <Button variant='outline-danger' onClick={props.clearCuboids} block>
+                Clear Cuboids
+              </Button>
+            ) : null}
           </div>
           <div className='col'>
             <ContainerList containers={props.containers} />
-            <Button variant='outline-primary' size='lg' onClick={handleAddContainerClick} block>
+            <Button variant='outline-primary' size='lg' onClick={() => setAddContainer(true)} block>
               Add Container
             </Button>
+            <br />
+            {props.containers.length !== 0 ? (
+              <Button variant='outline-danger' onClick={props.clearContainers} block>
+                Clear Containers
+              </Button>
+            ) : null}
           </div>
           <div>{addCuboid ? <AddCuboid handleClose={handleCloseAddCuboid} addCuboid={props.addCuboid} /> : null}</div>
           <div>{addContainer ? <AddContainer handleClose={handleCloseAddContainer} addContainer={props.addContainer} /> : null}</div>

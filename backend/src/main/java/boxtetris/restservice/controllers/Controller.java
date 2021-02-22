@@ -41,8 +41,15 @@ public class Controller {
     @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/clearCuboids")
     public ResponseEntity<String> clearCuboids() throws URISyntaxException {
-        service.clearCuboid();
+        service.clearCuboids();
         return ResponseEntity.ok().body("Cuboids have been cleared!");
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("/clearContainers")
+    public ResponseEntity<String> clearContainers() throws URISyntaxException {
+        service.clearContainers();
+        return ResponseEntity.ok().body("Containers have been cleared!");
     }
 
 }
