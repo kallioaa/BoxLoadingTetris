@@ -20,8 +20,6 @@ const ContainerForm = (props) => {
     }
   };
 
-  const parseToInt = () => {};
-
   const handleSubmit = (event) => {
     event.preventDefault();
     props.addContainer(state);

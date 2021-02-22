@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import CuboidForm from './forms/CuboidForm';
 
-const CuboidModalForm = (props) => {
+const AddCuboid = (props) => {
   return (
     <React.Fragment>
       <Modal show={true} onHide={props.handleClose}>
@@ -17,4 +17,4 @@ const CuboidModalForm = (props) => {
   );
 };
 
-export default CuboidModalForm;
+export default AddCuboid;

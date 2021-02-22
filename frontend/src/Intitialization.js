@@ -5,10 +5,12 @@ import CuboidList from './components/CuboidList';
 import AddCuboid from './components/AddCuboid';
 import AddContainer from './components/AddContainer';
 import Button from 'react-bootstrap/Button';
+import SetUpGenerator from './components/SetUpGenerator';
 
 const Intitialization = (props) => {
   const [addCuboid, setAddCuboid] = useState(false);
   const [addContainer, setAddContainer] = useState(false);
+  const [showGenerator, showSetUpGenerator] = useState(false);
 
   const handleCloseAddContainer = () => {
     setAddContainer(false);
@@ -16,6 +18,10 @@ const Intitialization = (props) => {
 
   const handleCloseAddCuboid = () => {
     setAddCuboid(false);
+  };
+
+  const handleCloseSetUpGenerator = () => {
+    showSetUpGenerator(false);
   };
 
   return (
@@ -45,9 +51,34 @@ const Intitialization = (props) => {
                 Clear Containers
               </Button>
             ) : null}
+            <div>
+              <br />
+              <Button className='float-right' variant='btn btn-outline-secondary' onClick={() => showSetUpGenerator(true)}>
+                Set up generator
+              </Button>
+              <br />
+              <br />
+              <br />
+              {props.containers.length !== 0 && props.cuboids.length !== 0 ? (
+                <Button className='float-right' variant='success' size='lg' href='/visualization'>
+                  Generate patterns!
+                </Button>
+              ) : null}
+            </div>
           </div>
           <div>{addCuboid ? <AddCuboid handleClose={handleCloseAddCuboid} addCuboid={props.addCuboid} /> : null}</div>
           <div>{addContainer ? <AddContainer handleClose={handleCloseAddContainer} addContainer={props.addContainer} /> : null}</div>
+          <div>
+            {showGenerator ? (
+              <SetUpGenerator
+                handleClose={handleCloseSetUpGenerator}
+                cuboidsInRow={props.cuboidsInRow}
+                setCuboidsInRow={props.setCuboidsInRow}
+                rowsInLayer={props.rowsInLayer}
+                setRowsInLayer={props.setRowsInLayer}
+              />
+            ) : null}
+          </div>
         </div>
       </div>
     </div>

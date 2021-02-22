@@ -14,7 +14,7 @@ public class LayerBuilding {
      * @param demands
      * @return MyList<Layer>
      */
-    static MyList<Layer> generateLayers(MyList<Cuboid> cuboids, Integer itemsInRow, Integer rowsInLayer) {
+    public static MyList<Layer> generateLayers(MyList<Cuboid> cuboids, Integer itemsInRow, Integer rowsInLayer) {
         MyList<Layer> layers = new MyList<>();
         for (int i = 0; i < cuboids.size(); i++) { // Item types
             Cuboid cuboid = cuboids.get(i);

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Intitialization from './Intitialization';
+import NavbarComponent from './components/NavbarComponent';
 import axios from 'axios';
-import Cuboid from './components/Cuboid';
 
 const App = () => {
   const [containers, setContainer] = useState([]);
   const [cuboids, setCuboid] = useState([]);
+  const [cuboidsInRow, setCuboidsInRow] = useState(5);
+  const [rowsInLayer, setRowsInLayer] = useState(5);
 
   const addCuboid = (cuboid) => {
     axios
@@ -70,20 +72,33 @@ const App = () => {
 
   useEffect(() => {
     getCuboids();
+    getContainers();
   }, []);
 
   return (
     <Router>
       <div>
+        <NavbarComponent />
         <Route
           path='/initialization'
           render={(props) => (
-            <Intitialization {...props} containers={containers} addContainer={addContainer} clearContainers={clearContainers} cuboids={cuboids} addCuboid={addCuboid} clearCuboids={clearCuboids} />
+            <Intitialization
+              {...props}
+              containers={containers}
+              addContainer={addContainer}
+              clearContainers={clearContainers}
+              cuboids={cuboids}
+              addCuboid={addCuboid}
+              clearCuboids={clearCuboids}
+              cuboidsInRow={cuboidsInRow}
+              setCuboidsInRow={setCuboidsInRow}
+              rowsInLayer={rowsInLayer}
+              setRowsInLayer={setRowsInLayer}
+            />
           )}
         />
       </div>
     </Router>
   );
 };
-
 export default App;

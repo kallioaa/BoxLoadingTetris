@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
+import boxtetris.App;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.Container;
 import boxtetris.entities.Cuboid;
+import boxtetris.entities.Pattern;
 
 @Service
 public class Services {
@@ -19,9 +21,15 @@ public class Services {
         this.containers = new MyList<>();
     }
 
+    public ArrayList<Pattern> generatePatterns(Integer itemsInRow, Integer rowsInLayer) {
+        App app = new App(cuboids, containers, itemsInRow, rowsInLayer);
+        MyList<Pattern> patterns = app.getPatterns();
+        return myListToArrayList(patterns);
+
+    }
+
     public Cuboid createCuboid(Cuboid cuboid) {
         cuboids.add(cuboid);
-        System.out.print(cuboid);
         return cuboid;
     }
 
@@ -38,19 +46,19 @@ public class Services {
         cuboids.clear();
     }
 
-    public ArrayList<Container> getContainers() {
-        ArrayList<Container> arrayContainer = new ArrayList<>();
-        for (int i = 0; i < containers.size(); i++) {
-            arrayContainer.add(containers.get(i));
-        }
-        return arrayContainer;
+    public ArrayList<Cuboid> getCuboids() {
+        return myListToArrayList(cuboids);
     }
 
-    public ArrayList<Cuboid> getCuboids() {
-        ArrayList<Cuboid> arrayCuboid = new ArrayList<>();
-        for (int i = 0; i < cuboids.size(); i++) {
-            arrayCuboid.add(cuboids.get(i));
+    public ArrayList<Container> getContainers() {
+        return myListToArrayList(containers);
+    }
+
+    static private <T> ArrayList<T> myListToArrayList(MyList<T> myList) {
+        ArrayList<T> arrayList = new ArrayList<>();
+        for (int i = 0; i < myList.size(); i++) {
+            arrayList.add(myList.get(i));
         }
-        return arrayCuboid;
+        return arrayList;
     }
 }
