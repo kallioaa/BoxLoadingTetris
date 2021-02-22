@@ -1,5 +1,7 @@
 package boxtetris.restservice.services;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Service;
 
 import boxtetris.datastructures.MyList;
@@ -34,5 +36,21 @@ public class Services {
 
     public void clearCuboids() {
         cuboids.clear();
+    }
+
+    public ArrayList<Container> getContainers() {
+        ArrayList<Container> arrayContainer = new ArrayList<>();
+        for (int i = 0; i < containers.size(); i++) {
+            arrayContainer.add(containers.get(i));
+        }
+        return arrayContainer;
+    }
+
+    public ArrayList<Cuboid> getCuboids() {
+        ArrayList<Cuboid> arrayCuboid = new ArrayList<>();
+        for (int i = 0; i < cuboids.size(); i++) {
+            arrayCuboid.add(cuboids.get(i));
+        }
+        return arrayCuboid;
     }
 }

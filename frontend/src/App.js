@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Intitialization from './Intitialization';
 import axios from 'axios';
-import { AccordionCollapse } from 'react-bootstrap';
+import Cuboid from './components/Cuboid';
 
 const App = () => {
   const [containers, setContainer] = useState([]);
@@ -12,9 +12,8 @@ const App = () => {
     axios
       .post('http://localhost:8080/addCuboid', cuboid)
       .then((res) => {
-        console.log(res);
         console.log(res.data);
-        setCuboid([...cuboids, cuboid]);
+        getCuboids();
       })
       .catch((e) => console.log(e));
   };
@@ -24,32 +23,54 @@ const App = () => {
       .post('http://localhost:8080/addContainer', container)
       .then((res) => {
         console.log(res.data);
-        setContainer([...containers, container]);
+        getContainers();
       })
       .catch((e) => console.log(e));
   };
 
   const clearCuboids = () => {
-    console.log('huutista');
     axios
       .delete('http://localhost:8080/clearCuboids')
       .then((res) => {
         console.log(res.data);
-        setCuboid([]);
+        getCuboids();
       })
       .catch((err) => console.log(err));
   };
 
   const clearContainers = () => {
-    console.log('huutista');
     axios
       .delete('http://localhost:8080/clearContainers')
       .then((res) => {
         console.log(res.data);
-        setContainer([]);
+        getContainers();
       })
       .catch((err) => console.log(err));
   };
+
+  const getContainers = () => {
+    axios
+      .get('http://localhost:8080/getContainers')
+      .then((res) => {
+        setContainer([]);
+        res.data.map((container) => setContainer([...containers, container]));
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const getCuboids = () => {
+    axios
+      .get('http://localhost:8080/getCuboids')
+      .then((res) => {
+        setCuboid([]);
+        res.data.map((cuboid) => setCuboid([...cuboids, cuboid]));
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getCuboids();
+  }, []);
 
   return (
     <Router>

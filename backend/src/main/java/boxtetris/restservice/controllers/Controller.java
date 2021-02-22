@@ -1,11 +1,13 @@
 package boxtetris.restservice.controllers;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,10 +22,20 @@ public class Controller {
     @Autowired
     private Services service;
 
-    // @GetMapping("/createPattern")
-    // public ResponseEntity<> createPattern() {
-    //
-    // }
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/getCuboids")
+    public ResponseEntity<ArrayList<Cuboid>> getCuboids() {
+        ArrayList<Cuboid> cuboids = service.getCuboids();
+        return ResponseEntity.ok().body(cuboids);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/getContainers")
+    public ResponseEntity<ArrayList<Container>> getContainers() {
+        ArrayList<Container> containers = service.getContainers();
+        return ResponseEntity.ok().body(containers);
+    }
+
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addCuboid")
     public ResponseEntity<String> addCuboid(@RequestBody Cuboid cuboid) throws URISyntaxException {
