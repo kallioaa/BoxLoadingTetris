@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Intitialization from './Intitialization';
-import NavbarComponent from './components/NavbarComponent';
+import './App.css';
+import Visualization from './Visualization';
 import axios from 'axios';
 
 const App = () => {
@@ -78,7 +79,6 @@ const App = () => {
   return (
     <Router>
       <div>
-        <NavbarComponent />
         <Route
           path='/initialization'
           render={(props) => (
@@ -97,6 +97,7 @@ const App = () => {
             />
           )}
         />
+        <Route path='/visualization' component={Visualization} />
       </div>
     </Router>
   );
