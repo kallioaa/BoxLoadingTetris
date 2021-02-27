@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import boxtetris.App;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.Container;
+import boxtetris.entities.Coordinates;
 import boxtetris.entities.Cuboid;
 import boxtetris.entities.Layer;
 import boxtetris.entities.Pattern;
@@ -29,9 +30,6 @@ public class Services {
         MyList<Cuboid> clonedCuboids = cloneCuboids(cuboids);
         App app = new App(clonedCuboids, containers, cuboidsInRow, rowsInLayer);
         MyList<Pattern> patterns = app.getPatterns();
-        for (int i = 0; i < patterns.size(); i++) {
-            System.out.println(patterns.get(i));
-        }
         this.patterns = patternsToJSON(patterns);
     }
 
@@ -86,9 +84,10 @@ public class Services {
         for (int i = 0; i < patterns.size(); i++) {
             Pattern pattern = patterns.get(i);
             ArrayList<Layer> layers = myListToArrayList(pattern.getLayers());
+            ArrayList<Coordinates> coordinates = myListToArrayList(pattern.getCoordinates());
             Container container = pattern.getContainer();
-            returnList
-                    .add(new PatternJSON(container, layers, pattern.volumeUtilization(), pattern.weightUtilization()));
+            returnList.add(new PatternJSON(container, layers, coordinates, pattern.volumeUtilization(),
+                    pattern.weightUtilization()));
         }
         return returnList;
 

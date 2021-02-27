@@ -26,6 +26,10 @@ public class Pattern extends Dimensions {
         return layers;
     }
 
+    public MyList<Coordinates> getCoordinates() {
+        return coordinatesList;
+    }
+
     public Boolean PatternIsEmpty() {
         return layers.size() == 0;
     }

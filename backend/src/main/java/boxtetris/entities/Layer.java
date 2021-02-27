@@ -2,10 +2,9 @@ package boxtetris.entities;
 
 public class Layer extends Dimensions {
 
-    private Coordinates coordinates;
-    private Integer weight;
-    private Integer amount;
-    private Cuboid cuboid;
+    private final Integer weight;
+    private final Integer amount;
+    private final Cuboid cuboid;
 
     public Layer(Cuboid cuboid, Integer numberOfRows, Integer cuboidsInRow) {
         super(cuboid.getLength() * cuboidsInRow, cuboid.getWidth() * numberOfRows, cuboid.getHeight());
@@ -73,20 +72,6 @@ public class Layer extends Dimensions {
      */
     public Double getHeightAndWeightDivArea() {
         return (double) (weight * getHeight()) / getArea();
-    }
-
-    /**
-     * @return Coordinates
-     */
-    public Coordinates getCoordinates() {
-        return coordinates;
-    }
-
-    /**
-     * @param coordinates
-     */
-    public void addCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
     }
 
     /**
