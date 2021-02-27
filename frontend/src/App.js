@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Intitialization from './components/initialization/Intitialization';
 import Visualization from './components/visualization/Visualization';
 import axios from 'axios';
+import './App.css';
 
 const App = () => {
   const [containers, setContainer] = useState([]);
@@ -76,6 +77,7 @@ const App = () => {
       .get('http://localhost:8080/getCuboids')
       .then((res) => {
         setCuboid(res.data);
+        console.log(cuboids);
       })
       .catch((err) => console.log(err));
   };
