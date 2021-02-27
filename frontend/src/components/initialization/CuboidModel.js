@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cuboid = (cuboid) => {
+const CuboidModel = (cuboid) => {
   return (
     <tr>
       <td>{cuboid.name}</td>
@@ -13,4 +13,4 @@ const Cuboid = (cuboid) => {
   );
 };
 
-export default Cuboid;
+export default CuboidModel;

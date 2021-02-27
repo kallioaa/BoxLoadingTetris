@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import ContainerForm from './forms/ContainerForm';
 
-const ContainerModalForm = (props) => {
+const AddContainer = (props) => {
   return (
     <React.Fragment>
       <Modal show={true} onHide={props.handleClose}>
@@ -17,4 +17,4 @@ const ContainerModalForm = (props) => {
   );
 };
 
-export default ContainerModalForm;
+export default AddContainer;

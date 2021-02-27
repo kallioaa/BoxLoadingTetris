@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Container = (container) => {
+const ContainerModel = (container) => {
   return (
     <tr>
       <td>{container.name}</td>
@@ -12,4 +12,4 @@ const Container = (container) => {
   );
 };
 
-export default Container;
+export default ContainerModel;

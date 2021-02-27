@@ -1,12 +1,14 @@
 package boxtetris.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Coordinates {
 
     private Integer x;
     private Integer y;
     private Integer z;
 
-    public Coordinates(Integer x, Integer y, Integer z) {
+    public Coordinates(@JsonProperty("x") Integer x, @JsonProperty("y") Integer y, @JsonProperty("z") Integer z) {
         this.x = x;
         this.y = y;
         this.z = z;

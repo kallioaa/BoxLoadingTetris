@@ -40,10 +40,11 @@ public class PackingPatternsTest {
     }
 
     private void containerSetOne() {
-        containers.add(new Container("test", 10, 10, 10, 1000));
+        containers.add(new Container("Laatikko A", 200, 200, 200, 200));
     }
 
     private void LayerSetOne() {
-        cuboids.add(new Cuboid("test", 1, 1, 1, 1, 1000));
+        cuboids.add(new Cuboid("tomaatteja", 25, 25, 25, 20, 5));
+        cuboids.add(new Cuboid("Mansikoita", 20, 20, 20, 20, 1));
     }
 }

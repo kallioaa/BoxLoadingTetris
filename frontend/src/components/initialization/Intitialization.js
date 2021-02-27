@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ContainerList from './components/ContainerList';
-import CuboidList from './components/CuboidList';
-import AddCuboid from './components/AddCuboid';
-import AddContainer from './components/AddContainer';
+import ContainerList from './ContainerList';
+import CuboidList from './CuboidList';
+import AddCuboid from './AddCuboid';
+import AddContainer from './AddContainer';
 import Button from 'react-bootstrap/Button';
-import SetUpGenerator from './components/SetUpGenerator';
+import SetUpGenerator from './SetUpGenerator';
 
 const Intitialization = (props) => {
   const [addCuboid, setAddCuboid] = useState(false);
@@ -23,6 +22,8 @@ const Intitialization = (props) => {
   const handleCloseSetUpGenerator = () => {
     showSetUpGenerator(false);
   };
+
+  console.log(props.containers);
 
   return (
     <div className='mx-auto'>
@@ -60,7 +61,7 @@ const Intitialization = (props) => {
               <br />
               <br />
               {props.containers.length !== 0 && props.cuboids.length !== 0 ? (
-                <Button className='float-right' variant='success' size='lg' href='/visualization'>
+                <Button className='float-right' variant='success' size='lg' onClick={props.generatePatterns} href='/visualization'>
                   Generate patterns!
                 </Button>
               ) : null}

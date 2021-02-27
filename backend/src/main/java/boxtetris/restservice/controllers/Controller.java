@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import boxtetris.entities.Container;
+import boxtetris.entities.Pattern;
 import boxtetris.entities.Cuboid;
+import boxtetris.restservice.models.LayerBuilderSettings;
+import boxtetris.restservice.models.PatternJSON;
 import boxtetris.restservice.services.Services;
 
 @RestController
@@ -34,6 +37,20 @@ public class Controller {
     public ResponseEntity<ArrayList<Container>> getContainers() {
         ArrayList<Container> containers = service.getContainers();
         return ResponseEntity.ok().body(containers);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/generatePatterns")
+    public ResponseEntity<String> generatePatterns(@RequestBody LayerBuilderSettings layerBuilderSettings) {
+        service.generatePatterns(layerBuilderSettings.getCuboidsInRow(), layerBuilderSettings.getRowsInLayer());
+        return ResponseEntity.ok().body("Pattern generated successfully!");
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/getPatterns")
+    public ResponseEntity<ArrayList<PatternJSON>> getPatterns() {
+        ArrayList<PatternJSON> patterns = service.getPatterns();
+        return ResponseEntity.ok().body(patterns);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")

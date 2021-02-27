@@ -15,6 +15,10 @@ public class Pattern extends Dimensions {
         this.container = container;
     }
 
+    public Container getContainer() {
+        return container;
+    }
+
     /**
      * @return MyList<Layer>
      */
@@ -43,7 +47,6 @@ public class Pattern extends Dimensions {
             }
         }
         return minDemand;
-
     }
 
     /**
@@ -60,7 +63,7 @@ public class Pattern extends Dimensions {
     /**
      * @return Double
      */
-    public Double maxWeightUtilization() {
+    public Double weightUtilization() {
         Integer sumLayerWeights = 0;
         for (int i = 0; i < layers.size(); i++) {
             sumLayerWeights += layers.get(i).getWeight();
@@ -90,7 +93,7 @@ public class Pattern extends Dimensions {
             returnString += coordinatesList.get(i).toString() + "\n";
         }
         returnString += "Volume utilization: " + this.volumeUtilization() * 100 + "%";
-        returnString += "Maxweight utlization: " + this.maxWeightUtilization() * 100 + "%";
+        returnString += "Maxweight utlization: " + this.weightUtilization() * 100 + "%";
         return returnString;
     }
 }

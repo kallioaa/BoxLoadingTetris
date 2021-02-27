@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
-import Cuboid from './Cuboid';
+import CuboidModel from './CuboidModel';
 
 const CuboidList = (props) => {
   return (
@@ -18,7 +18,7 @@ const CuboidList = (props) => {
               <th> Demand </th>
             </tr>
           </thead>
-          <tbody>{props.cuboids.map(Cuboid)}</tbody>
+          <tbody>{props.cuboids.map(CuboidModel)}</tbody>
         </Table>
       </div>
     </React.Fragment>
