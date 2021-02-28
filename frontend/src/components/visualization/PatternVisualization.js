@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from 'react-three-fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, OutlinePass } from '@react-three/drei';
 import Layer from './Layer';
 import Container from './Container';
 import './PatternVisualization.scss';
@@ -21,11 +21,8 @@ const PatternVisualization = (props) => {
       cuboid: layer.cuboid,
       numberOfCuboid: layer.numberOfCuboid,
     };
-
-    console.log(layer);
     const argsArray = [layer.length, layer.height, layer.width];
     const coordinatesArray = [layer.length / 2 - container.length / 2 + coordinates.x, layer.height / 2 - container.height / 2 + coordinates.z, layer.width / 2 - container.width / 2 + coordinates.y];
-
     return <Layer args={argsArray} coordinates={coordinatesArray} layerInformation={layerInformation} color='blue'></Layer>;
   };
 

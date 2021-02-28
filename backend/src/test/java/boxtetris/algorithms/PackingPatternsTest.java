@@ -1,6 +1,6 @@
 package boxtetris.algorithms;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,23 +28,38 @@ public class PackingPatternsTest {
     @Test
     public void packingPatternOneTest() {
         containerSetOne();
-        LayerSetOne();
+        cuboidSetOne();
+        MyList<Pattern> patterns = generatePatterns();
+        assertEquals((Integer) 1, patterns.size());
+    }
+
+    @Test
+    public void packingPatterntwoTest() {
+        containerSetOne();
+        cuboidSetTwo();
+        MyList<Pattern> patterns = generatePatterns();
+        assertEquals((Integer) 6, patterns.size());
+    }
+
+    private MyList<Pattern> generatePatterns() {
         MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, 10, 10);
         PackingPatterns packingPatterns = new PackingPatterns(dimensionComparators);
         MyList<Pattern> patterns = packingPatterns.generatePackingPatterns(containers, layers);
-        System.out.println(patterns.size());
-        for (int i = 0; i < patterns.size(); i++) {
-            System.out.println(patterns.get(i));
-        }
-        assertTrue(true);
+        return patterns;
     }
 
     private void containerSetOne() {
         containers.add(new Container("Laatikko A", 200, 200, 200, 200));
     }
 
-    private void LayerSetOne() {
-        cuboids.add(new Cuboid("tomaatteja", 25, 25, 25, 20, 5));
+    private void cuboidSetTwo() {
+        cuboids.add(new Cuboid("tomaatteja", 200, 200, 200, 100, 5));
+        cuboids.add(new Cuboid("herneitä", 10, 10, 10, 1, 10));
+
+    }
+
+    private void cuboidSetOne() {
+        cuboids.add(new Cuboid("tomaatteja", 20, 20, 20, 20, 5));
         cuboids.add(new Cuboid("Mansikoita", 20, 20, 20, 20, 1));
     }
 }

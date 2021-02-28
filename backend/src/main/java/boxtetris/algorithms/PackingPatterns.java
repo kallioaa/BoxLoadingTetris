@@ -54,7 +54,7 @@ public class PackingPatterns {
                 break;
             }
             patterns.add(best);
-            minDemand = best.removePatternsDemands();
+            Math.max(minDemand, best.removePatternsDemands());
         }
         return patterns;
     }
