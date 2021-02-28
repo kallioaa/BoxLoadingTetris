@@ -22,22 +22,42 @@ public class PatternJSON {
         this.weightUtilization = weightUtilization;
     }
 
+    
+    /** 
+     * @return Double
+     */
     public Double getVolumeUtilization() {
         return volumeUtilization;
     }
 
+    
+    /** 
+     * @return Double
+     */
     public Double getWeightUtilization() {
         return weightUtilization;
     }
 
+    
+    /** 
+     * @return ArrayList<Layer>
+     */
     public ArrayList<Layer> getLayers() {
         return layers;
     }
 
+    
+    /** 
+     * @return ArrayList<Coordinates>
+     */
     public ArrayList<Coordinates> getCoordinates() {
         return coordinates;
     }
 
+    
+    /** 
+     * @return Container
+     */
     public Container getContainer() {
         return container;
     }

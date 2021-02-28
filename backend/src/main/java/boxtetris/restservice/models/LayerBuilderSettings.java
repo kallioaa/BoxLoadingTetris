@@ -12,10 +12,18 @@ public class LayerBuilderSettings {
         this.rowsInLayer = rowsInLayer;
     }
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer getCuboidsInRow() {
         return cuboidsInRow;
     }
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer getRowsInLayer() {
         return rowsInLayer;
     }

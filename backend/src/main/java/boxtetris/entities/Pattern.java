@@ -15,6 +15,10 @@ public class Pattern extends Dimensions {
         this.container = container;
     }
 
+    
+    /** 
+     * @return Container
+     */
     public Container getContainer() {
         return container;
     }
@@ -26,10 +30,18 @@ public class Pattern extends Dimensions {
         return layers;
     }
 
+    
+    /** 
+     * @return MyList<Coordinates>
+     */
     public MyList<Coordinates> getCoordinates() {
         return coordinatesList;
     }
 
+    
+    /** 
+     * @return Boolean
+     */
     public Boolean PatternIsEmpty() {
         return layers.size() == 0;
     }
@@ -40,6 +52,10 @@ public class Pattern extends Dimensions {
         }
     }
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer removePatternsDemands() {
         Integer minDemand = Integer.MAX_VALUE;
         for (int i = 0; i < layers.size(); i++) {

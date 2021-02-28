@@ -15,6 +15,10 @@ public class Container extends Dimensions {
         this.maxWeight = maxWeight;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }

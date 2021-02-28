@@ -17,19 +17,35 @@ public class Cuboid extends Dimensions {
         this.demand = demand;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer getDemand() {
         return demand;
     }
 
+    
+    /** 
+     * @param removed
+     */
     public void removeDemand(Integer removed) {
         Integer newDemand = demand - removed;
         demand = newDemand;
     }
 
+    
+    /** 
+     * @param added
+     */
     public void addDemand(Integer added) {
         Integer newDemand = demand + added;
         demand = newDemand;

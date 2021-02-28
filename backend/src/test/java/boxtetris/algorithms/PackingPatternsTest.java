@@ -41,6 +41,9 @@ public class PackingPatternsTest {
         assertEquals((Integer) 6, patterns.size());
     }
 
+    /**
+     * @return MyList<Pattern>
+     */
     private MyList<Pattern> generatePatterns() {
         MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, 10, 10);
         PackingPatterns packingPatterns = new PackingPatterns(dimensionComparators);

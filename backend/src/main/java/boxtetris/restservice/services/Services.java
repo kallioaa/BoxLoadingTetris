@@ -25,6 +25,11 @@ public class Services {
         this.patterns = new ArrayList<>();
     }
 
+    
+    /** 
+     * @param cuboidsInRow
+     * @param rowsInLayer
+     */
     public void generatePatterns(Integer cuboidsInRow, Integer rowsInLayer) {
         patterns = new ArrayList<>();
         MyList<Cuboid> clonedCuboids = cloneCuboids(cuboids);
@@ -33,14 +38,26 @@ public class Services {
         this.patterns = patternsToJSON(patterns);
     }
 
+    
+    /** 
+     * @return ArrayList<PatternJSON>
+     */
     public ArrayList<PatternJSON> getPatterns() {
         return patterns;
     }
 
+    
+    /** 
+     * @param cuboid
+     */
     public void createCuboid(Cuboid cuboid) {
         cuboids.add(cuboid);
     }
 
+    
+    /** 
+     * @param container
+     */
     public void createContainer(Container container) {
         containers.add(container);
     }
@@ -53,10 +70,19 @@ public class Services {
         cuboids.clear();
     }
 
+    
+    /** 
+     * @return ArrayList<Cuboid>
+     */
     public ArrayList<Cuboid> getCuboids() {
         return myListToArrayList(cuboids);
     }
 
+    
+    /** 
+     * @param cuboids
+     * @return MyList<Cuboid>
+     */
     private MyList<Cuboid> cloneCuboids(MyList<Cuboid> cuboids) {
         MyList<Cuboid> clonedCuboids = new MyList<>();
         for (int i = 0; i < cuboids.size(); i++) {
@@ -74,11 +100,20 @@ public class Services {
 
     }
 
+    
+    /** 
+     * @return ArrayList<Container>
+     */
     public ArrayList<Container> getContainers() {
         ;
         return myListToArrayList(containers);
     }
 
+    
+    /** 
+     * @param patterns
+     * @return ArrayList<PatternJSON>
+     */
     private ArrayList<PatternJSON> patternsToJSON(MyList<Pattern> patterns) {
         ArrayList<PatternJSON> returnList = new ArrayList<>();
         for (int i = 0; i < patterns.size(); i++) {
@@ -93,6 +128,11 @@ public class Services {
 
     }
 
+    
+    /** 
+     * @param myList
+     * @return ArrayList<T>
+     */
     static private <T> ArrayList<T> myListToArrayList(MyList<T> myList) {
         ArrayList<T> arrayList = new ArrayList<>();
         for (int i = 0; i < myList.size(); i++) {

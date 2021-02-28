@@ -9,6 +9,9 @@ public class MyCollections {
     }
 
     /**
+     * Sort functions which is currently using quicksort. I may add new sorting
+     * algorithms for testing purposes
+     * 
      * @param list
      * @param comparator
      */
@@ -28,7 +31,6 @@ public class MyCollections {
      * @param comparator
      * @return Object[]
      */
-    // Quicksort implementation
 
     private static <T> Object[] sortQ(Object[] arr, int low, int high, Comparator<? super T> comparator) {
         if (low < high) {

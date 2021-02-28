@@ -20,6 +20,8 @@ public class PackingPatterns {
     }
 
     /**
+     * This function generates n x 2 x 9 packing patterns and returns the best.
+     * 
      * @param containers
      * @param layers
      * @param demandHandler
@@ -125,6 +127,10 @@ public class PackingPatterns {
         }
     }
 
+    /**
+     * @param layers
+     * @return Integer
+     */
     public Integer minDemand(MyList<Layer> layers) {
         Integer minDemand = Integer.MAX_VALUE;
         for (int i = 0; i < layers.size(); i++) {

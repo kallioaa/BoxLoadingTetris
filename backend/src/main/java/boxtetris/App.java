@@ -27,6 +27,10 @@ public class App {
         this.rowsInLayer = rowsInLayer;
     }
 
+    
+    /** 
+     * @return MyList<Pattern>
+     */
     public MyList<Pattern> getPatterns() {
         MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, itemsInRow, rowsInLayer);
         MyList<Pattern> patterns = packingPatterns.generatePackingPatterns(containers, layers);

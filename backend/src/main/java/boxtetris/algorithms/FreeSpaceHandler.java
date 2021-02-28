@@ -24,16 +24,19 @@ public class FreeSpaceHandler {
     }
 
     /**
-     * Removee this
+     * Returns the number of freespaces.
      * 
-     * @return Integer
+     * @return Integer number of freespaces
      */
     public Integer getNumberOfFreeSpaces() {
         return freeSpaces.size();
     }
 
     /**
-     * @return FreeSpace
+     * Returns the next "best" free space to use from a list of freespaces sorted by
+     * dimensionComparators.
+     * 
+     * @return FreeSpace free space to be used next
      */
     public FreeSpace getFreeSpace() {
         if (freeSpaces.size() == 0) {
@@ -50,6 +53,9 @@ public class FreeSpaceHandler {
     }
 
     /**
+     * When a new layer is to be added this function handles the generation or
+     * prevents adding the layer.
+     * 
      * @param layer
      * @return boolean
      */
