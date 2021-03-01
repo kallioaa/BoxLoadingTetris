@@ -19,5 +19,5 @@ Instructions can be found from [here](https://github.com/kallioaa/BoxTetris/blob
 [Week II](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-2.md)  
 [Week III](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-3.md)  
 [Week IV](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-4.md)  
-[Week V](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-5.md)
+[Week V](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-5.md)  
 [Week VI](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-6.md)
