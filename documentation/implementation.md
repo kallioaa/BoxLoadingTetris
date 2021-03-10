@@ -18,7 +18,9 @@ A layer is formed of homogenous cuboids placed in rows (lengthwise), and these r
 
 ### Layer building algorithm
 
-The layer building algorithm is passed a list of cuboids and parameters: `cuboidsInRow` and `rowsInLayer`. With the sets the maximum amount of cuboids the algorithm places in one row (lengthwise), and the latter the amount of rows we set beside each other (widthwise).
+The layer building algorithm is passed a list of cuboids and parameters: `cuboidsInRow` and `rowsInLayer`. With the sets the maximum amount of cuboids the algorithm places in one row (lengthwise), and the latter the amount of rows we set next to each other (widthwise). The algortihm does not generate layers where the number of cuboids exceeds its demand. The algorithm returns a list of cuboids.
+
+### Pattern generation algorithm
 
 
 
