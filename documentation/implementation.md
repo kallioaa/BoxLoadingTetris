@@ -2,7 +2,7 @@
 
 In this section, I will introduce you to my implementation implmementation of the algorithm by .... I will start by introducing you to the different classes I used. Then I will move on to explain the main algorithms and how we arrive to the final result.
 
-## Different classes
+## Entities
 The most important classes are.
 
 ### Cuboid
@@ -58,7 +58,6 @@ Pattern generation algorithm generates the pseudo-optimal packing patterns for t
 * `array of comparators for Dimensions`
   * These comprators change the order we select freespaces in
 
-
 **Return value**
 
 * `list of patterns`
@@ -68,8 +67,23 @@ Pattern generation algorithm generates the pseudo-optimal packing patterns for t
 * Time Complexity: O()
 * Space Complexity: O()
 
+**More information**
+
+The algorithm generates n x 2 x 9 different packing patterns where n is the amount of containers, when there are still cuboids to pack. Consider the following situation:
+
+1. We have ten cuboids outside of a container.
+2. We try to fit all in on container but is not possible due to lack of space or weight limit. In this process we generate n x 2 x 9 patterns.
+3. There are still 5 cuboid remaining.
+4. We fit the remaining 5 to a container and generate n x 2 x 9 patterns.
+
+Now, lets look where the 2 x 9 comes from.
 
 
+
+
+** To improve ** 
+
+We could implement different datastructures and or sorting algorithms to store and sort the values. 
 
 
 
