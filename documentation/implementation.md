@@ -16,5 +16,9 @@ A layer is formed of homogenous cuboids placed in rows (lengthwise), and these r
 
 ## Main algorithms
 
+### Layer building algorithm
+
+The layer building algorithm is passed a list of cuboids and parameters: `cuboidsInRow` and `rowsInLayer`. With the sets the maximum amount of cuboids the algorithm places in one row (lengthwise), and the latter the amount of rows we set beside each other (widthwise).
+
 
 
