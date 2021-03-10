@@ -29,11 +29,11 @@ A layer is formed of homogenous cuboids placed in rows (lengthwise), and these r
 
 By changing `cuboidsInRow` and `rowsInLayer` we can experiment runtime changes on different scenarios. Algorithm never generates a layer where the number of cuboids exceed its demand.
 
-**Return value*
+**Return value**
 
 * `list of layers`
 
-** Complexities **
+**Complexities**
 
 * Time Complexity: O()
 * Space Complexity: O()
