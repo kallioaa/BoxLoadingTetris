@@ -85,7 +85,7 @@ Constant 9, on the other hand, comes from sorting the layers in different ways. 
 We choose the best based on a volume utilization function after creating n x 2 x 9 different packing patterns. The volume utilization is calculated by dividing the volume of all layers in a container by the volume of the container. After we have found the pseudo-optimal pattern, we add it to the solution (list of patterns we return).
 
 
-** To improve ** 
+## To improve 
 
 We could implement different data structures and or sorting algorithms to store and sort the values. 
 
