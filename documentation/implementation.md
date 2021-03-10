@@ -8,15 +8,22 @@ The most important classes are.
 ### Cuboid
 Cuboids represent items(boxes). A cuboid has a name, dimensions(length, width, height), weight, and demand. Cuboids can be rotated horizontally.
 
-### Container
-A Container has a name, dimensions(length, width, height), and a max weight.
-
 ### Layer
-A layer is formed of homogenous cuboids placed in rows (lengthwise), and these rows are placed next to each other (widthwise). 
+Layer is formed of homogenous cuboids placed in rows (lengthwise), and these rows are placed next to each other (widthwise). 
+
+### Container
+Container has a name, dimensions(length, width, height), and a max weight.
+
+### Pattern
+
+Pattern is a packing solution. It has a container and a list of layers and their coordinates. 
+
 
 ## Main algorithms
 
 ### Layer building algorithm
+
+Layer building is resbonsible for creating a list of layers which are used by Pattern generation algorithm to arrive at the final result.
 
 **Parameters**
 
@@ -40,6 +47,8 @@ By changing `cuboidsInRow` and `rowsInLayer` we can experiment runtime changes o
 
 ### Pattern generation algorithm
 
+Pattern generation algorithm generates the pseudo-optimal packing patterns for the cuboids. 
+
 **Parameters**
 
 * `list of layers`
@@ -47,18 +56,19 @@ By changing `cuboidsInRow` and `rowsInLayer` we can experiment runtime changes o
 * `list of containers`
   * Conttainers we can use for packing
 * `array of comparators for Dimensions`
-  * These comprators are used to change the order we select new freespaces in
+  * These comprators change the order we select freespaces in
 
 
+**Return value**
 
-Paremters
+* `list of patterns`
 
-* `list of layers`
-  * Return value from Layer Building Algorithm
-* `list of containers`
-* `array of comptarators for dimensions`
+**Complexities**
 
-Return value from Layer Building Algorithm. Containers which can be used are given in a `list of containers`. 
+* Time Complexity: O()
+* Space Complexity: O()
+
+
 
 
 
