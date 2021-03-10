@@ -18,24 +18,47 @@ A layer is formed of homogenous cuboids placed in rows (lengthwise), and these r
 
 ### Layer building algorithm
 
-Parameters
+**Parameters**
 
 * `list of cuboids`
+  * MyList of cuboids we want to generate layers from
 * `cuboidsInRow`
+  * Max amoung of cuboids in a row (lengthwise)
 * `rowsInLayer`
+  * Max amount of rows we set next to each other (widthwise)
 
-`cuboidsInRow` the sets the maximum amount of cuboids the algorithm places in one row (lengthwise), and `rowsInLayer` the amount of rows we set next to each other (widthwise). The algortihm does not generate layers where the number of cuboids exceeds its demand. The algorithm returns a list of cuboids.
+By changing `cuboidsInRow` and `rowsInLayer` we can experiment runtime changes on different scenarios. Algorithm never generates a layer where the number of cuboids exceed its demand.
 
-**Time Complexity: O()**  
-**Space Complexity: O()**  
+**Return value*
+
+* `list of layers`
+
+** Complexities **
+
+* Time Complexity: O()
+* Space Complexity: O()
 
 ### Pattern generation algorithm
 
+**Parameters**
+
+* `list of layers`
+  * MyList of layers from which we build the pattern from
+* `list of containers`
+  * Conttainers we can use for packing
+* `array of comparators for Dimensions`
+  * These comprators are used to change the order we select new freespaces in
+
+
+
 Paremters
 
-*`list of layers`
-*`list of containers`
-*`array of comptarators for dimensions`
+* `list of layers`
+  * Return value from Layer Building Algorithm
+* `list of containers`
+* `array of comptarators for dimensions`
+
+Return value from Layer Building Algorithm. Containers which can be used are given in a `list of containers`. 
 
 
 
