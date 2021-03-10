@@ -3,7 +3,7 @@
 In this section, I will introduce you to my implementation of the algorithm by .... I will start by introducing you to the different classes I used. Then I will move on to explain the main algorithms and how we arrive at the final result.
 
 ## Entities
-The most important classes are.
+To understand the solution, the following entites are necessary.
 
 ### Cuboid
 Cuboids represent items(boxes). A cuboid has a name, dimensions(length, width, height), weight, and demand. Cuboids can be rotated horizontally.
