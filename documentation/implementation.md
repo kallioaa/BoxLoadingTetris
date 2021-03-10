@@ -76,7 +76,15 @@ The algorithm generates n x 2 x 9 different packing patterns where n is the amou
 3. There are still 5 cuboid remaining.
 4. We fit the remaining 5 to a container and generate n x 2 x 9 patterns.
 
-Now, lets look where the 2 x 9 comes from.
+Now, lets look where the constants 2 x 9 come from.
+
+If we want to undertand where does the constant 2 come from, we have to first understand free space. In short, it is the space left in a container. When there is no cuboids in a container, we have one free space same size as the container. When we add new layers, new free space(s) are created around(on top) of the layer. We choose the freespace we are going to insert the next layer in two different ways. Thus, the constant 2 comes from using two different ways to sort the freespaces we choode the next from.
+
+Constant 9 on the other hand comes from sorting the layers in different ways. We use nine different ways to sort layers affecting the order we insert them in to a container.
+
+ 
+
+
 
 
 
