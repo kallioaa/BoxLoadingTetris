@@ -34,6 +34,7 @@ Numerical and visual result of different manual test cases.
 ![ezgif-6-5079e470c4b8](https://user-images.githubusercontent.com/70749953/110858247-83b6e580-82c2-11eb-9271-63dff01f6dd0.gif)
 
 Result:
+1 X Container for Matches 
 Volume utilization: 100%  
 Weight utilization: 100%  
 
@@ -48,14 +49,37 @@ Weight utilization: 100%
 
 | Name                  | Length | Width | Height | Max weight | Volume  |
 |-----------------------|--------|-------|--------|------------|---------|
-| Container for Matches | 400    | 200   | 100    | 10000      | 8000000 
+| Container for Matches | 400    | 200   | 100    | 10000      | 8000000 |
 
 ![ezgif-6-6595d8005f95](https://user-images.githubusercontent.com/70749953/110859626-608d3580-82c4-11eb-88c3-42743cf4e562.gif)
 
-Result:
-10 Contianers with
+Result:  
+10 X Container for Matches 
 Volume utilization: 100%  
 Weight utilization: 100%  
+
+### Case III
+
+| Name      | Length | Width | Height | Weight | Demand | Total Weight | Volume  |
+|-----------|--------|-------|--------|--------|--------|--------------|---------|
+| Tomatoes  | 24     | 23    | 35     | 2      | 15     | 30           | 289800  |
+| Cucumbers | 30     | 10    | 30     | 2      | 13     | 26           | 117000  |
+| Lettuce   | 100    | 100   | 100    | 50     | 3      | 150          | 3000000 |
+|           |        |       |        |        |        | 206          | 3406800 |
+
+**Containers**
+
+| Name        | Length | Width | Height | Max weight | Volume    |
+|-------------|--------|-------|--------|------------|-----------|
+| Container A | 500    | 500   | 500    | 1000       | 125000000 |
+
+![ezgif-6-65636963642d](https://user-images.githubusercontent.com/70749953/110860653-b9110280-82c5-11eb-94b2-26cf2ddac923.gif)
+
+
+Result:  
+1 X Container A
+Volume utilization: 2.74%  
+Weight utilization: 20.6%  
 
 
 
