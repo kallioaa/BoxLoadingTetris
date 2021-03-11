@@ -18,7 +18,7 @@ Numerical and visual result of different manual test cases.
 
 ### Case I
 
-https://im6.ezgif.com/tmp/ezgif-6-5079e470c4b8.gif![image](https://user-images.githubusercontent.com/70749953/110858160-68e47100-82c2-11eb-92ee-e805c787eafb.png)
+![ezgif-6-5079e470c4b8](https://user-images.githubusercontent.com/70749953/110858247-83b6e580-82c2-11eb-9271-63dff01f6dd0.gif)
 
 
 
