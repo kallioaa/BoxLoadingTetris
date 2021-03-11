@@ -60,8 +60,8 @@ public abstract class Dimensions {
     /**
      * @return Integer
      */
-    public Integer getVolume() {
-        return getLength() * getWidth() * getHeight();
+    public Long getVolume() {
+        return Long.valueOf(getLength().longValue() * getWidth().longValue() * getHeight().longValue());
     }
 
     /**

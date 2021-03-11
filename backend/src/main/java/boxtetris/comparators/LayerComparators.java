@@ -5,7 +5,7 @@ import java.util.Comparator;
 import boxtetris.entities.Layer;
 
 /**
- * Nine different comparators for sorting layer with different rules. 
+ * Nine different comparators for sorting layer with different rules.
  */
 public class LayerComparators {
 

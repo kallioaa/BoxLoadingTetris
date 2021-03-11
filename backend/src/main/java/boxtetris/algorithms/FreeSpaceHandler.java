@@ -8,8 +8,9 @@ import boxtetris.entities.Coordinates;
 import boxtetris.entities.Dimensions;
 import boxtetris.entities.FreeSpace;
 import boxtetris.entities.Layer;
+
 /**
- * Class serves freespaces and checks if a layer can be added to it. 
+ * Class serves freespaces and checks if a layer can be added to it.
  */
 
 public class FreeSpaceHandler {
@@ -17,9 +18,8 @@ public class FreeSpaceHandler {
     private MyList<FreeSpace> freeSpaces;
     private Comparator<Dimensions> dimensionComparator;
 
-
     /**
-     * @param dimensions Dimensions of the original freespace
+     * @param dimensions          Dimensions of the original freespace
      * @param dimensionComparator Sorts the freespaces in a given order.
      */
     public FreeSpaceHandler(Dimensions dimensions, Comparator<Dimensions> dimensionComparator) {

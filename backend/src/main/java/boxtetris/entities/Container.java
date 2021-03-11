@@ -3,7 +3,7 @@ package boxtetris.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Container
+ * Class representing a container
  */
 public class Container extends Dimensions {
 
@@ -19,14 +19,14 @@ public class Container extends Dimensions {
     }
 
     /**
-     * @return String
+     * @return String name of the container
      */
     public String getName() {
         return name;
     }
 
     /**
-     * @return Integer
+     * @return Integer Max Weight of the container
      */
     public Integer getMaxWeight() {
         return this.maxWeight;

@@ -1,6 +1,7 @@
 package boxtetris.collections;
 
 import static org.junit.Assert.assertArrayEquals;
+
 import java.util.Random;
 
 import org.junit.Before;
@@ -8,9 +9,10 @@ import org.junit.Test;
 
 import boxtetris.algorithms.LayerBuilding;
 import boxtetris.comparators.DimensionComparatorOne;
+import boxtetris.comparators.DimensionComparatorThree;
 import boxtetris.comparators.LayerComparators;
-import boxtetris.comparators.LayerComparators.Volume;
 import boxtetris.datastructures.MyList;
+import boxtetris.entities.Container;
 import boxtetris.entities.Coordinates;
 import boxtetris.entities.Cuboid;
 import boxtetris.entities.FreeSpace;
@@ -20,12 +22,14 @@ import junit.framework.AssertionFailedError;
 public class MyCollectionsTest {
 
     private MyList<FreeSpace> freeSpaces;
+    private MyList<Container> containers;
     private Random random;
 
     @Before
     public void setUp() {
         this.random = new Random();
         this.freeSpaces = new MyList<>();
+        this.containers = new MyList<>();
     }
 
     @Test
@@ -58,6 +62,23 @@ public class MyCollectionsTest {
     }
 
     @Test
+    public void containersLarge() {
+        Container[] all = new Container[100];
+        for (int i = 0; i < all.length; i++) {
+            all[i] = new Container("a", 3, 4, random.nextInt(100), 1000);
+        }
+        containers.addAll(all);
+        MyCollections.sort(containers, new DimensionComparatorThree());
+        Long prev = Long.MAX_VALUE;
+        for (int i = 0; i < containers.size(); i++) {
+            if (containers.get(i).getVolume() > prev) {
+                throw new AssertionFailedError();
+            }
+            prev = containers.get(i).getVolume();
+        }
+    }
+
+    @Test
     public void freeSpacesAllVariables() {
         Coordinates coordinate = new Coordinates(2, 2, 2);
         FreeSpace[] all = new FreeSpace[100];
@@ -84,7 +105,7 @@ public class MyCollectionsTest {
         MyList<Cuboid> cuboids = generateCuboidsOne();
         MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, 5, 5);
         MyCollections.sort(layers, new LayerComparators.Volume());
-        int volume = layers.get(0).getVolume();
+        Long volume = layers.get(0).getVolume();
         for (int i = 1; i > layers.size(); i++) {
             if (layers.get(i).getVolume() > volume) {
                 throw new AssertionFailedError();

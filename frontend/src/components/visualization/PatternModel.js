@@ -7,9 +7,9 @@ const PatternModel = (props) => {
 
   return (
     <ListGroup.Item action onClick={() => props.handleVisualization(pattern)}>
-      {count}. {pattern.container.name}. Volume utilization: {pattern.volumeUtilization * 100} %. Weight utilization: {pattern.weightUtilization * 100} %
+      {count}. {pattern.container.name}. Volume utilization: {Math.round((pattern.volumeUtilization * 100 + Number.EPSILON) * 100) / 100} %. Weight utilization:
+      {Math.round((pattern.volumeUtilization * 100 + Number.EPSILON) * 100) / 100} %
     </ListGroup.Item>
   );
 };
-
 export default PatternModel;

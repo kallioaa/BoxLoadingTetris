@@ -10,6 +10,7 @@ import boxtetris.entities.Dimensions;
 public class DimensionComparatorOne implements Comparator<Dimensions> {
 
     /**
+     * 
      * @param first
      * @param second
      * @return int

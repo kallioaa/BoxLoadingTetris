@@ -5,14 +5,13 @@ import boxtetris.datastructures.MyList;
 /**
  * Pattern object represents a packing pattern for a container.
  */
-public class Pattern extends Dimensions {
+public class Pattern {
 
     private Container container;
     private MyList<Layer> layers;
     private MyList<Coordinates> coordinatesList;
 
     public Pattern(Container container) {
-        super(container.getLength(), container.getWidth(), container.getHeight());
         this.layers = new MyList<>();
         this.coordinatesList = new MyList<>();
         this.container = container;
@@ -72,7 +71,7 @@ public class Pattern extends Dimensions {
      * @return Double
      */
     public Double volumeUtilization() {
-        Integer sumLayerVolumes = 0;
+        Long sumLayerVolumes = 0L;
         for (int i = 0; i < layers.size(); i++) {
             sumLayerVolumes += layers.get(i).getVolume();
         }

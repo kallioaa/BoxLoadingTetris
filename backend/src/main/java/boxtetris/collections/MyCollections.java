@@ -28,6 +28,8 @@ public class MyCollections {
     }
 
     /**
+     * Recursive sort function for quicksort.
+     * 
      * @param arr
      * @param low
      * @param high
@@ -45,6 +47,9 @@ public class MyCollections {
     }
 
     /**
+     * Partition function for quicksort. We shift all items smaller than the pivot
+     * to its left side. We use the last item in the array as the pivot.
+     * 
      * @param arr
      * @param low
      * @param high

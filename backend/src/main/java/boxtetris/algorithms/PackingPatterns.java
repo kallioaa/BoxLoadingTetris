@@ -3,6 +3,7 @@ package boxtetris.algorithms;
 import java.util.Comparator;
 
 import boxtetris.collections.MyCollections;
+import boxtetris.comparators.DimensionComparatorThree;
 import boxtetris.comparators.LayerComparators;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.Container;
@@ -15,7 +16,8 @@ import boxtetris.entities.Pattern;
 public class PackingPatterns {
 
     /**
-     * This function generates n x 2 x 9 packing patterns and returns the best.
+     * This function generates new packing patterns until all items are inside
+     * containers. If non of the remaining items could not fit the loop breakes.
      * 
      * @param containers
      * @param layers
@@ -25,6 +27,7 @@ public class PackingPatterns {
     @SuppressWarnings("unchecked")
     public static MyList<Pattern> generatePackingPatterns(MyList<Container> containers, MyList<Layer> layers,
             Object[] dimensionComparators) {
+        MyCollections.sort(containers, new DimensionComparatorThree());
         MyList<Pattern> patterns = new MyList<>();
         Integer minDemand = minDemand(layers);
         while (minDemand > 0) { // While there exists unmet demand for a certain cuboid
@@ -47,6 +50,9 @@ public class PackingPatterns {
                         }
                     }
                 }
+                if (best.volumeUtilization() == 1.00) {
+                    break;
+                }
             }
             if (best.PatternIsEmpty()) {
                 break;
@@ -58,6 +64,8 @@ public class PackingPatterns {
     }
 
     /**
+     * This function generates one packing pattern.
+     * 
      * @param container
      * @param layers
      * @param freeSpaceHandler
@@ -98,6 +106,8 @@ public class PackingPatterns {
     }
 
     /**
+     * Methods handles the sorting of layers with different criteria.
+     * 
      * @param layers
      * @param ruleNumber
      */
@@ -125,6 +135,8 @@ public class PackingPatterns {
     }
 
     /**
+     * Finds the min demand from the cuboids.
+     * 
      * @param layers
      * @return Integer
      */

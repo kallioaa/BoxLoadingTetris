@@ -11,6 +11,8 @@ public class MyList<E> {
     }
 
     /**
+     * Return true if the list is empty false otherwise.
+     * 
      * @return boolean
      */
     public boolean isEmpty() {
@@ -18,6 +20,8 @@ public class MyList<E> {
     }
 
     /**
+     * Adds a item to the list
+     * 
      * @param e
      */
     public void add(E e) {
@@ -27,6 +31,8 @@ public class MyList<E> {
     }
 
     /**
+     * Returns the list as an array.
+     * 
      * @return Object[]
      */
     public Object[] toArray() {
@@ -38,8 +44,10 @@ public class MyList<E> {
     }
 
     /**
-     * @param index
-     * @return E
+     * Removes the item from a index
+     * 
+     * @param index from where the object is removed
+     * @return E the item which was removed
      */
     @SuppressWarnings("unchecked")
     public E remove(Integer index) {
@@ -51,7 +59,9 @@ public class MyList<E> {
     }
 
     /**
-     * @param index
+     * Returns the object from index
+     * 
+     * @param index index of the object we want
      * @return E
      */
     @SuppressWarnings("unchecked")
@@ -61,19 +71,26 @@ public class MyList<E> {
     }
 
     /**
-     * @return Integer
+     * Amount of objects in the list
+     * 
+     * @return Integer size of the list
      */
     public Integer size() {
         return currentIndex + 1;
     }
 
+    /**
+     * Clears all object from the list
+     */
     public void clear() {
         this.array = new Object[DEFAULT_SIZE];
         this.currentIndex = -1;
     }
 
     /**
-     * @return E
+     * Returns the last object from the list
+     * 
+     * @return E last object
      */
     @SuppressWarnings("unchecked")
     public E getLast() {
@@ -84,7 +101,9 @@ public class MyList<E> {
     }
 
     /**
-     * @param index
+     * Checks if a value is in the correct range
+     * 
+     * @param index to be checked
      */
     private void rangeCheck(int index) {
         if (index < 0 || index > currentIndex) {
@@ -93,7 +112,9 @@ public class MyList<E> {
     }
 
     /**
-     * @param index
+     * Removes a object from the array
+     * 
+     * @param index of the object to be removed
      */
     private void removeFromArray(int index) {
         for (int i = index; i < currentIndex; i++) {
@@ -102,6 +123,8 @@ public class MyList<E> {
     }
 
     /**
+     * Creates new space if the list becomes too msall
+     * 
      * @param minSize
      */
     private void ensureCapacity(Integer minSize) {
@@ -112,6 +135,8 @@ public class MyList<E> {
     }
 
     /**
+     * Returns a copy of an array
+     * 
      * @return Object[]
      */
     private Object[] copyArray() {
