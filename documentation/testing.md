@@ -63,9 +63,9 @@ Weight utilization: 100%
 | Name      | Length | Width | Height | Weight | Demand | Total Weight | Volume  |
 |-----------|--------|-------|--------|--------|--------|--------------|---------|
 | Tomatoes  | 24     | 23    | 35     | 2      | 15     | 30           | 289800  |
-| Cucumbers | 30     | 10    | 30     | 2      | 13     | 26           | 117000  |
+| Cucumbers | 30     | 10    | 30     | 2      | 15     | 26           | 117000  |
 | Lettuce   | 100    | 100   | 100    | 50     | 3      | 150          | 3000000 |
-|           |        |       |        |        |        | 206          | 3406800 |
+|           |        |       |        |        |        | 210          | 3406800 |
 
 **Containers**
 
@@ -79,7 +79,33 @@ Weight utilization: 100%
 Result:  
 1 X Container A
 Volume utilization: 2.74%  
-Weight utilization: 20.6%  
+Weight utilization: 21.0%  
+
+### Case IIII
+
+The smallest possible container to fit all is choosen.
+
+| Name      | Length | Width | Height | Weight | Demand | Total Weight | Volume   |
+|-----------|--------|-------|--------|--------|--------|--------------|----------|
+| Cucumbers | 25     | 25    | 25     | 1      | 1000   | 1000         | 15625000 |
+|           |        |       |        |        |        | 1000         | 15625000 |
+
+**Containers**
+
+| Name                | Length | Width | Height | Max weight | Volume     |
+|---------------------|--------|-------|--------|------------|------------|
+| Container too small | 25     | 25    | 25     | 1000       | 15625      |
+| Container too big   | 1000   | 1000  | 1000   | 1000       | 1000000000 |
+| Container good size | 250    | 250   | 250    | 1000       | 15625000   |
+
+![ezgif-6-9f4a318f5615](https://user-images.githubusercontent.com/70749953/110869396-09429180-82d3-11eb-846c-92de39074c03.gif)
+
+Result:  
+1 X Container good size
+Volume utilization: 100%  
+Weight utilization: 100%  
+
+
 
 
 
