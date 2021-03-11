@@ -2,6 +2,9 @@ package boxtetris.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Cuboid represents an item put into a container.
+ */
 public class Cuboid extends Dimensions {
 
     private final String name;
@@ -17,24 +20,21 @@ public class Cuboid extends Dimensions {
         this.demand = demand;
     }
 
-    
-    /** 
-     * @return String
+    /**
+     * @return Strinwerg
      */
     public String getName() {
         return name;
     }
 
-    
-    /** 
+    /**
      * @return Integer
      */
     public Integer getDemand() {
         return demand;
     }
 
-    
-    /** 
+    /**
      * @param removed
      */
     public void removeDemand(Integer removed) {
@@ -42,8 +42,7 @@ public class Cuboid extends Dimensions {
         demand = newDemand;
     }
 
-    
-    /** 
+    /**
      * @param added
      */
     public void addDemand(Integer added) {
@@ -51,6 +50,9 @@ public class Cuboid extends Dimensions {
         demand = newDemand;
     }
 
+    /**
+     * Rotates a cuboid by 90 degrees
+     */
     public void rotate() {
         Integer oldLength = getLength();
         setLength(getWidth());

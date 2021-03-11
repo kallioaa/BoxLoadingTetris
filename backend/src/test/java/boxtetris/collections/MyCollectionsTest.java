@@ -5,10 +5,16 @@ import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import boxtetris.algorithms.LayerBuilding;
 import boxtetris.comparators.DimensionComparatorOne;
+import boxtetris.comparators.LayerComparators;
+import boxtetris.comparators.LayerComparators.Volume;
 import boxtetris.datastructures.MyList;
 import boxtetris.entities.Coordinates;
+import boxtetris.entities.Cuboid;
 import boxtetris.entities.FreeSpace;
+import boxtetris.entities.Layer;
 import junit.framework.AssertionFailedError;
 
 public class MyCollectionsTest {
@@ -73,4 +79,42 @@ public class MyCollectionsTest {
         }
     }
 
+    @Test
+    public void sortLayersVolume() {
+        MyList<Cuboid> cuboids = generateCuboidsOne();
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, 5, 5);
+        MyCollections.sort(layers, new LayerComparators.Volume());
+        int volume = layers.get(0).getVolume();
+        for (int i = 1; i > layers.size(); i++) {
+            if (layers.get(i).getVolume() > volume) {
+                throw new AssertionFailedError();
+            }
+            volume = layers.get(i).getVolume();
+        }
+    }
+
+    @Test
+    public void sortLayersHeightWeightAndArea() {
+        MyList<Cuboid> cuboids = generateCuboidsOne();
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, 5, 5);
+        MyCollections.sort(layers, new LayerComparators.HeightWeightAndArea());
+        double heightWeightAndArea = layers.get(0).getHeightAndWeightDivArea();
+        for (int i = 1; i > layers.size(); i++) {
+            if (layers.get(i).getHeightAndWeightDivArea() > heightWeightAndArea) {
+                throw new AssertionFailedError();
+            }
+            heightWeightAndArea = layers.get(i).getVolume();
+        }
+    }
+
+    public MyList<Cuboid> generateCuboidsOne() {
+        MyList<Cuboid> cuboids = new MyList<>();
+        Cuboid first = new Cuboid("first", 10, 10, 10, 10, 10);
+        Cuboid third = new Cuboid("third", 20, 20, 20, 20, 20);
+        Cuboid second = new Cuboid("second", 5, 5, 5, 5, 5);
+        cuboids.add(first);
+        cuboids.add(second);
+        cuboids.add(third);
+        return cuboids;
+    }
 }

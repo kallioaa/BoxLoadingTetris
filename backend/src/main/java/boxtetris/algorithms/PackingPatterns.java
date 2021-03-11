@@ -13,11 +13,6 @@ import boxtetris.entities.Layer;
 import boxtetris.entities.Pattern;
 
 public class PackingPatterns {
-    private final Object[] dimensionComparators;
-
-    public PackingPatterns(Object[] dimensionComprators) {
-        this.dimensionComparators = dimensionComprators;
-    }
 
     /**
      * This function generates n x 2 x 9 packing patterns and returns the best.
@@ -28,7 +23,8 @@ public class PackingPatterns {
      * @return MyList<Pattern>
      */
     @SuppressWarnings("unchecked")
-    public MyList<Pattern> generatePackingPatterns(MyList<Container> containers, MyList<Layer> layers) {
+    public static MyList<Pattern> generatePackingPatterns(MyList<Container> containers, MyList<Layer> layers,
+            Object[] dimensionComparators) {
         MyList<Pattern> patterns = new MyList<>();
         Integer minDemand = minDemand(layers);
         while (minDemand > 0) { // While there exists unmet demand for a certain cuboid
@@ -67,7 +63,8 @@ public class PackingPatterns {
      * @param freeSpaceHandler
      * @return Pattern
      */
-    private Pattern generateAPattern(Container container, MyList<Layer> layers, FreeSpaceHandler freeSpaceHandler) {
+    private static Pattern generateAPattern(Container container, MyList<Layer> layers,
+            FreeSpaceHandler freeSpaceHandler) {
         Pattern pattern = new Pattern(container);
         Integer currentWeight = 0;
         while (true) {
@@ -104,26 +101,26 @@ public class PackingPatterns {
      * @param layers
      * @param ruleNumber
      */
-    private void sortByRule(MyList<Layer> layers, int ruleNumber) {
+    private static void sortByRule(MyList<Layer> layers, int ruleNumber) {
         switch (ruleNumber) {
-            case 0:
-                MyCollections.sort(layers, new LayerComparators.WeightAndArea());
-            case 1:
-                MyCollections.sort(layers, new LayerComparators.WeightAndVolume());
-            case 2:
-                MyCollections.sort(layers, new LayerComparators.WeightAndHeight());
-            case 3:
-                MyCollections.sort(layers, new LayerComparators.HeightWeightAndArea());
-            case 4:
-                MyCollections.sort(layers, new LayerComparators.Area());
-            case 5:
-                MyCollections.sort(layers, new LayerComparators.Volume());
-            case 6:
-                MyCollections.sort(layers, new LayerComparators.Weight());
-            case 7:
-                MyCollections.sort(layers, new LayerComparators.Width());
-            case 8:
-                MyCollections.sort(layers, new LayerComparators.Length());
+        case 0:
+            MyCollections.sort(layers, new LayerComparators.WeightAndArea());
+        case 1:
+            MyCollections.sort(layers, new LayerComparators.WeightAndVolume());
+        case 2:
+            MyCollections.sort(layers, new LayerComparators.WeightAndHeight());
+        case 3:
+            MyCollections.sort(layers, new LayerComparators.HeightWeightAndArea());
+        case 4:
+            MyCollections.sort(layers, new LayerComparators.Area());
+        case 5:
+            MyCollections.sort(layers, new LayerComparators.Volume());
+        case 6:
+            MyCollections.sort(layers, new LayerComparators.Weight());
+        case 7:
+            MyCollections.sort(layers, new LayerComparators.Width());
+        case 8:
+            MyCollections.sort(layers, new LayerComparators.Length());
         }
     }
 
@@ -131,7 +128,7 @@ public class PackingPatterns {
      * @param layers
      * @return Integer
      */
-    public Integer minDemand(MyList<Layer> layers) {
+    public static Integer minDemand(MyList<Layer> layers) {
         Integer minDemand = Integer.MAX_VALUE;
         for (int i = 0; i < layers.size(); i++) {
             Integer cuboidsDemand = layers.get(i).getCuboid().getDemand();

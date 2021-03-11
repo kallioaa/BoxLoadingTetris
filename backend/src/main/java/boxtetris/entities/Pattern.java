@@ -2,6 +2,9 @@ package boxtetris.entities;
 
 import boxtetris.datastructures.MyList;
 
+/**
+ * Pattern object represents a packing pattern for a container.
+ */
 public class Pattern extends Dimensions {
 
     private Container container;
@@ -15,8 +18,7 @@ public class Pattern extends Dimensions {
         this.container = container;
     }
 
-    
-    /** 
+    /**
      * @return Container
      */
     public Container getContainer() {
@@ -30,16 +32,14 @@ public class Pattern extends Dimensions {
         return layers;
     }
 
-    
-    /** 
+    /**
      * @return MyList<Coordinates>
      */
     public MyList<Coordinates> getCoordinates() {
         return coordinatesList;
     }
 
-    
-    /** 
+    /**
      * @return Boolean
      */
     public Boolean PatternIsEmpty() {
@@ -52,8 +52,7 @@ public class Pattern extends Dimensions {
         }
     }
 
-    
-    /** 
+    /**
      * @return Integer
      */
     public Integer removePatternsDemands() {

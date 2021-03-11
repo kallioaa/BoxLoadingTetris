@@ -31,13 +31,13 @@ const ContainerForm = (props) => {
       <Form.Group>
         <Form.Control type='text' className='form-control' name='name' placeholder='Name' required onChange={handleChange} />
         <br />
-        <Form.Control type='number' className='form-control' name='length' placeholder='Length' required onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='length' placeholder='Length' min='1' max='100000' required onChange={handleChange} />
         <br />
-        <Form.Control type='number' className='form-control' name='width' placeholder='Width' required onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='width' placeholder='Width' min='1' max='100000' required onChange={handleChange} />
         <br />
-        <Form.Control type='number' className='form-control' name='height' placeholder='Height' required onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='height' placeholder='Height' min='1' max='100000' required onChange={handleChange} />
         <br />
-        <Form.Control type='number' className='form-control' name='maxWeight' placeholder='Max Weight' required onChange={handleChange} />
+        <Form.Control type='number' className='form-control' name='maxWeight' placeholder='Max Weight' min='1' max='100000' required onChange={handleChange} />
         <br />
         <Button className='float-right' type='submit'>
           Add Container

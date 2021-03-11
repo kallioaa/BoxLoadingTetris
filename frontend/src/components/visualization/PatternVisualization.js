@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Canvas } from 'react-three-fiber';
 import { OrbitControls, OutlinePass } from '@react-three/drei';
 import Layer from './Layer';
@@ -6,6 +6,7 @@ import Container from './Container';
 import './PatternVisualization.scss';
 
 const PatternVisualization = (props) => {
+  const color = 'blue';
   const container = props.pattern.container;
   const containerDimensions = [container.length, container.height, container.width];
 
@@ -23,7 +24,9 @@ const PatternVisualization = (props) => {
     };
     const argsArray = [layer.length, layer.height, layer.width];
     const coordinatesArray = [layer.length / 2 - container.length / 2 + coordinates.x, layer.height / 2 - container.height / 2 + coordinates.z, layer.width / 2 - container.width / 2 + coordinates.y];
-    return <Layer args={argsArray} coordinates={coordinatesArray} layerInformation={layerInformation} color='blue'></Layer>;
+    const layerVisual = <Layer args={argsArray} coordinates={coordinatesArray} layerInformation={layerInformation} color={color}></Layer>;
+    color === 'red' ? color == 'blue' : color == 'red';
+    return layerVisual;
   };
 
   return (

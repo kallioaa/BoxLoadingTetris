@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 import boxtetris.entities.Dimensions;
 
+/**
+ * Comparator for comparing two different Dimensions objects.
+ */
 public class DimensionComparatorOne implements Comparator<Dimensions> {
 
     /**

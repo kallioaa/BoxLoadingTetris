@@ -46,8 +46,7 @@ public class PackingPatternsTest {
      */
     private MyList<Pattern> generatePatterns() {
         MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, 10, 10);
-        PackingPatterns packingPatterns = new PackingPatterns(dimensionComparators);
-        MyList<Pattern> patterns = packingPatterns.generatePackingPatterns(containers, layers);
+        MyList<Pattern> patterns = PackingPatterns.generatePackingPatterns(containers, layers, dimensionComparators);
         return patterns;
     }
 

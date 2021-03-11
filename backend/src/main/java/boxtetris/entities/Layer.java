@@ -1,5 +1,8 @@
 package boxtetris.entities;
 
+/**
+ * Layer is formed of homogenous cuboids.
+ */
 public class Layer extends Dimensions {
 
     private final Integer weight;
@@ -20,10 +23,16 @@ public class Layer extends Dimensions {
         return amount;
     }
 
+    /**
+     * Method increases the cuboid's demand by the amound of cuboids in the layer.
+     */
     public void addLayersDemandToCuboid() {
         cuboid.addDemand(amount);
     }
 
+    /**
+     * * Method decreases the cuboid's demand by the amound of cuboids in the layer.
+     */
     public void removeLayersDemandFromCuboid() {
         cuboid.removeDemand(amount);
     }

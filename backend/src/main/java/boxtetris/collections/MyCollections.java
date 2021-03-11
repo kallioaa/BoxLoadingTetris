@@ -3,6 +3,9 @@ package boxtetris.collections;
 import java.util.Comparator;
 import boxtetris.datastructures.MyList;
 
+/**
+ * Class has a method for sorting MyLists'.
+ */
 public class MyCollections {
 
     private MyCollections() {

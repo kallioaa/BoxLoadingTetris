@@ -10,30 +10,33 @@ import boxtetris.entities.Cuboid;
 import boxtetris.entities.Layer;
 import boxtetris.entities.Pattern;
 
+/**
+ * Class ties together all functionality of this program.
+ */
 public class App {
 
-    private final PackingPatterns packingPatterns;
+    private final Object[] dimensionComparators;
     private final MyList<Cuboid> cuboids;
     private final MyList<Container> containers;
     private final Integer itemsInRow;
     private final Integer rowsInLayer;
 
     public App(MyList<Cuboid> cuboids, MyList<Container> containers, Integer itemsInRow, Integer rowsInLayer) {
-        this.packingPatterns = new PackingPatterns(
-                new Object[] { new DimensionComparatorOne(), new DimensionComparatorTwo() });
+        this.dimensionComparators = new Object[] { new DimensionComparatorOne(), new DimensionComparatorTwo() };
         this.cuboids = cuboids;
         this.containers = containers;
         this.itemsInRow = itemsInRow;
         this.rowsInLayer = rowsInLayer;
     }
 
-    
-    /** 
+    /**
+     * Generates the "optimal" packing patterns.
+     * 
      * @return MyList<Pattern>
      */
     public MyList<Pattern> getPatterns() {
         MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, itemsInRow, rowsInLayer);
-        MyList<Pattern> patterns = packingPatterns.generatePackingPatterns(containers, layers);
+        MyList<Pattern> patterns = PackingPatterns.generatePackingPatterns(containers, layers, dimensionComparators);
         return patterns;
     }
 
