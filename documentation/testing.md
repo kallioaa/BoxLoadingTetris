@@ -34,7 +34,7 @@ Numerical and visual result of different manual test cases.
 ![ezgif-6-5079e470c4b8](https://user-images.githubusercontent.com/70749953/110858247-83b6e580-82c2-11eb-9271-63dff01f6dd0.gif)
 
 Result:
-1 X Container for Matches 
+1 X Container for Matches  
 Volume utilization: 100%  
 Weight utilization: 100%  
 
@@ -54,7 +54,7 @@ Weight utilization: 100%
 ![ezgif-6-6595d8005f95](https://user-images.githubusercontent.com/70749953/110859626-608d3580-82c4-11eb-88c3-42743cf4e562.gif)
 
 Result:  
-10 X Container for Matches 
+10 X Container for Matches  
 Volume utilization: 100%  
 Weight utilization: 100%  
 
@@ -77,7 +77,7 @@ Weight utilization: 100%
 
 
 Result:  
-1 X Container A
+1 X Container A  
 Volume utilization: 2.74%  
 Weight utilization: 21.0%  
 
@@ -101,7 +101,7 @@ The smallest possible container to fit all is choosen.
 ![ezgif-6-9f4a318f5615](https://user-images.githubusercontent.com/70749953/110869396-09429180-82d3-11eb-846c-92de39074c03.gif)
 
 Result:  
-1 X Container good size
+1 X Container good size  
 Volume utilization: 100%  
 Weight utilization: 100%  
 
