@@ -1,12 +1,12 @@
----CuboidsInRow(comma)RowsInLayer---
+Settings: CuboidsInRow(comma)RowsInLayer
 
 10,10
 
-----Cuboids---------
+Cuboids:length(comma) width(comma) height(comma) weight(comma) demand(comma)
 
 100,100,100,1,1
 
-----Containers------
+Containers: :length(comma) width(comma) height(comma) Max weight(comma)
 
 100,100,100,1
 
