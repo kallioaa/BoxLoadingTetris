@@ -128,6 +128,9 @@ public class MyCollectionsTest {
         }
     }
 
+    /**
+     * @return MyList<Cuboid>
+     */
     public MyList<Cuboid> generateCuboidsOne() {
         MyList<Cuboid> cuboids = new MyList<>();
         Cuboid first = new Cuboid("first", 10, 10, 10, 10, 10);

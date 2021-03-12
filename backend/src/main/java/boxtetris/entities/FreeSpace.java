@@ -45,6 +45,10 @@ public class FreeSpace extends Dimensions {
         return super.toString();
     }
 
+    /**
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

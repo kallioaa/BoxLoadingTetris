@@ -76,6 +76,10 @@ public abstract class Dimensions {
         return s;
     }
 
+    /**
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

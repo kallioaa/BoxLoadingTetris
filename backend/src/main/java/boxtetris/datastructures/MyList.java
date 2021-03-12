@@ -1,5 +1,8 @@
 package boxtetris.datastructures;
 
+/**
+ * Implmentation of a list datastructure
+ */
 public class MyList<E> {
     private static final Integer DEFAULT_SIZE = 10;
     private Integer currentIndex;

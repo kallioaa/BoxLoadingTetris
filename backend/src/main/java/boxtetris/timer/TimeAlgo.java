@@ -13,6 +13,12 @@ import java.io.FileNotFoundException;
 
 public class TimeAlgo {
 
+    /**
+     * Reads the input.csv file and prints the run time for the algortithm in
+     * milliseconds.
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
         MyList<Cuboid> cuboids = new MyList<>();
         MyList<Container> containers = new MyList<>();
@@ -50,6 +56,9 @@ public class TimeAlgo {
         time(app);
     }
 
+    /**
+     * @param app
+     */
     public static void time(App app) {
         long startTime = System.currentTimeMillis();
 
