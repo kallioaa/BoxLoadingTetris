@@ -11,6 +11,7 @@ This applications implments a 3D-MBPP algorithm motivated by Saraiva et al., 201
 
 ## Documentation
 
+[Specifications](https://github.com/kallioaa/BoxTetris/blob/main/documentation/specifications.md)
 [Instructions](https://github.com/kallioaa/BoxTetris/blob/main/documentation/instructions.md)  
 [Implementation](https://github.com/kallioaa/BoxTetris/blob/main/documentation/implementation.md)  
 [Testing](https://github.com/kallioaa/BoxTetris/blob/main/documentation/testing.md)  
