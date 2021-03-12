@@ -9,7 +9,7 @@ plugins {
 
 check.dependsOn jacocoTestReport
 
-mainClassName = 'boxtetris.restservice.RestServiceApplication'
+mainClassName = 'boxtetris.timer.TimeAlgo'
 
 task myJavadocs(type: Javadoc) {
   source = sourceSets.main.allJava

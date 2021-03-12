@@ -18,14 +18,14 @@ public class App {
     private final Object[] dimensionComparators;
     private final MyList<Cuboid> cuboids;
     private final MyList<Container> containers;
-    private final Integer itemsInRow;
+    private final Integer cuboidsInRow;
     private final Integer rowsInLayer;
 
-    public App(MyList<Cuboid> cuboids, MyList<Container> containers, Integer itemsInRow, Integer rowsInLayer) {
+    public App(MyList<Cuboid> cuboids, MyList<Container> containers, Integer cuboidsInRow, Integer rowsInLayer) {
         this.dimensionComparators = new Object[] { new DimensionComparatorOne(), new DimensionComparatorTwo() };
         this.cuboids = cuboids;
         this.containers = containers;
-        this.itemsInRow = itemsInRow;
+        this.cuboidsInRow = cuboidsInRow;
         this.rowsInLayer = rowsInLayer;
     }
 
@@ -35,7 +35,7 @@ public class App {
      * @return MyList<Pattern>
      */
     public MyList<Pattern> getPatterns() {
-        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, itemsInRow, rowsInLayer);
+        MyList<Layer> layers = LayerBuilding.generateLayers(cuboids, cuboidsInRow, rowsInLayer);
         MyList<Pattern> patterns = PackingPatterns.generatePackingPatterns(containers, layers, dimensionComparators);
         return patterns;
     }
