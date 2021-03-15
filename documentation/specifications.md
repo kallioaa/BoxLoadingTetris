@@ -4,7 +4,7 @@ The BoxTetris program cargo people to pack boxes (cuboids) into containers maxim
 
 ## Algorithms and datastructures in use
 
-A list structure is implmented to store information. This information is then sorted with quick sort algorithm.
+A list structure is implmented to store information. This information is then sorted with quick sort algorithm. The average time complexity of quicksort is O(nlogn).
 
 ## User input
 
@@ -25,7 +25,7 @@ A list structure is implmented to store information. This information is then so
 
 ## Target time and space complexities
 
-The problem is considered NP-hard. Thus, BoxTetris is using an greedy algorithm to solve the problem. My solution closely resembles the implementaition of Saraiva et al., 2015.
+The problem is considered NP-hard. Thus, BoxTetris is using an greedy algorithm to solve the problem. My solution closely resembles the implementaition of Saraiva et al., 2015, and they do not specify time of space complexity of their solution.
 
 ## References
 
@@ -35,4 +35,4 @@ Saraiva, R. D., Nepomuceno, N., & Pinheiro, P. R. (2015). A layer-building algor
 
 My field of study: Computer Science\
 Language: English\
-Programming language: Java
+Programming language: Java (frontend JS)
