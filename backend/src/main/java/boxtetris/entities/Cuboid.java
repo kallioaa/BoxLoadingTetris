@@ -65,4 +65,14 @@ public class Cuboid extends Dimensions {
     public Integer getWeight() {
         return weight;
     }
+
+    /**
+     * ToString
+     */
+    @Override
+    public String toString() {
+        String r = "Name:" + getName() + "\n" + "Weight: " + getWeight() + "\n";
+        r += super.toString();
+        return r;
+    }
 }

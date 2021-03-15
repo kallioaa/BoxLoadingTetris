@@ -89,7 +89,8 @@ public class Layer extends Dimensions {
     @Override
     public String toString() {
         String returnString = "";
-        returnString += "Cuboid: \n" + cuboid.toString() + "\n";
+        returnString += "Cuboid: \n\n" + cuboid.toString() + "\n";
+        returnString += "Layer info: \n\n";
         returnString += "Layer length: " + getLength() + "\n";
         returnString += "Layer width: " + getWidth() + "\n";
         returnString += "Amount: " + getNumberOfCuboid();

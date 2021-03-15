@@ -38,6 +38,7 @@ public class Container extends Dimensions {
     @Override
     public String toString() {
         String returnString = "";
+        returnString += "Name: " + getName() + "\n";
         returnString += super.toString();
         returnString += "Max weight: " + maxWeight + "\n";
         return returnString;

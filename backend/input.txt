@@ -1,0 +1,14 @@
+Settings:CuboidsInRow(comma)RowsInLayer
+
+10,10
+
+Cuboids:length(comma)width(comma)height(comma)weight(comma)demand(comma)
+
+Tomaatteja,100,100,100,1,1
+Kurkkuja,100,100,100,1,1
+
+Containers:length(comma)width(comma)height(comma)Max_weight(comma)
+
+LaatikkoA,100,100,100,1
+LaatikkoB,100,100,100,1
+

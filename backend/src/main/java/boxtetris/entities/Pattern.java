@@ -102,7 +102,7 @@ public class Pattern {
      */
     @Override
     public String toString() {
-        String returnString = "Pattern: \n\n";
+        String returnString = "";
         returnString += "Container info: \n\n" + container.toString() + "\n";
         returnString += "Number of Layers: " + this.getLayers().size() + "\n\n";
         returnString += "Layer info: \n\n";
@@ -110,8 +110,9 @@ public class Pattern {
             returnString += layers.get(i).toString() + "\n";
             returnString += coordinatesList.get(i).toString() + "\n";
         }
-        returnString += "Volume utilization: " + this.volumeUtilization() * 100 + "%";
-        returnString += "Maxweight utlization: " + this.weightUtilization() * 100 + "%";
+        returnString += "\nPattern Statistics: \n";
+        returnString += "\nVolume utilization: " + this.volumeUtilization() * 100 + " %";
+        returnString += "\nMaxweight utlization: " + this.weightUtilization() * 100 + " %";
         return returnString;
     }
 }
