@@ -1,6 +1,6 @@
 # Implementation 
 
-In this section, I will introduce you to my implementation of the algorithm by .... I will start by introducing you to the different classes I used. Then I will move on to explain the main algorithms and how we arrive at the final result.
+In this section, I will introduce you to my implementation of the algorithm by Saraiva et al., 2015 (reference in README) I will start by introducing you to the different classes I used. Then I will move on to explain the main algorithms and how we arrive at the final result.
 
 ## Entities
 To understand the solution, the following entites are necessary.
