@@ -12,6 +12,9 @@ You can run the unit tests by running the following command in backend directory
 
 After running the tests, you can find a test report from *./build/reports/tests/test/index.html*. 
 
+<img width="1106" alt="Screenshot 2021-03-15 at 13 27 28" src="https://user-images.githubusercontent.com/70749953/111146552-3ff9ff80-8592-11eb-9a56-983a2cccaf99.png">
+
+
 ## Manual testing
 
 Numerical and visual result of different manual test cases.
