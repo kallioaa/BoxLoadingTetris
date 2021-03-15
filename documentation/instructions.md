@@ -21,8 +21,6 @@ If you want to use a gui. First, locate to the build.gradle file in backend dire
 <img width="495" alt="Screenshot 2021-03-15 at 10 32 26" src="https://user-images.githubusercontent.com/70749953/111124955-bfc7a000-8579-11eb-9e46-9c19ec13c949.png">
 
 
-
-
 ## Intializing the backend
 
 Locate to the backend directory and run the following command.
@@ -47,6 +45,7 @@ Now you can start the application by running the command.
 npm start
 ```
 
+Locate to the /intialization site where you can start using the program.
 
 
 
