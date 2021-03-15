@@ -40,10 +40,6 @@ By changing `cuboidsInRow` and `rowsInLayer`, we can experiment with runtime cha
 
 * `list of layers`
 
-**Complexities**
-
-* Time Complexity: O()
-* Space Complexity: O()
 
 ### Pattern generation algorithm
 
@@ -61,11 +57,6 @@ Pattern generation algorithm generates the pseudo-optimal packing patterns for t
 **Return value**
 
 * `list of patterns`
-
-**Complexities**
-
-* Time Complexity: O()
-* Space Complexity: O()
 
 **More information**
 
