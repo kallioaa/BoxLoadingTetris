@@ -1,14 +1,27 @@
 # Specifications
 
-The BoxTetris program cargo people to pack boxes (cuboids) into as few containers as possible. 
+The BoxTetris program cargo people to pack boxes (cuboids) into containers maximising voilume utilization. 
 
 ## Algorithms and datastructures in use
 
-The (x,y,z) coordinates and dimensions of the boxes are going to be stored in two dimensional lists. Sorting algorithms are going to be implemented for ordering the boxes by their surface areas and volumes.
+A list structure is implmented to store information. This information is then sorted with quick sort algorithm.
 
 ## User input
 
-User can add boxes and containers with different height and width. User can also select the weight of boxes and the max weight for containers.
+**Cuboid**
+* Name
+* Length
+* Width
+* Height
+* Weight
+* Demand
+
+**Container**
+* Name
+* Length
+* Width
+* Height
+* Max weight
 
 ## Target time and space complexities
 
