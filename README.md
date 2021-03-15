@@ -24,3 +24,4 @@ This applications implments a 3D-MBPP algorithm motivated by Saraiva et al., 201
 [Week IV](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-4.md)  
 [Week V](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-5.md)  
 [Week VI](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-6.md)
+[Week VI](https://github.com/kallioaa/BoxTetris/blob/main/documentation/weekly-reports/week-7.md)
