@@ -1,7 +1,7 @@
 package boxtetris.entities;
 
 /**
- * Layer is formed of homogenous cuboids.
+ * Object formed of homogeneous cuboids.
  */
 public class Layer extends Dimensions {
 
